@@ -1,0 +1,138 @@
+[	
+	{
+		"key": "home",
+		"title": "Home Dashboard", 
+		"expanded": true, 
+		"folder": false,
+		"crud": false
+	},
+	{
+		"key": "purchasing",
+		"title": "Purchasing", 
+		"expanded": true, 
+		"folder": false,
+		"crud": false,
+		"children": 
+		[
+			{
+				"key": "purchasing_dashboard",
+				"title": "Purchasing Dashboard", 
+				"expanded": true, 
+				"folder": false,
+				"crud": false
+			},
+			{
+				"key": "supplier",
+				"title": "Supplier", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "bahan_baku",
+				"title": "Bahan Baku", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "po_supplier",
+				"title": "PO Supplier", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "do_supplier",
+				"title": "DO Supplier", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "pencocokan_surat",
+				"title": "Pencocokan Surat", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "pembayaran_po",
+				"title": "Pembayaran PO", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "purchasing_laporan",
+				"title": "Laporan", 
+				"expanded": true, 
+				"folder": false,
+				"crud": false
+			}
+
+		]
+	},
+	{
+		"key": "master_system",
+		"title": "Master System", 
+		"expanded": true, 
+		"folder": false,
+		"crud": false,
+		"children": 
+		[
+			{
+				"key": "master_system_dashboard",
+				"title": "Dashboard", 
+				"expanded": true, 
+				"folder": false,
+				"crud": false
+			},
+			{
+				"key": "company",
+				"title": "Company", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "business_unit",
+				"title": "Outlet & Gudang", 
+				"expanded": true, 
+				"folder": false,
+				"crud": true
+			},
+			{
+				"key": "user_account",
+				"title": "User Account", 
+				"expanded": true, 
+				"folder": false,
+				"crud": false,
+				"children":
+				[
+					{
+						"key": "users",
+						"title": "Users", 
+						"expanded": true, 
+						"folder": false,
+						"crud": true
+					},
+					{
+						"key": "user_category",
+						"title": "Kategori User", 
+						"expanded": true, 
+						"folder": false,
+						"crud": true
+					}
+				]
+			},
+			{
+				"key": "activity_log",
+				"title": "Log Aktivitas", 
+				"expanded": true, 
+				"folder": false,
+				"crud": false
+			}
+		]
+	}
+]

@@ -1,0 +1,93 @@
+ /* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+.centerMarker{
+  position:absolute;
+  /*url of the marker*/
+  background:url(http://maps.gstatic.com/mapfiles/markers2/marker.png) no-repeat;
+  /*center the marker*/
+  top:50%;left:50%;
+  z-index:1;
+  /*fix offset when needed*/
+  margin-left:-10px;
+  margin-top:-34px;
+  /*size of the image*/
+  height:34px;
+  width:20px;
+  cursor:pointer;
+}
+
+.trumbowyg-box.trumbowyg-editor-visible {
+  min-height: 150px;
+}
+
+.trumbowyg-editor {
+  min-height: 150px;
+}
+
+div.dt-buttons{
+  position:relative;
+  float:right;
+}
+
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B7";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.mr10 {
+  margin-right: 20px;
+}
+
+/* Ensure that the demo table scrolls */
+
+.dataTables_scrollHeadInner{
+  padding-right: 17px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .table-responsive {
+    overflow-x: hidden;
+  }
+}

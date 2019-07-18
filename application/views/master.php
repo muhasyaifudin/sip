@@ -27,11 +27,11 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Desa Kaliangkrik</a> 
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;">  &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        </nav>   
+          <div style="color: white;
+        padding: 15px 50px 5px 50px;
+        float: right;
+        font-size: 16px;">  &nbsp; <a href="<?php echo base_url(); ?>/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
