@@ -12,7 +12,7 @@ class HomeController extends MY_Controller {
 	public function index()
 	{
 
-		$this->load_view('home');
+		$this->load_view('Vhome');
 	}
 
 }

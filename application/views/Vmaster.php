@@ -14,6 +14,7 @@
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
@@ -42,16 +43,16 @@
 				
 					
                     <li>
-                        <a class="active-menu"  href="index.html"> Data Penduduk</a>
+                        <a class="active-menu"  href="<?php echo site_url('penduduk'); ?>"> Data Penduduk</a>
                     </li>
                      <li>
-                        <a  href="ui.html">Perpindahan</a>
+                        <a  href="<?php echo site_url('perpindahan'); ?>">Perpindahan</a>
                     </li>
                     <li>
-                        <a  href="tab-panel.html">Kelahiran</a>
+                        <a  href="<?php echo site_url('kelahiran'); ?>">Kelahiran</a>
                     </li>
 						   <li  >
-                        <a   href="chart.html">Kematian</a>
+                        <a   href="kematian">Kematian</a>
                     </li>	
                       
                 </ul>
@@ -73,11 +74,22 @@
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
      <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
+    <!-- <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script> -->
       <!-- CUSTOM SCRIPTS -->
+    <!-- <script src="assets/js/custom.js"></script> -->
+
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
     <script src="assets/js/custom.js"></script>
-    
+         <!-- CUSTOM SCRIPTS -->
+   
    
 </body>
 </html>
