@@ -66,13 +66,30 @@ $route['login']['POST'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
 $route['penduduk']['GET'] = 'PendudukController';
+$route['penduduk/get_data']['GET'] = 'PendudukController/get_data';
+$route['penduduk/insert']['POST'] = 'PendudukController/insert';
+$route['penduduk/update']['POST'] = 'PendudukController/update';
+$route['penduduk/delete/(:num)']['GET'] = 'PendudukController/delete/$1';
 
 
+$route['kematian']['GET'] = 'KematianController';
+$route['kematian/get_data']['GET'] = 'KematianController/get_data';
+$route['kematian/insert']['POST'] = 'KematianController/insert';
+$route['kematian/update']['POST'] = 'KematianController/update';
+$route['kematian/delete/(:num)']['GET'] = 'KematianController/delete/$1';
 
 
+$route['kelahiran']['GET'] = 'KelahiranController';
+$route['kelahiran/get_data']['GET'] = 'KelahiranController/get_data';
+$route['kelahiran/insert']['POST'] = 'KelahiranController/insert';
+$route['kelahiran/update']['POST'] = 'KelahiranController/update';
+$route['kelahiran/delete/(:num)']['GET'] = 'KelahiranController/delete/$1';
 
-
-
+$route['perpindahan']['GET'] = 'PerpindahanController';
+$route['perpindahan/get_data']['GET'] = 'PerpindahanController/get_data';
+$route['perpindahan/insert']['POST'] = 'PerpindahanController/insert';
+$route['perpindahan/update']['POST'] = 'PerpindahanController/update';
+$route['perpindahan/delete/(:num)']['GET'] = 'PerpindahanController/delete/$1';
 
 
 

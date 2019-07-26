@@ -14,425 +14,34 @@
 	            <!-- Advanced Tables -->
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
-	                     Data Penduduk
+	                     <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
 	                </div>
 	                <div class="panel-body">
-	                    <div class="table-responsive">
-	                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-	                            <thead>
-	                                <tr>
-	                                    <th>Rendering engine</th>
-	                                    <th>Browser</th>
-	                                    <th>Platform(s)</th>
-	                                    <th>Engine version</th>
-	                                    <th>CSS grade</th>
-	                                </tr>
-	                            </thead>
-	                            <tbody>
-	                                <tr class="odd gradeX">
-	                                    <td>Trident</td>
-	                                    <td>Internet Explorer 4.0</td>
-	                                    <td>Win 95+</td>
-	                                    <td class="center">4</td>
-	                                    <td class="center">X</td>
-	                                </tr>
-	                                <tr class="even gradeC">
-	                                    <td>Trident</td>
-	                                    <td>Internet Explorer 5.0</td>
-	                                    <td>Win 95+</td>
-	                                    <td class="center">5</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="odd gradeA">
-	                                    <td>Trident</td>
-	                                    <td>Internet Explorer 5.5</td>
-	                                    <td>Win 95+</td>
-	                                    <td class="center">5.5</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="even gradeA">
-	                                    <td>Trident</td>
-	                                    <td>Internet Explorer 6</td>
-	                                    <td>Win 98+</td>
-	                                    <td class="center">6</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="odd gradeA">
-	                                    <td>Trident</td>
-	                                    <td>Internet Explorer 7</td>
-	                                    <td>Win XP SP2+</td>
-	                                    <td class="center">7</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="even gradeA">
-	                                    <td>Trident</td>
-	                                    <td>AOL browser (AOL desktop)</td>
-	                                    <td>Win XP</td>
-	                                    <td class="center">6</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Firefox 1.0</td>
-	                                    <td>Win 98+ / OSX.2+</td>
-	                                    <td class="center">1.7</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Firefox 1.5</td>
-	                                    <td>Win 98+ / OSX.2+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Firefox 2.0</td>
-	                                    <td>Win 98+ / OSX.2+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Firefox 3.0</td>
-	                                    <td>Win 2k+ / OSX.3+</td>
-	                                    <td class="center">1.9</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Camino 1.0</td>
-	                                    <td>OSX.2+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Camino 1.5</td>
-	                                    <td>OSX.3+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Netscape 7.2</td>
-	                                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-	                                    <td class="center">1.7</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Netscape Browser 8</td>
-	                                    <td>Win 98SE+</td>
-	                                    <td class="center">1.7</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Netscape Navigator 9</td>
-	                                    <td>Win 98+ / OSX.2+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.0</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.1</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.1</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.2</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.2</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.3</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.3</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.4</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.4</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.5</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.5</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.6</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">1.6</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.7</td>
-	                                    <td>Win 98+ / OSX.1+</td>
-	                                    <td class="center">1.7</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Mozilla 1.8</td>
-	                                    <td>Win 98+ / OSX.1+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Seamonkey 1.1</td>
-	                                    <td>Win 98+ / OSX.2+</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Gecko</td>
-	                                    <td>Epiphany 2.20</td>
-	                                    <td>Gnome</td>
-	                                    <td class="center">1.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>Safari 1.2</td>
-	                                    <td>OSX.3</td>
-	                                    <td class="center">125.5</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>Safari 1.3</td>
-	                                    <td>OSX.3</td>
-	                                    <td class="center">312.8</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>Safari 2.0</td>
-	                                    <td>OSX.4+</td>
-	                                    <td class="center">419.3</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>Safari 3.0</td>
-	                                    <td>OSX.4+</td>
-	                                    <td class="center">522.1</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>OmniWeb 5.5</td>
-	                                    <td>OSX.4+</td>
-	                                    <td class="center">420</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>iPod Touch / iPhone</td>
-	                                    <td>iPod</td>
-	                                    <td class="center">420.1</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Webkit</td>
-	                                    <td>S60</td>
-	                                    <td>S60</td>
-	                                    <td class="center">413</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 7.0</td>
-	                                    <td>Win 95+ / OSX.1+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 7.5</td>
-	                                    <td>Win 95+ / OSX.2+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 8.0</td>
-	                                    <td>Win 95+ / OSX.2+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 8.5</td>
-	                                    <td>Win 95+ / OSX.2+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 9.0</td>
-	                                    <td>Win 95+ / OSX.3+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 9.2</td>
-	                                    <td>Win 88+ / OSX.3+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera 9.5</td>
-	                                    <td>Win 88+ / OSX.3+</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Opera for Wii</td>
-	                                    <td>Wii</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Nokia N800</td>
-	                                    <td>N800</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Presto</td>
-	                                    <td>Nintendo DS browser</td>
-	                                    <td>Nintendo DS</td>
-	                                    <td class="center">8.5</td>
-	                                    <td class="center">C/A<sup>1</sup>
-	                                    </td>
-	                                </tr>
-	                                <tr class="gradeC">
-	                                    <td>KHTML</td>
-	                                    <td>Konqureror 3.1</td>
-	                                    <td>KDE 3.1</td>
-	                                    <td class="center">3.1</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>KHTML</td>
-	                                    <td>Konqureror 3.3</td>
-	                                    <td>KDE 3.3</td>
-	                                    <td class="center">3.3</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>KHTML</td>
-	                                    <td>Konqureror 3.5</td>
-	                                    <td>KDE 3.5</td>
-	                                    <td class="center">3.5</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeX">
-	                                    <td>Tasman</td>
-	                                    <td>Internet Explorer 4.5</td>
-	                                    <td>Mac OS 8-9</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">X</td>
-	                                </tr>
-	                                <tr class="gradeC">
-	                                    <td>Tasman</td>
-	                                    <td>Internet Explorer 5.1</td>
-	                                    <td>Mac OS 7.6-9</td>
-	                                    <td class="center">1</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeC">
-	                                    <td>Tasman</td>
-	                                    <td>Internet Explorer 5.2</td>
-	                                    <td>Mac OS 8-X</td>
-	                                    <td class="center">1</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Misc</td>
-	                                    <td>NetFront 3.1</td>
-	                                    <td>Embedded devices</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeA">
-	                                    <td>Misc</td>
-	                                    <td>NetFront 3.4</td>
-	                                    <td>Embedded devices</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">A</td>
-	                                </tr>
-	                                <tr class="gradeX">
-	                                    <td>Misc</td>
-	                                    <td>Dillo 0.8</td>
-	                                    <td>Embedded devices</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">X</td>
-	                                </tr>
-	                                <tr class="gradeX">
-	                                    <td>Misc</td>
-	                                    <td>Links</td>
-	                                    <td>Text only</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">X</td>
-	                                </tr>
-	                                <tr class="gradeX">
-	                                    <td>Misc</td>
-	                                    <td>Lynx</td>
-	                                    <td>Text only</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">X</td>
-	                                </tr>
-	                                <tr class="gradeC">
-	                                    <td>Misc</td>
-	                                    <td>IE Mobile</td>
-	                                    <td>Windows Mobile 6</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeC">
-	                                    <td>Misc</td>
-	                                    <td>PSP browser</td>
-	                                    <td>PSP</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">C</td>
-	                                </tr>
-	                                <tr class="gradeU">
-	                                    <td>Other browsers</td>
-	                                    <td>All others</td>
-	                                    <td>-</td>
-	                                    <td class="center">-</td>
-	                                    <td class="center">U</td>
-	                                </tr>
-	                            </tbody>
-	                        </table>
-	                    </div>
-	                    
+                        <table class="table table-striped border table-bordered table-hover" id="table_penduduk">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NIK</th>
+                                    <th>No KK</th>
+                                    <th>SHDK</th>
+                                    <th>Nama</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Status</th>
+                                    <th>Pekerjaan</th>
+                                    <th>Nama Ibu</th>
+                                    <th>Nama Ayah</th>
+                                    <th>Alamat</th>
+                                    <th>RT</th>
+                                    <th>RW</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>	                    
 	                </div>
 	            </div>
 	            <!--End Advanced Tables -->
@@ -443,3 +52,229 @@
     </div>
         <!-- /. ROW  -->
 </div>
+<div class="modal fade" id="modal_penduduk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Form Penduduk</h4>
+            </div>
+            <form action="" method="POST" accept-charset="utf-8" id="form_penduduk">
+            	<div class="modal-body">
+                    <input type="hidden" placeholder="" name="id_penduduk" />
+
+	                <div class="form-group">
+                        <label>NIK</label>
+                        <input class="form-control" placeholder="NIK" name="nik" />
+                    </div>
+                    <div class="form-group">
+                        <label>No KK</label>
+                        <input class="form-control" placeholder="No KK" name="no_kk" />
+                    </div>
+                    <div class="form-group">
+                        <label>SHDK</label>
+                        <select class="form-control" placeholder="SHDK" name="shdk">
+                            <option value="kepala keluarga">Kepala Keluarga</option>
+                            <option value="istri">Ibu</option>
+                            <option value="anak">Anak</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input class="form-control" placeholder="Nama" name="nama" />
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                        <select class="form-control" placeholder="Jenis Kelamin" name="jenis_kelamin">
+                            <option value="laki-laki">Laki-Laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <input class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" />
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tanggal_lahir" />
+                    </div>
+                     <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" placeholder="Status" name="status">
+                            <option value="kawin">Kawin</option>
+                            <option value="belum kawin">Belum Kawin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pekerjaan</label>
+                        <input type="text" class="form-control" placeholder="Pekerjaan" name="pekerjaan" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Ibu</label>
+                        <input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Ayah</label>
+                        <input type="text" class="form-control" placeholder="Nama Ayah" name="nama_ayah" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" name="alamat" placeholder="ALamat"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>RT</label>
+                        <input type="number" class="form-control" placeholder="rt" name="rt" />
+                    </div>
+                    <div class="form-group">
+                        <label>RW</label>
+                        <input type="number" class="form-control" placeholder="rw" name="rw" />
+                    </div>
+
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+	                <button type="submit" class="btn btn-primary">Simpan</button>
+	            </div>
+            	
+            </form>
+	            
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	get_data();
+
+	$('#button_tambah').click(function(event) {
+		event.preventDefault();
+
+		$('#form_penduduk').attr('action', $(this).attr('href'));
+
+		$('#modal_penduduk').modal('show');
+	});
+});
+
+
+function get_data () {
+	var table_penduduk = $('#table_penduduk').DataTable({
+		destroy: true,
+    	processing: true,
+    	ajax: {
+    		type: "GET",
+		    url: '<?php echo site_url('penduduk/get_data') ?>',
+		    data: {
+		    }
+		},
+		columns: [
+            { data: 'id_penduduk' },
+            { data: 'nik' },
+            { data: 'no_kk' },
+            { data: 'shdk' },
+            { data: 'nama' },
+            { data: 'jenis_kelamin' },
+            { data: 'tempat_lahir' },
+            { data: 'tanggal_lahir' },
+            { data: 'status' },
+            { data: 'pekerjaan' },
+            { data: 'nama_ibu' },
+            { data: 'nama_ayah' },
+            { data: 'alamat' },
+            { data: 'rt' },
+            { data: 'rw' },
+            { defaultContent: '' },
+            ], 
+        columnDefs: [
+        	
+		    {
+		    	targets: -1,
+		    	className: "text-center",
+		    	data: "id_penduduk",
+		    	render : function(data, type, full, meta) {
+		    		return '<a href="<?php echo site_url('penduduk/update') ?>" class="btn btn-sm btn-primary mr-1 penduduk_edit">Edit</a><a href="<?php echo site_url('penduduk/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
+		    	}
+		    }
+		],
+		autoWidth: true,
+		searching: true,
+		pageLength: 20,
+		scrollY: 400+'px',
+		scrollX: false,
+		scrollCollapse: false,
+		scroller: true,
+		dom: '<"datatable-header"><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
+		language: {
+            search: '<span>Search:</span> _INPUT_',
+            searchPlaceholder: 'Type to Search...',
+            lengthMenu: '<span>Show:</span> _MENU_',
+            processing: '<i class="icon-spinner2 spinner"></i>',
+            paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+        },
+	});
+
+	$('#table_penduduk').on('click', '.penduduk_edit', function(event) {
+    	event.preventDefault();
+    	
+    	data = table_penduduk.row($(this).parents('tr')).data();
+
+    	$.each(data, function(index, val) {
+    		$('#form_penduduk').find('input[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_penduduk').find('textarea[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_penduduk').find('select[name="'+index+'"]').val(val).trigger('change')
+
+
+    	});
+
+    	$('#form_penduduk').attr('action', $(this).attr('href'));
+
+		$('#modal_penduduk').modal('show');
+
+    });
+
+    $('#departments_table').on('click', '.department_delete', function(event) {
+    	event.preventDefault();
+    	url = $(this).attr('href');
+		swal({
+            title: "Delete Data?",
+		  	text: "Data yang anda hapus akan masuk ke sampah",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function (data) {
+			if (data.value) {
+				$.ajax({
+					url: qualifyURL(url),
+					type: 'DELETE',
+					dataType: 'json',
+					data: { },
+				})
+				.done(function(res) {
+					console.log(res);
+					if (res.code == 200) {
+						departments_table.ajax.reload()
+						new PNotify({
+			                title: 'Success',
+			                text: 'Data Deleted',
+			                addclass: 'bg-success border-success'
+			            })
+					}
+				})
+				.fail(function(err) {
+					console.log(err);
+				})
+				.always(function() {
+					
+				});
+				
+			}	
+        }, function (dismiss) {
+
+        });
+    });
+}
+</script>
