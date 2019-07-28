@@ -9,7 +9,7 @@ class PerpindahanController extends MY_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url']);
-		$this->load->model(['Mperpindahan', 'Mpenduduk']);
+		$this->load->model(['Mperpindahan', 'Mpenduduk', 'Mtujuan_perpindahan', 'Masal_perpindahan']);
 	}
 
 	public function index()
@@ -28,6 +28,7 @@ class PerpindahanController extends MY_Controller {
 		$data['data'] = $perpindahan;
 
 		header('application/json');
+
 		echo json_encode($data);
 		
 	}
@@ -36,7 +37,40 @@ class PerpindahanController extends MY_Controller {
 	{
 		$data = $this->input->post();
 
-		if ($this->Mperpindahan->insert($data)) {
+		$penduduk = $this->Mpenduduk->get($data['id_penduduk']);
+
+		$data_asal = [
+			'alamat' => $penduduk->alamat,
+			'rt' => $penduduk->rt,
+			'rw' => $penduduk->rw,
+
+		];
+
+		$res_asal = $this->Masal_perpindahan->insert($data_asal);
+
+		$data_tujuan = [
+			'alamat' => $data['tujuan_alamat'],
+			'rt' => $data['tujuan_rt'],
+			'rw' => $data['tujuan_rw'],
+			'desa' => $data['tujuan_desa'],
+			'kecamatan' => $data['tujuan_kecamatan'],
+			'kabupaten_kota' => $data['tujuan_kabupaten_kota'],
+		];
+
+		$res_tujuan = $this->Mtujuan_perpindahan->insert($data_tujuan);
+
+
+		$data_perpindahan = [
+			'no_surat' => $data['no_surat'],
+			'tanggal_surat' => $data['tanggal_surat'],
+			'id_klasifikasi' => 1,
+			'id_penduduk' => $data['id_penduduk'],
+			'id_asalperpindahan' => $res_asal->id_asalperpindahan,
+			'id_tujuanperpindahan' => $res_tujuan->id_tujuanperpindahan,
+
+		];
+
+		if ($this->Mperpindahan->insert($data_perpindahan)) {
 			redirect('perpindahan','refresh');
 		}
 		else {
@@ -47,9 +81,17 @@ class PerpindahanController extends MY_Controller {
 	public function update()
 	{
 		$data = $this->input->post();
-		$id_perpindahan = $this->input->post('id_perpindahan');
 
-		if ($this->Mperpindahan->update($id_perpindahan, $data)) {
+		$data_perpindahan = [
+			'no_surat' => $data['no_surat'],
+			'tanggal_surat' => $data['tanggal_surat'],
+			'id_klasifikasi' => 1,
+			'id_penduduk' => $data['id_penduduk'],
+
+		];
+		$id_pindah = $this->input->post('id_pindah');
+
+		if ($this->Mperpindahan->update($id_pindah, $data_perpindahan)) {
 			redirect('perpindahan','refresh');
 		}
 		else {

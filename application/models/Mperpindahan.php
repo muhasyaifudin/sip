@@ -4,22 +4,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mperpindahan extends CI_Model {
 
 	protected $table = 'tabel_perpindahan';
+	protected $table_tujuan = 'tabel_tujuanperpindahan';
+	protected $table_penduduk = 'tabel_penduduk';
+
 
 	public function get($id = NULL)
 	{
 		$this->db->select([
 			$this->table . '.*',
-			'nama',
-			'nik',
-			'jenis_kelamin',
-			'alamat',
-			'rt',
-			'rw',
+			$this->table_tujuan . '.id_tujuanperpindahan as id_tujuanperpindahan',
+			$this->table_tujuan . '.alamat as tujuan_alamat',
+			$this->table_tujuan . '.rt as tujuan_rt',
+			$this->table_tujuan . '.rw as tujuan_rw',
+			$this->table_tujuan . '.desa as tujuan_desa',
+			$this->table_tujuan . '.kecamatan as tujuan_kecamatan',
+			$this->table_tujuan . '.kabupaten_kota as tujuan_kabupaten_kota',
+			$this->table_penduduk . '.nama',
+			$this->table_penduduk . '.nik',
+			$this->table_penduduk . '.jenis_kelamin',
+			$this->table_penduduk . '.alamat',
+			$this->table_penduduk . '.rt',
+			$this->table_penduduk . '.rw',
+			$this->table_penduduk . '.tempat_lahir',
+			$this->table_penduduk . '.tanggal_lahir'
 
 		]);
 		
 		$this->db->from($this->table);
 		$this->db->join('tabel_penduduk', 'tabel_penduduk.id_penduduk = tabel_perpindahan.id_penduduk');
+		$this->db->join('tabel_tujuanperpindahan', 'tabel_tujuanperpindahan.id_tujuanperpindahan = tabel_perpindahan.id_tujuanperpindahan');
+
 		
 		$this->db->order_by('no_kk', 'asc');
 		if($id !== null){
@@ -42,7 +56,7 @@ class Mperpindahan extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_perpindahan']);
+			isset($data['id_pindah']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
@@ -58,14 +72,14 @@ class Mperpindahan extends CI_Model {
 		}
 	}
 
-	public function update($id_perpindahan = NULL, $data = NULL)
+	public function update($id_pindah = NULL, $data = NULL)
 	{
-		if ($id_perpindahan !== NULL && $data !== NULL) {
-			isset($data['id_perpindahan']);
+		if ($id_pindah !== NULL && $data !== NULL) {
+			isset($data['id_pindah']);
 
 			try {
 
-				$this->db->where('id_perpindahan', $id_perpindahan);
+				$this->db->where('id_pindah', $id_pindah);
 				$this->db->update($this->table, $data);
 
 				return true;
@@ -83,7 +97,7 @@ class Mperpindahan extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_perpindahan', $id);
+				$this->db->where('id_pindah', $id);
 
 		        $this->db->delete($this->table);
 

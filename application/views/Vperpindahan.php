@@ -17,7 +17,7 @@
 	                     <a href="<?php echo site_url('perpindahan/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
 	                </div>
 	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" id="table_perpindahan">
+                        <table class="table table-striped border table-bordered table-hover" id="table_perpindahan" width="130%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -28,8 +28,12 @@
                                     <th>Jenis Kelamin</th>
                                     <th>Tempat Lahir</th>
                                     <th>Tanggal Lahir</th>
-                                    <th>Tujuan Perpindahan</th>
-                                    <th>Asal Perpindahan</th>
+                                    <th>Alamat Tujuan</th>
+                                    <th>RT Tujuan</th>
+                                    <th>RW Tujuan</th>
+                                    <th>Desa Tujuan</th>
+                                    <th>Kecamatan Tujuan</th>
+                                    <th>Kabupaten/Kota Tujuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -56,7 +60,7 @@
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_perpindahan">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_perpindahan" />
+                    <input type="hidden" placeholder="" name="id_pindah" />
 	                <div class="form-group">
                         <label>Tanggal Surat</label>
                         <input type="date" class="form-control" placeholder="Tanggal Surat" name="tanggal_surat" />
@@ -118,7 +122,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	// get_data();
+	get_data();
 
 	$('#button_tambah').click(function(event) {
 		event.preventDefault();
@@ -149,10 +153,12 @@ function get_data () {
             { data: 'jenis_kelamin' },
             { data: 'tempat_lahir' },
             { data: 'tanggal_lahir' },
-            { data: 'alamat' },
-            { data: 'rt' },
-            { data: 'rw' },
-            { data: 'tanggal_lahir' },
+            { data: 'tujuan_alamat' },
+            { data: 'tujuan_rt' },
+            { data: 'tujuan_rw' },
+            { data: 'tujuan_desa' },
+            { data: 'tujuan_kecamatan' },
+            { data: 'tujuan_kabupaten_kota' },
             { defaultContent: '' },
             ], 
         columnDefs: [
@@ -160,7 +166,7 @@ function get_data () {
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_perpindahan",
+		    	data: "id_pindah",
 		    	render : function(data, type, full, meta) {
 		    		return '<a href="<?php echo site_url('perpindahan/update') ?>" class="btn btn-sm btn-primary mr-1 perpindahan_edit">Edit</a><a href="<?php echo site_url('perpindahan/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
 		    	}
@@ -170,7 +176,7 @@ function get_data () {
 		searching: true,
 		pageLength: 20,
 		scrollY: 400+'px',
-		scrollX: false,
+		scrollX: true,
 		scrollCollapse: false,
 		scroller: true,
 		dom: '<"datatable-header"><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
