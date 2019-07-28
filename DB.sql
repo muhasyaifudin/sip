@@ -27,6 +27,12 @@ CREATE TABLE `groups` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+/*Data for the table `groups` */
+
+insert  into `groups`(`id`,`name`,`description`) values 
+(1,'admin','Administrator'),
+(2,'members','General User');
+
 /*Table structure for table `login_attempts` */
 
 DROP TABLE IF EXISTS `login_attempts`;
@@ -39,6 +45,8 @@ CREATE TABLE `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*Data for the table `login_attempts` */
+
 /*Table structure for table `migrations` */
 
 DROP TABLE IF EXISTS `migrations`;
@@ -46,6 +54,11 @@ DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `version` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `migrations` */
+
+insert  into `migrations`(`version`) values 
+(1);
 
 /*Table structure for table `tabel_asalkedatangan` */
 
@@ -62,6 +75,8 @@ CREATE TABLE `tabel_asalkedatangan` (
   PRIMARY KEY (`id_asalkedatangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_asalkedatangan` */
+
 /*Table structure for table `tabel_asalperpindahan` */
 
 DROP TABLE IF EXISTS `tabel_asalperpindahan`;
@@ -73,6 +88,8 @@ CREATE TABLE `tabel_asalperpindahan` (
   `rw` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_asalperpindahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tabel_asalperpindahan` */
 
 /*Table structure for table `tabel_kedatangan` */
 
@@ -93,6 +110,8 @@ CREATE TABLE `tabel_kedatangan` (
   KEY `id_tujuankedatangan` (`id_tujuankedatangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_kedatangan` */
+
 /*Table structure for table `tabel_kelahiran` */
 
 DROP TABLE IF EXISTS `tabel_kelahiran`;
@@ -108,6 +127,11 @@ CREATE TABLE `tabel_kelahiran` (
   KEY `id_penduduk` (`id_penduduk`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_kelahiran` */
+
+insert  into `tabel_kelahiran`(`id_kelahiran`,`tanggal_lapor`,`no_akta`,`id_penduduk`,`tanggal_lahir`,`tempat_lahir`) values 
+(1,'2014-11-14','3308-LU-01122014-0037',11,'2014-10-10',NULL);
+
 /*Table structure for table `tabel_kematian` */
 
 DROP TABLE IF EXISTS `tabel_kematian`;
@@ -122,6 +146,11 @@ CREATE TABLE `tabel_kematian` (
   KEY `id_penduduk` (`id_penduduk`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_kematian` */
+
+insert  into `tabel_kematian`(`id_kematian`,`tanggal_lapor`,`no_akta`,`id_penduduk`,`tanggal_meninggal`) values 
+(1,'2017-10-10','3308-KM-10102017-0017',13,'2017-05-07');
+
 /*Table structure for table `tabel_klasifikasi` */
 
 DROP TABLE IF EXISTS `tabel_klasifikasi`;
@@ -131,6 +160,8 @@ CREATE TABLE `tabel_klasifikasi` (
   `nama` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_klasifikasi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tabel_klasifikasi` */
 
 /*Table structure for table `tabel_penduduk` */
 
@@ -155,6 +186,23 @@ CREATE TABLE `tabel_penduduk` (
   PRIMARY KEY (`id_penduduk`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_penduduk` */
+
+insert  into `tabel_penduduk`(`id_penduduk`,`nik`,`no_kk`,`shdk`,`nama`,`jenis_kelamin`,`tempat_lahir`,`tanggal_lahir`,`status`,`pekerjaan`,`nama_ibu`,`nama_ayah`,`alamat`,`rt`,`rw`) values 
+(1,'3308131303540001','3308130307102464','kepala keluarga','MUH KOLIL','laki-laki','MAGELANG','1954-03-13','kawin','Petani/Pekebun','PAINI','','BULUSARI',1,1),
+(2,'3308135905560001','3308130307102464','istri','TUMINAH','perempuan','MAGELANG','1956-05-19','kawin','Petani/Pekebun','PAINEM','','BULUSARI',1,1),
+(3,'3308131212500004','3308130407101591','kepala keluarga','MUHADI','laki-laki','MAGELANG','1950-12-12','kawin','Lainnya','','','BULUSARI',1,1),
+(4,'3308131108670003','3308130407101606','kepala keluarga','MUHIDIN','laki-laki','MAGELANG','1967-08-11','kawin','Petani/Pekebun','SITI KHOTIJAH','','BULUSARI',1,1),
+(5,'3308137112720075','3308130407101606','istri','SARTINI','perempuan','MAGELANG','1973-12-31','kawin','Petani/Pekebun','SIYEM','','BULUSARI',1,1),
+(6,'3308136007000001','3308130407101606','anak','RINI','perempuan','MAGELANG','2000-07-29','belum kawin','Petani/Pekebun','SARTINI','','BULUSARI',1,1),
+(7,'3308130605580003','3308130407104971','kepala keluarga','WALYONO','laki-laki','MAGELANG','1958-05-06','kawin','Petani/Pekebun','RUNI','','BULUSARI',1,1),
+(8,'3308135207650006','3308130407104971','istri','NASMI','perempuan','MAGELANG','1965-07-12','kawin','Petani/Pekebun','JUMI','','BULUSARI',1,1),
+(9,'3308131205550006','3308130407107815','kepala keluarga','PONIRAN','laki-laki','MAGELANG','1955-05-12','kawin','Petani/Pekebun','WAGINAH','','BULUSARI',1,1),
+(10,'3308134408570003','3308130407107815','istri','MUYEM','perempuan','MAGELANG','1957-08-04','kawin','Petani/Pekebun','SIAM','','BULUSARI',1,1),
+(11,'3308135010140001','3308131211120004','anak','ZULFA UMMULAILA','perempuan','MAGELANG','2014-10-10','belum kawin','Belum/Tidak Bekerja','MULYANAH','','BULUSARI',1,5),
+(12,'3308131304400002','3308130407100346','kepala keluarga','WARSONO','laki-laki','MAGELANG','1940-04-13','kawin','Petani/Pekebun','SARINI','','BULUSARI',1,5),
+(13,'3308131005550006','3308130307106220','kepala keluarga','WARTONO','laki-laki','MAGELANG','1955-05-10','kawin','Petani/Pekebun','REGET','','BULUSARI',2,6);
+
 /*Table structure for table `tabel_perpindahan` */
 
 DROP TABLE IF EXISTS `tabel_perpindahan`;
@@ -172,6 +220,8 @@ CREATE TABLE `tabel_perpindahan` (
   KEY `id_asalperpindahan` (`id_asalperpindahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+/*Data for the table `tabel_perpindahan` */
+
 /*Table structure for table `tabel_tujuankedatangan` */
 
 DROP TABLE IF EXISTS `tabel_tujuankedatangan`;
@@ -183,6 +233,8 @@ CREATE TABLE `tabel_tujuankedatangan` (
   `rw` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_tujuankedatangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tabel_tujuankedatangan` */
 
 /*Table structure for table `tabel_tujuanperpindahan` */
 
@@ -198,6 +250,8 @@ CREATE TABLE `tabel_tujuanperpindahan` (
   `kabupaten_kota` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_tujuanperpindahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tabel_tujuanperpindahan` */
 
 /*Table structure for table `users` */
 
@@ -230,6 +284,11 @@ CREATE TABLE `users` (
   UNIQUE KEY `remember_selector` (`remember_selector`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+/*Data for the table `users` */
+
+insert  into `users`(`id`,`ip_address`,`username`,`password`,`email`,`activation_selector`,`activation_code`,`forgotten_password_selector`,`forgotten_password_code`,`forgotten_password_time`,`remember_selector`,`remember_code`,`created_on`,`last_login`,`active`,`first_name`,`last_name`,`company`,`phone`) values 
+(1,'127.0.0.1','administrator','$2y$12$rB9gVIJmL8Q0cWoieCn3L.7uK7O51INOzoYPeG9taXkJZ.RM7E.eu','admin@admin.com',NULL,'',NULL,NULL,NULL,NULL,NULL,1268889823,1564238506,1,'Admin','istrator','ADMIN','0');
+
 /*Table structure for table `users_groups` */
 
 DROP TABLE IF EXISTS `users_groups`;
@@ -240,6 +299,12 @@ CREATE TABLE `users_groups` (
   `group_id` mediumint(8) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `users_groups` */
+
+insert  into `users_groups`(`id`,`user_id`,`group_id`) values 
+(1,1,1),
+(2,1,2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
