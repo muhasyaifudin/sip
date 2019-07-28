@@ -9,7 +9,7 @@ class Mpenduduk extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from($this->table);
-		
+		$this->db->order_by('no_kk', 'asc');
 		
 		if($id !== null){
 

@@ -22,6 +22,7 @@ class Mkematian extends CI_Model {
 		
 		$this->db->from($this->table);
 		$this->db->join('tabel_penduduk', 'tabel_penduduk.id_penduduk = tabel_kematian.id_penduduk');
+		$this->db->order_by('no_kk', 'asc');
 		
 		if($id !== null){
 

@@ -14,24 +14,22 @@
 	            <!-- Advanced Tables -->
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
-	                     <a href="<?php echo site_url('kelahiran/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
+	                     <a href="<?php echo site_url('perpindahan/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
 	                </div>
 	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" id="table_kelahiran">
+                        <table class="table table-striped border table-bordered table-hover" id="table_perpindahan">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tanggal</th>
-                                    <th>No Akta</th>
+                                    <th>No Surat</th>
+                                    <th>Tanggal Surat</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tempat Lahir</th>
-                                    <th>Tanggal Lahit</th>
-                                    <th>Alamat</th>
-                                    <th>RT</th>
-                                    <th>RW</th>
                                     <th>Tanggal Lahir</th>
+                                    <th>Tujuan Perpindahan</th>
+                                    <th>Asal Perpindahan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -49,24 +47,23 @@
     </div>
         <!-- /. ROW  -->
 </div>
-<div class="modal fade" id="modal_kelahiran" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_perpindahan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Form Perpindahan</h4>
             </div>
-            <form action="" method="POST" accept-charset="utf-8" id="form_kelahiran">
+            <form action="" method="POST" accept-charset="utf-8" id="form_perpindahan">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_kelahiran" />
-
+                    <input type="hidden" placeholder="" name="id_perpindahan" />
 	                <div class="form-group">
-                        <label>Tanggal Lapor</label>
-                        <input type="date" class="form-control" placeholder="Tanggal Lapor" name="tanggal_lapor" />
+                        <label>Tanggal Surat</label>
+                        <input type="date" class="form-control" placeholder="Tanggal Surat" name="tanggal_surat" />
                     </div>
                     <div class="form-group">
-                        <label>No Akta</label>
-                        <input class="form-control" placeholder="No Akta" name="no_akta" />
+                        <label>No Surat</label>
+                        <input class="form-control" placeholder="No Surat" name="no_surat" />
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
@@ -78,10 +75,33 @@
                             <?php endforeach ?>
                         </select>
                     </div>
-                   
+                    <hr>
+                    <h4>Tujuan Perpindahan</h4>
+                     <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat">
+                            
+                        </textarea>
+                    </div>
                     <div class="form-group">
-                        <label>Tanggal Lahir</label>
-                        <input type="date" class="form-control" placeholder="Tanggal Meninggal" name="tanggal_lahir" />
+                        <label>RT</label>
+                        <input type="number" class="form-control" placeholder="rt" name="tujuan_rt" />
+                    </div>
+                    <div class="form-group">
+                        <label>RW</label>
+                        <input type="number" class="form-control" placeholder="rw" name="tujuan_rw" />
+                    </div>
+                    <div class="form-group">
+                        <label>Desa</label>
+                        <input type="text" class="form-control" placeholder="Desa" name="tujuan_desa" />
+                    </div>
+                    <div class="form-group">
+                        <label>Kecamatan</label>
+                        <input type="text" class="form-control" placeholder="Kecamatan" name="tujuan_kecamatan" />
+                    </div>
+                    <div class="form-group">
+                        <label>Kabupaten/Kota</label>
+                        <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="tujuan_kabupaten_kota" />
                     </div>
 
 	            </div>
@@ -98,32 +118,32 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	get_data();
+	// get_data();
 
 	$('#button_tambah').click(function(event) {
 		event.preventDefault();
 
-		$('#form_kelahiran').attr('action', $(this).attr('href'));
+		$('#form_perpindahan').attr('action', $(this).attr('href'));
 
-		$('#modal_kelahiran').modal('show');
+		$('#modal_perpindahan').modal('show');
 	});
 });
 
 
 function get_data () {
-	var table_kelahiran = $('#table_kelahiran').DataTable({
+	var table_perpindahan = $('#table_perpindahan').DataTable({
 		destroy: true,
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('kelahiran/get_data') ?>',
+		    url: '<?php echo site_url('perpindahan/get_data') ?>',
 		    data: {
 		    }
 		},
 		columns: [
-            { data: 'id_kelahiran' },
-            { data: 'tanggal_lapor' },
-            { data: 'no_akta' },
+            { data: 'id_pindah' },
+            { data: 'no_surat' },
+            { data: 'tanggal_surat' },
             { data: 'nik' },
             { data: 'nama' },
             { data: 'jenis_kelamin' },
@@ -140,9 +160,9 @@ function get_data () {
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_kelahiran",
+		    	data: "id_perpindahan",
 		    	render : function(data, type, full, meta) {
-		    		return '<a href="<?php echo site_url('kelahiran/update') ?>" class="btn btn-sm btn-primary mr-1 kelahiran_edit">Edit</a><a href="<?php echo site_url('kelahiran/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
+		    		return '<a href="<?php echo site_url('perpindahan/update') ?>" class="btn btn-sm btn-primary mr-1 perpindahan_edit">Edit</a><a href="<?php echo site_url('perpindahan/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
 		    	}
 		    }
 		],
@@ -163,22 +183,22 @@ function get_data () {
         },
 	});
 
-	$('#table_kelahiran').on('click', '.kelahiran_edit', function(event) {
+	$('#table_perpindahan').on('click', '.perpindahan_edit', function(event) {
     	event.preventDefault();
     	
-    	data = table_kelahiran.row($(this).parents('tr')).data();
+    	data = table_perpindahan.row($(this).parents('tr')).data();
 
     	$.each(data, function(index, val) {
-    		$('#form_kelahiran').find('input[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_kelahiran').find('textarea[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_kelahiran').find('select[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_perpindahan').find('input[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_perpindahan').find('textarea[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_perpindahan').find('select[name="'+index+'"]').val(val).trigger('change')
 
 
     	});
 
-    	$('#form_kelahiran').attr('action', $(this).attr('href'));
+    	$('#form_perpindahan').attr('action', $(this).attr('href'));
 
-		$('#modal_kelahiran').modal('show');
+		$('#modal_perpindahan').modal('show');
 
     });
 

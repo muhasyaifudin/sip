@@ -150,7 +150,7 @@ function get_data () {
 		searching: true,
 		pageLength: 20,
 		scrollY: 400+'px',
-		scrollX: false,
+		scrollX: true,
 		scrollCollapse: false,
 		scroller: true,
 		dom: '<"datatable-header"><"datatable-scroll-wrap"tr><"datatable-footer"ip>',

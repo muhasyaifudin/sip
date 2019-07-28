@@ -17,7 +17,7 @@
 	                     <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
 	                </div>
 	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" id="table_penduduk">
+                        <table class="table table-striped border table-bordered table-hover" width="130%" id="table_penduduk">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -198,12 +198,16 @@ function get_data () {
 		],
 		autoWidth: true,
 		searching: true,
-		pageLength: 20,
+		pageLength: 10,
 		scrollY: 400+'px',
-		scrollX: false,
+		scrollX: true,
+        fixedColumns: {
+            leftColumns: 1,
+            rightColumns: 1
+        },
 		scrollCollapse: false,
 		scroller: true,
-		dom: '<"datatable-header"><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
+		dom: '<"datatable-header"fl><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
 		language: {
             search: '<span>Search:</span> _INPUT_',
             searchPlaceholder: 'Type to Search...',
@@ -211,6 +215,7 @@ function get_data () {
             processing: '<i class="icon-spinner2 spinner"></i>',
             paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
         },
+        
 	});
 
 	$('#table_penduduk').on('click', '.penduduk_edit', function(event) {
