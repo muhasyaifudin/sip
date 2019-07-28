@@ -15,7 +15,6 @@ class Mkelahiran extends CI_Model {
 			'alamat',
 			'rt',
 			'rw',
-			'tempat_lahir',
 
 		]);
 		
