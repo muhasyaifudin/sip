@@ -16,6 +16,37 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_kependudukan` /*!40100 DEFAULT CHARA
 
 USE `db_kependudukan`;
 
+/*Table structure for table `groups` */
+
+DROP TABLE IF EXISTS `groups`;
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `login_attempts` */
+
+DROP TABLE IF EXISTS `login_attempts`;
+
+CREATE TABLE `login_attempts` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `login` varchar(100) DEFAULT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `migrations` */
+
+DROP TABLE IF EXISTS `migrations`;
+
+CREATE TABLE `migrations` (
+  `version` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /*Table structure for table `tabel_asalkedatangan` */
 
 DROP TABLE IF EXISTS `tabel_asalkedatangan`;
@@ -55,7 +86,11 @@ CREATE TABLE `tabel_kedatangan` (
   `id_penduduk` int(11) DEFAULT NULL,
   `id_asalkedatangan` int(11) DEFAULT NULL,
   `id_tujuankedatangan` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_datang`)
+  PRIMARY KEY (`id_datang`),
+  KEY `id_klasifikasi` (`id_klasifikasi`),
+  KEY `id_penduduk` (`id_penduduk`),
+  KEY `id_asalkedatangan` (`id_asalkedatangan`),
+  KEY `id_tujuankedatangan` (`id_tujuankedatangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_kelahiran` */
@@ -68,8 +103,10 @@ CREATE TABLE `tabel_kelahiran` (
   `no_akta` varchar(100) DEFAULT NULL,
   `id_penduduk` int(11) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
-  PRIMARY KEY (`id_kelahiran`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tempat_lahir` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_kelahiran`),
+  KEY `id_penduduk` (`id_penduduk`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_kematian` */
 
@@ -81,8 +118,9 @@ CREATE TABLE `tabel_kematian` (
   `no_akta` varchar(100) DEFAULT NULL,
   `id_penduduk` int(11) DEFAULT NULL,
   `tanggal_meninggal` date DEFAULT NULL,
-  PRIMARY KEY (`id_kematian`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_kematian`),
+  KEY `id_penduduk` (`id_penduduk`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_klasifikasi` */
 
@@ -91,8 +129,7 @@ DROP TABLE IF EXISTS `tabel_klasifikasi`;
 CREATE TABLE `tabel_klasifikasi` (
   `id_klasifikasi` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_klasifikasi`),
-  CONSTRAINT `tabel_klasifikasi_ibfk_1` FOREIGN KEY (`id_klasifikasi`) REFERENCES `tabel_perpindahan` (`id_pindah`)
+  PRIMARY KEY (`id_klasifikasi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_penduduk` */
@@ -115,9 +152,8 @@ CREATE TABLE `tabel_penduduk` (
   `alamat` varchar(300) DEFAULT NULL,
   `rt` int(5) DEFAULT NULL,
   `rw` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id_penduduk`),
-  CONSTRAINT `tabel_penduduk_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `tabel_perpindahan` (`id_pindah`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_penduduk`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_perpindahan` */
 
@@ -133,9 +169,7 @@ CREATE TABLE `tabel_perpindahan` (
   `id_asalperpindahan` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_pindah`),
   KEY `id_tujuanperpindahan` (`id_tujuanperpindahan`),
-  KEY `id_asalperpindahan` (`id_asalperpindahan`),
-  CONSTRAINT `tabel_perpindahan_ibfk_1` FOREIGN KEY (`id_tujuanperpindahan`) REFERENCES `tabel_tujuanperpindahan` (`id_tujuanperpindahan`),
-  CONSTRAINT `tabel_perpindahan_ibfk_2` FOREIGN KEY (`id_asalperpindahan`) REFERENCES `tabel_asalkedatangan` (`id_asalkedatangan`)
+  KEY `id_asalperpindahan` (`id_asalperpindahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tabel_tujuankedatangan` */
@@ -164,6 +198,48 @@ CREATE TABLE `tabel_tujuanperpindahan` (
   `kabupaten_kota` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_tujuanperpindahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `activation_selector` varchar(255) DEFAULT NULL,
+  `activation_code` varchar(255) DEFAULT NULL,
+  `forgotten_password_selector` varchar(255) DEFAULT NULL,
+  `forgotten_password_code` varchar(255) DEFAULT NULL,
+  `forgotten_password_time` int(11) unsigned DEFAULT NULL,
+  `remember_selector` varchar(255) DEFAULT NULL,
+  `remember_code` varchar(255) DEFAULT NULL,
+  `created_on` int(11) unsigned NOT NULL,
+  `last_login` int(11) unsigned DEFAULT NULL,
+  `active` tinyint(1) unsigned DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `activation_selector` (`activation_selector`),
+  UNIQUE KEY `forgotten_password_selector` (`forgotten_password_selector`),
+  UNIQUE KEY `remember_selector` (`remember_selector`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `users_groups` */
+
+DROP TABLE IF EXISTS `users_groups`;
+
+CREATE TABLE `users_groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` mediumint(8) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
