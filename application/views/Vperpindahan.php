@@ -85,9 +85,7 @@
                     <h4>Tujuan Perpindahan</h4>
                      <div class="form-group">
                         <label>Alamat</label>
-                        <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat">
-                            
-                        </textarea>
+                        <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat"></textarea>
                     </div>
                     <div class="form-group">
                         <label>RT</label>
