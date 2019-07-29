@@ -91,7 +91,11 @@ $route['perpindahan/insert']['POST'] = 'PerpindahanController/insert';
 $route['perpindahan/update']['POST'] = 'PerpindahanController/update';
 $route['perpindahan/delete/(:num)']['GET'] = 'PerpindahanController/delete/$1';
 
-
+$route['kedatangan']['GET'] = 'KedatanganController';
+$route['kedatangan/get_data']['GET'] = 'KedatanganController/get_data';
+$route['kedatangan/insert']['POST'] = 'KedatanganController/insert';
+$route['kedatangan/update']['POST'] = 'KedatanganController/update';
+$route['kedatangan/delete/(:num)']['GET'] = 'KedatanganController/delete/$1';
 
 
 

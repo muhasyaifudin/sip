@@ -82,13 +82,24 @@ class PerpindahanController extends MY_Controller {
 	{
 		$data = $this->input->post();
 
+		$data_tujuan = [
+			'alamat' => $data['tujuan_alamat'],
+			'rt' => $data['tujuan_rt'],
+			'rw' => $data['tujuan_rw'],
+			'desa' => $data['tujuan_desa'],
+			'kecamatan' => $data['tujuan_kecamatan'],
+			'kabupaten_kota' => $data['tujuan_kabupaten_kota'],
+		];
+
+		$this->Mtujuan_perpindahan->update($data['id_tujuanperpindahan'], $data_tujuan);
+
 		$data_perpindahan = [
 			'no_surat' => $data['no_surat'],
 			'tanggal_surat' => $data['tanggal_surat'],
 			'id_klasifikasi' => 1,
 			'id_penduduk' => $data['id_penduduk'],
-
 		];
+		
 		$id_pindah = $this->input->post('id_pindah');
 
 		if ($this->Mperpindahan->update($id_pindah, $data_perpindahan)) {

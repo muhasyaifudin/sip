@@ -17,7 +17,7 @@
 	                     <a href="<?php echo site_url('kelahiran/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
 	                </div>
 	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" id="table_kelahiran">
+                        <table class="table table-striped border table-bordered table-hover" width="130%" id="table_kelahiran">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -148,12 +148,12 @@ function get_data () {
 		],
 		autoWidth: true,
 		searching: true,
-		pageLength: 20,
+		pageLength: 10,
 		scrollY: 400+'px',
 		scrollX: true,
 		scrollCollapse: false,
 		scroller: true,
-		dom: '<"datatable-header"><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
+		dom: '<"datatable-header"fl><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
 		language: {
             search: '<span>Search:</span> _INPUT_',
             searchPlaceholder: 'Type to Search...',
