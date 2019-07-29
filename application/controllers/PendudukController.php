@@ -19,7 +19,24 @@ class PendudukController extends MY_Controller {
 
 	public function get_data()
 	{
-		$penduduk = $this->Mpenduduk->get();
+		$penduduk = [];
+		$filter = $this->input->get('filter');
+		if ($filter == 1) {
+			$penduduk = $this->Mpenduduk->get();
+		}
+		else if ($filter == 2) {
+			$penduduk = $this->Mpenduduk->get_where_not_pindah_meninggal();
+		}
+		else if ($filter == 3) {
+			$penduduk = $this->Mpenduduk->get_where_meninggal();
+		}
+		else if ($filter == 4) {
+			$penduduk = $this->Mpenduduk->get_where_pindah();
+		}
+		else {
+			$penduduk = $this->Mpenduduk->get();
+		}
+		
 
 		$data['data'] = $penduduk;
 

@@ -14,7 +14,18 @@
 	            <!-- Advanced Tables -->
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
-	                     <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
+                        <div class="">
+                             <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary mr-2" style="margin-right: 10px;" id="button_tambah">Tambah</a>
+
+                             <select class="" placeholder="Filter" name="filter" id="filter">
+                                <option value="1" selected="">Semua</option>
+                                <option value="2">Penduduk Aktif</option>
+                                <option value="3">Penduduk Meninggal</option>
+                                <option value="4">Penduduk Pindah</option>
+
+                            </select>
+                        </div>
+    	                    
 	                </div>
 	                <div class="panel-body">
                         <table class="table table-striped border table-bordered table-hover" width="130%" id="table_penduduk">
@@ -154,18 +165,22 @@ $(document).ready(function() {
 
 		$('#modal_penduduk').modal('show');
 	});
+
+    $('#filter').change(function(event) {
+        event.preventDefault();
+        var filter = $(this).val();
+        get_data(filter);
+    });
 });
 
 
-function get_data () {
+function get_data (filter = 1) {
 	var table_penduduk = $('#table_penduduk').DataTable({
 		destroy: true,
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('penduduk/get_data') ?>',
-		    data: {
-		    }
+		    url: '<?php echo base_url(); ?>/penduduk/get_data?filter=' + filter,
 		},
 		columns: [
             { data: 'id_penduduk' },
@@ -191,6 +206,7 @@ function get_data () {
 		    	targets: -1,
 		    	className: "text-center",
 		    	data: "id_penduduk",
+                width: "100px",
 		    	render : function(data, type, full, meta) {
 		    		return '<a href="<?php echo site_url('penduduk/update') ?>" class="btn btn-sm btn-primary mr-1 penduduk_edit">Edit</a><a href="<?php echo site_url('penduduk/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
 		    	}

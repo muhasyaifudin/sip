@@ -15,7 +15,7 @@ class PerpindahanController extends MY_Controller {
 	public function index()
 	{
 		$data = [
-			'penduduk' => $this->Mpenduduk->get(),
+			'penduduk' => $this->Mpenduduk->get_where_not_pindah_meninggal(),
 		];
 
 		$this->load_view('Vperpindahan', $data);
