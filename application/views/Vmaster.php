@@ -49,21 +49,21 @@
                 <ul class="nav" id="main-menu">
       				<li class="text-center">
                         <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
+				   </li>
                     <li>1
-                        <a class="active-menu"  href="<?php echo site_url('penduduk'); ?>"> Data Penduduk</a>
+                        <a class="<?php if($this->uri->segment(1) === 'penduduk') echo 'active-menu'; ?>"  href="<?php echo site_url('penduduk'); ?>"> Data Penduduk</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('perpindahan'); ?>">Perpindahan</a>
+                        <a class="<?php if($this->uri->segment(1) === 'perpindahan') echo 'active-menu'; ?>"  href="<?php echo site_url('perpindahan'); ?>">Perpindahan</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('kedatangan'); ?>">Kedatangan</a>
+                        <a class="<?php if($this->uri->segment(1) === 'kedatangan') echo 'active-menu'; ?>"  href="<?php echo site_url('kedatangan'); ?>">Kedatangan</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('kelahiran'); ?>">Kelahiran</a>
+                        <a  class="<?php if($this->uri->segment(1) === 'kelahiran') echo 'active-menu'; ?>" href="<?php echo site_url('kelahiran'); ?>">Kelahiran</a>
                     </li>
 			        <li  >
-                        <a   href="kematian">Kematian</a>
+                        <a  class="<?php if($this->uri->segment(1) === 'kematian') echo 'active-menu'; ?>" href="kematian">Kematian</a>
                     </li>	
                       
                 </ul>
