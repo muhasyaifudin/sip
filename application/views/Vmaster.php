@@ -4,26 +4,21 @@
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kantor Desa Kaliangkrik</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
-   <!-- JQUERY SCRIPTS -->
+    <!-- BINARY CSS -->
+    <link href="assets/css/binary.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link href="assets/js/dataTables/dataTables.binary.css" rel="stylesheet" />
+
+   <!-- BINARY SCRIPT -->
     <script src="assets/js/jquery.min.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/binary.min.js"></script>
     <script src="assets/js/jquery.metisMenu.js"></script>
      <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="assets/js/dataTables/dataTables.binary.js"></script>
     <script src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
 </head>
 <body>

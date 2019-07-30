@@ -76,15 +76,15 @@
 
 	                <div class="form-group">
                         <label>NIK</label>
-                        <input class="form-control" placeholder="NIK" name="nik" />
+                        <input class="form-control" placeholder="NIK" name="nik" required="" />
                     </div>
                     <div class="form-group">
                         <label>No KK</label>
-                        <input class="form-control" placeholder="No KK" name="no_kk" />
+                        <input class="form-control" placeholder="No KK" name="no_kk" required="" />
                     </div>
                     <div class="form-group">
                         <label>SHDK</label>
-                        <select class="form-control" placeholder="SHDK" name="shdk">
+                        <select class="form-control" placeholder="SHDK" name="shdk" required="">
                             <option value="kepala keluarga">Kepala Keluarga</option>
                             <option value="istri">Ibu</option>
                             <option value="anak">Anak</option>
@@ -92,37 +92,37 @@
                     </div>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input class="form-control" placeholder="Nama" name="nama" />
+                        <input class="form-control" placeholder="Nama" name="nama" required="" />
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
-                        <select class="form-control" placeholder="Jenis Kelamin" name="jenis_kelamin">
+                        <select class="form-control" placeholder="Jenis Kelamin" name="jenis_kelamin" required="">
                             <option value="laki-laki">Laki-Laki</option>
                             <option value="perempuan">Perempuan</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Tempat Lahir</label>
-                        <input class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" />
+                        <input class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" required="" />
                     </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tanggal_lahir" />
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tanggal_lahir" required="" />
                     </div>
                      <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" placeholder="Status" name="status">
+                        <select class="form-control" placeholder="Status" name="status" required="">
                             <option value="kawin">Kawin</option>
                             <option value="belum kawin">Belum Kawin</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Pekerjaan</label>
-                        <input type="text" class="form-control" placeholder="Pekerjaan" name="pekerjaan" />
+                        <input type="text" class="form-control" placeholder="Pekerjaan" name="pekerjaan" required="" />
                     </div>
                     <div class="form-group">
                         <label>Nama Ibu</label>
-                        <input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu" />
+                        <input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu"  required="" />
                     </div>
                     <div class="form-group">
                         <label>Nama Ayah</label>
@@ -131,15 +131,15 @@
 
                     <div class="form-group">
                         <label>Alamat</label>
-                        <textarea class="form-control" name="alamat" placeholder="ALamat"></textarea>
+                        <textarea class="form-control" name="alamat" placeholder="ALamat" required=""></textarea>
                     </div>
                     <div class="form-group">
                         <label>RT</label>
-                        <input type="number" class="form-control" placeholder="rt" name="rt" />
+                        <input type="number" class="form-control" placeholder="rt" name="rt" required="" />
                     </div>
                     <div class="form-group">
                         <label>RW</label>
-                        <input type="number" class="form-control" placeholder="rw" name="rw" />
+                        <input type="number" class="form-control" placeholder="rw" name="rw" required="" />
                     </div>
 
 	            </div>

@@ -62,15 +62,15 @@
 
 	                <div class="form-group">
                         <label>Tanggal Lapor</label>
-                        <input type="date" class="form-control" placeholder="Tanggal Lapor" name="tanggal_lapor" />
+                        <input type="date" class="form-control" placeholder="Tanggal Lapor" name="tanggal_lapor" required="" />
                     </div>
                     <div class="form-group">
                         <label>No Akta</label>
-                        <input class="form-control" placeholder="No Akta" name="no_akta" />
+                        <input class="form-control" placeholder="No Akta" name="no_akta" required="" />
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
-                        <select class="form-control" placeholder="Penduduk" name="id_penduduk">
+                        <select class="form-control" placeholder="Penduduk" name="id_penduduk" required="">
                             <option value="-1">--Pilih Penduduk--</option>
                             <?php foreach ($penduduk as $value): ?>
                              <option value="<?= $value->id_penduduk ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
@@ -81,7 +81,7 @@
                    
                     <div class="form-group">
                         <label>Tanggal Meninggal</label>
-                        <input type="date" class="form-control" placeholder="Tanggal Meninggal" name="tanggal_meninggal" />
+                        <input type="date" class="form-control" placeholder="Tanggal Meninggal" name="tanggal_meninggal" required="" />
                     </div>
 
 	            </div>

@@ -67,15 +67,15 @@
 
 	                <div class="form-group">
                         <label>Tanggal Surat</label>
-                        <input type="date" class="form-control" placeholder="Tanggal Surat" name="tanggal_surat" />
+                        <input type="date" class="form-control" placeholder="Tanggal Surat" name="tanggal_surat" required="" />
                     </div>
                     <div class="form-group">
                         <label>No Surat</label>
-                        <input class="form-control" placeholder="No Surat" name="no_surat" />
+                        <input class="form-control" placeholder="No Surat" name="no_surat" required="" />
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
-                        <select class="form-control" placeholder="Penduduk" name="id_penduduk">
+                        <select class="form-control" placeholder="Penduduk" name="id_penduduk" required="">
                             <option value="-1">--Pilih Penduduk--</option>
                             <?php foreach ($penduduk as $value): ?>
                              <option value="<?= $value->id_penduduk ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
@@ -87,37 +87,37 @@
                     <h4>Asal Kedatangan</h4>
                      <div class="form-group">
                         <label>Alamat</label>
-                        <textarea class="form-control" placeholder="Alamat" name="asal_alamat"></textarea>
+                        <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
                     </div>
                     <div class="form-group">
                         <label>RT</label>
-                        <input type="number" class="form-control" placeholder="rt" name="asal_rt" />
+                        <input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
                     </div>
                     <div class="form-group">
                         <label>RW</label>
-                        <input type="number" class="form-control" placeholder="rw" name="asal_rw" />
+                        <input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
                     </div>
                     <div class="form-group">
                         <label>Desa</label>
-                        <input type="text" class="form-control" placeholder="Desa" name="asal_desa" />
+                        <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
                     </div>
                     <div class="form-group">
                         <label>Kecamatan</label>
-                        <input type="text" class="form-control" placeholder="Kecamatan" name="asal_kecamatan" />
+                        <input type="text" class="form-control" placeholder="Kecamatan" name="asal_kecamatan" required="" />
                     </div>
                     <div class="form-group">
                         <label>Kabupaten/Kota</label>
-                        <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="asal_kabupaten_kota" />
+                        <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="asal_kabupaten_kota" required="" />
                     </div>
                     <hr>
                     <h4>Tujuan Kedatangan</h4>
                      <div class="form-group">
                         <label>Alamat</label>
-                        <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat"></textarea>
+                        <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat" required=""></textarea>
                     </div>
                     <div class="form-group">
                         <label>RT</label>
-                        <input type="number" class="form-control" placeholder="rt" name="tujuan_rt" />
+                        <input type="number" class="form-control" placeholder="rt" name="tujuan_rt" required="" />
                     </div>
                     <div class="form-group">
                         <label>RW</label>
