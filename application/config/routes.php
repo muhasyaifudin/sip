@@ -97,6 +97,10 @@ $route['kedatangan/insert']['POST'] = 'KedatanganController/insert';
 $route['kedatangan/update']['POST'] = 'KedatanganController/update';
 $route['kedatangan/delete/(:num)']['GET'] = 'KedatanganController/delete/$1';
 
+$route['ganti_password'] = 'AuthController/ganti_password';
+$route['ganti_password_submit'] = 'AuthController/ganti_password_submit';
+
+
 
 
 

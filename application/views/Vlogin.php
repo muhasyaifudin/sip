@@ -64,6 +64,15 @@
                                 <i class="icon-reading icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>
                                 <h5 class="mb-0">Login</h5>
                             </div>
+
+                            <?php if ($this->session->flashdata('pesan_login')): ?>
+                                <div class="alert alert-warning border-0 alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                                    <span class="font-weight-semibold"></span> <?php echo $this->session->flashdata('pesan_login'); ?>
+                                </div>
+                            <?php endif ?>
+                            
+                          
                             
                             <div class="form-group form-group-feedback form-group-feedback-left">
                                 <input type="text" class="form-control" name="identity" id="identity" placeholder="Email" data-validation="email required">

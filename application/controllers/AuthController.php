@@ -44,6 +44,8 @@ class AuthController extends CI_Controller {
 				// if the login was un-successful
 				// redirect them back to the login page
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('pesan_login', 'Login Salah');
+
 				redirect('login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
@@ -53,7 +55,83 @@ class AuthController extends CI_Controller {
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
+			$this->session->set_flashdata('pesan_login', 'Email & Password wajib diisi');
+
 			redirect('login', 'refresh');
+		}
+	}
+
+	public function ganti_password()
+	{
+		$data = [];
+		$this->load_view('Vganti_password', $data);
+	}
+
+	public function ganti_password_submit()
+	{
+		$this->form_validation->set_rules('old', $this->lang->line('change_password_validation_old_password_label'), 'required');
+		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|matches[new_confirm]');
+		$this->form_validation->set_rules('new_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
+
+		if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login', 'refresh');
+		}
+
+		$user = $this->ion_auth->user()->row();
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			// display the form
+			// set the flash data error message if there is one
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+			$this->data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
+			$this->data['old_password'] = [
+				'name' => 'old',
+				'id' => 'old',
+				'type' => 'password',
+			];
+			$this->data['new_password'] = [
+				'name' => 'new',
+				'id' => 'new',
+				'type' => 'password',
+				'pattern' => '^.{' . $this->data['min_password_length'] . '}.*$',
+			];
+			$this->data['new_password_confirm'] = [
+				'name' => 'new_confirm',
+				'id' => 'new_confirm',
+				'type' => 'password',
+				'pattern' => '^.{' . $this->data['min_password_length'] . '}.*$',
+			];
+			$this->data['user_id'] = [
+				'name' => 'user_id',
+				'id' => 'user_id',
+				'type' => 'hidden',
+				'value' => $user->id,
+			];
+
+			// render
+			$this->session->set_flashdata('message', validation_errors());
+			redirect('ganti_password', 'refresh');
+		}
+		else
+		{
+			$identity = $this->session->userdata('identity');
+
+			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+
+			if ($change)
+			{
+				//if the password was successfully changed
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->logout();
+			}
+			else
+			{
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect('ganti_password', 'refresh');
+			}
 		}
 	}
 
@@ -63,6 +141,17 @@ class AuthController extends CI_Controller {
 		redirect('login', 'refresh');
 	}
 
+	public function load_view($v, $data = [])
+	{
+		
+		$data = array(
+			// "title" => $v['title'],
+			"content" => $v,
+			"data" => $data,
+		);	
+
+		$this->load->view('Vmaster', $data);
+	}
 }
 
 /* End of file LoginController.php */
