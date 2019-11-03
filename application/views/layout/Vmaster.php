@@ -108,7 +108,9 @@
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+						<a href="<?php echo base_url(); ?>ganti_password" class="dropdown-item"><i class="icon-key"></i> Ganti Password</a>
+						<a href="<?php echo base_url(); ?>logout" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+
 					</div>
 				</li>
 			</ul>

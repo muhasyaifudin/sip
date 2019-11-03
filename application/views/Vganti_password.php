@@ -1,19 +1,16 @@
 <script src="<?php echo base_url(); ?>assets/form_validator/jquery.form-validator.js"></script>
-<div id="page-wrapper" >
-    <div id="page-inner">
-        
-        <div class="row">
-            <div class="col-md-12">
-             <h2>Ganti Password</h2>   
-               
-            </div>
-        </div>
-         <!-- /. ROW  -->
-         <hr />
-       
-	    <div class="row">
-	        <div class="col-md-4">
-	            <form action="<?php echo site_url('ganti_password_submit') ?>" method="POST" accept-charset="utf-8" id="form_kematian">
+
+<div class="content pt-5">
+    
+    <div class="row">
+        <div class="col-md-4 offset-4">
+            <div class="card">
+                <div class="card-header header-elements-inline pb-2 pt-2 align-content-center">
+                    <h5>Ganti Password</h5>
+                   
+                </div>
+                <div class="card-body">
+                    <form action="<?php echo site_url('ganti_password_submit') ?>" method="POST" accept-charset="utf-8" id="form_kematian">
                     
                     <?php if ($this->session->flashdata('message')): ?>
                         <div class="alert alert-danger border-0 alert-dismissible">
@@ -41,13 +38,13 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 
                 </form>
-	        </div>
-	    </div>
-        <!-- /. ROW  -->
-    
+                </div>
+            </div>
+        </div>
     </div>
-        <!-- /. ROW  -->
+     
 </div>
+
 
 <script type="text/javascript">
 

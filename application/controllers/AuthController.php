@@ -150,7 +150,7 @@ class AuthController extends CI_Controller {
 			"data" => $data,
 		);	
 
-		$this->load->view('Vmaster', $data);
+		$this->load->view('layout/Vmaster', $data);
 	}
 }
 
