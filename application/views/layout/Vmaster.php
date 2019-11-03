@@ -177,25 +177,25 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../full/changelog.html" class="nav-link">
+							<a href="<?php echo site_url('kelahiran'); ?>" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Kelahiran</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../full/changelog.html" class="nav-link">
+							<a href="<?php echo site_url('kematian'); ?>" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Kematian</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../full/changelog.html" class="nav-link">
+							<a href="<?php echo site_url('pengajuan_surat'); ?>" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Pengajuan Surat</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../full/changelog.html" class="nav-link">
+							<a href="<?php echo site_url('laporan'); ?>" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Laporan</span>
 							</a>

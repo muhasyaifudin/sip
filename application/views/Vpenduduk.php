@@ -72,11 +72,11 @@
 
 	                <div class="form-group">
                         <label>NIK</label>
-                        <input class="form-control" placeholder="NIK" name="nik" required="" />
+                        <input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
                     </div>
                     <div class="form-group">
                         <label>No KK</label>
-                        <input class="form-control" placeholder="No KK" name="no_kk" required="" />
+                        <input type="number" class="form-control" placeholder="No KK" name="no_kk" required="" />
                     </div>
                     <div class="form-group">
                         <label>SHDK</label>

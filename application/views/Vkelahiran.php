@@ -1,53 +1,52 @@
-<div id="page-wrapper" >
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-             <h2>Data Kelahiran</h2>   
-               
-            </div>
+<!-- Page header -->
+<div class="page-header pb-1 pt-1">
+    <div class="page-header-content header-elements-md-inline pb-1 pt-1">
+        <div class="page-title d-flex p-1">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Kelahiran</span></h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
-         <!-- /. ROW  -->
-         <hr />
-       
-	    <div class="row">
-	        <div class="col-md-12">
-	            <!-- Advanced Tables -->
-	            <div class="panel panel-default">
-	                <div class="panel-heading">
-	                     <a href="<?php echo site_url('kelahiran/insert') ?>" class="btn btn-primary" id="button_tambah">Tambah</a>
-	                </div>
-	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" width="130%" id="table_kelahiran">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Tanggal</th>
-                                    <th>No Akta</th>
-                                    <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Tempat Lahir</th>
-                                    <th>Tanggal Lahit</th>
-                                    <th>Alamat</th>
-                                    <th>RT</th>
-                                    <th>RW</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-                        </table>	                    
-	                </div>
-	            </div>
-	            <!--End Advanced Tables -->
-	        </div>
-	    </div>
-        <!-- /. ROW  -->
+
     
     </div>
-        <!-- /. ROW  -->
+</div>
+<!-- /page header -->
+<!-- /page header -->
+<div class="content pt-0">
+ 
+     <div class="card">
+        <div class="card-header header-elements-inline pb-2 pt-2">
+            <div>
+                 <a href="<?php echo site_url('kelahiran/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
+            </div>
+            <div class="header-elements d-flex flex-row">
+                <div class="list-icons">
+                  
+                </div>
+            </div>
+        </div>
+             <table class="table table-striped border table-xs table-hover" id="table_kelahiran" style="min-width: 100%;">
+                <thead>
+                    <tr>
+                         <th>ID</th>
+                        <th>Tanggal</th>
+                        <th>No Akta</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahit</th>
+                        <th>Alamat</th>
+                        <th>RT</th>
+                        <th>RW</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>           
+    </div>
 </div>
 <div class="modal fade" id="modal_kelahiran" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -142,24 +141,30 @@ function get_data () {
 		    	className: "text-center",
 		    	data: "id_kelahiran",
 		    	render : function(data, type, full, meta) {
-		    		return '<a href="<?php echo site_url('kelahiran/update') ?>" class="btn btn-sm btn-primary mr-1 kelahiran_edit">Edit</a><a href="<?php echo site_url('kelahiran/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
+		    		return `<a href="<?php echo site_url('kelahiran/update') ?>" class=" mr-1 kelahiran_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('kelahiran/delete') ?>/${data}" class="kelahiran_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],
 		autoWidth: true,
-		searching: true,
-		pageLength: 10,
-		scrollY: 400+'px',
-		scrollX: true,
-		scrollCollapse: false,
-		scroller: true,
-		dom: '<"datatable-header"fl><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
-		language: {
-            search: '<span>Search:</span> _INPUT_',
-            searchPlaceholder: 'Type to Search...',
-            lengthMenu: '<span>Show:</span> _MENU_',
+        searching: true,
+        pageLength: 10,
+        scrollX: true,
+        fixedColumns: true,
+        fixedColumns: {
+            leftColumns: 1,
+            rightColumns: 1,
+        },
+        scrollCollapse: false,
+        scroller: true,
+        dom: '<"datatable-header"fl><tr><"datatable-footer"ip>',
+        language: {
+            search: '<span>Cari:</span> _INPUT_',
+            searchPlaceholder: 'Pencarian',
+            lengthMenu: '<span>Lihat:</span> _MENU_',
             processing: '<i class="icon-spinner2 spinner"></i>',
-            paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' },
+            info: "Menampilkan Halaman _PAGE_ Dari _PAGES_",
         },
 	});
 

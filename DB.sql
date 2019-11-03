@@ -184,7 +184,7 @@ CREATE TABLE `tabel_penduduk` (
   `rt` int(5) DEFAULT NULL,
   `rw` int(5) DEFAULT NULL,
   PRIMARY KEY (`id_penduduk`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tabel_penduduk` */
 
@@ -201,7 +201,25 @@ insert  into `tabel_penduduk`(`id_penduduk`,`nik`,`no_kk`,`shdk`,`nama`,`jenis_k
 (10,'3308134408570003','3308130407107815','istri','MUYEM','perempuan','MAGELANG','1957-08-04','kawin','Petani/Pekebun','SIAM','','BULUSARI',1,1),
 (11,'3308135010140001','3308131211120004','anak','ZULFA UMMULAILA','perempuan','MAGELANG','2014-10-10','belum kawin','Belum/Tidak Bekerja','MULYANAH','','BULUSARI',1,5),
 (12,'3308131304400002','3308130407100346','kepala keluarga','WARSONO','laki-laki','MAGELANG','1940-04-13','kawin','Petani/Pekebun','SARINI','','BULUSARI',1,5),
-(13,'3308131005550006','3308130307106220','kepala keluarga','WARTONO','laki-laki','MAGELANG','1955-05-10','kawin','Petani/Pekebun','REGET','','BULUSARI',2,6);
+(13,'3308131005550006','3308130307106220','kepala keluarga','WARTONO','laki-laki','MAGELANG','1955-05-10','kawin','Petani/Pekebun','REGET','','BULUSARI',2,6),
+(14,'3308133003950006','3308130407107815','anak','WALNO','laki-laki','MAGELANG','1995-03-30','belum kawin','Lainnya','MUYEM','','BUUSARI',1,1),
+(15,'3308132308880004','3308130407107815','anak','SANGKRIP PRIHATIN','laki-laki','MAGELANG','1988-08-23','belum kawin','Petani/Pekebun','MUYEM','','BULUSARI',1,1),
+(16,'3308132310950001','3308131504170002','kepala keluarga','NGARI','laki-laki','MAGELANG','1995-10-23','kawin','Petani/Pekebun','SARTINI','','BULUSARI',1,1),
+(17,'3308105801980003','3308131504170002','istri','YANUAR DWI WAHYUNINGSIH','perempuan','MAGELANG','1997-01-18','kawin','Mengurus Rumah Tangga','MARYUNI','','BULUSARI',1,1),
+(18,'3308133112740041','3308130407101594','kepala keluarga','MIFTAHUDIN','laki-laki','MAGELANG','1974-12-31','kawin','Petani/Pekebun','WARTI','','BULUSARI',1,1),
+(19,'3308136006850008','3308130407101594','istri','AL ISTIKOMAH','perempuan','MAGELANG','1985-06-20','kawin','Petani/Pekebun','TARIYAH','','BULUSARI',1,1),
+(20,'3308130205100001','3308130407101594','anak','HANIF','laki-laki','MAGELANG','2010-05-02','belum kawin','Belum/Tidak Bekerja','AL ISTIKOMAH','','BULUSARI',1,1),
+(21,'3308130711450005','3308130307107194','kepala keluarga','NIRTO','laki-laki','MAGELANG','1945-11-07','kawin','Petani/Pekebun','KLINEM','','BULUSARI',1,2),
+(22,'3308136306550002','3308130307107194','istri','TURIYAH','perempuan','MAGELANG','1955-06-23','kawin','Petani/Pekebun','SURAMI','','BULUSARI',1,2),
+(23,'3308133112740042','3308130407101596','kepala keluarga','KABUL','laki-laki','MAGELANG','1974-12-31','kawin','Wiraswasta','WARSIH','','BULUSARI',1,2),
+(24,'3308137112790041','3308130407101596','istri','SUTARTI','perempuan','MAGELANG','1979-12-31','kawin','Petani/Pekebun','TUKIYAH','','BULUSARI',1,2),
+(25,'3308132402990009','3308130407101596','anak','NURROHMAN','laki-laki','MAGELANG','1999-02-24','belum kawin','Buruh Harian Lepas','SUTARTI','','BULUSARI',1,2),
+(26,'3308130511030002','3308130407101596','anak','MIFTAHUL ANAM','laki-laki','MAGELANG','2003-11-05','belum kawin','Pelajar/Mahasiswa','SUTARTI','','BULUSARI',1,2),
+(27,'3308137112750048','3308130407101603','kepala keluarga','LASMI','perempuan','MAGELANG','1975-12-31','kawin','Lainnya','','','BULUSARI',1,2),
+(28,'3308137112030005','3308130407101603','anak','RENI SAFITRI','perempuan','MAGELANG','2003-12-31','belum kawin','Lainnya','LASMI','','BULUSARI',1,2),
+(29,'3308137112000019','3308130407101603','anak','REFI','perempuan','MAGELANG','2000-12-31','belum kawin','Lainnya','LASMI','','BULUSARI',1,2),
+(30,'3308130702830002','3308130407106065','kepala keluarga','URIP PRIHATIN','laki-laki','MAGELANG','1983-02-07','kawin','Wiraswasta','TUKIYAH','','BULUSARI',1,2),
+(31,'3308136102840003','3308130407106065','istri','LESTARI','perempuan','MAGELANG','1984-02-21','kawin','Mengurus Rumah Tangga','NOKIYAH','','BULUSARI',1,2);
 
 /*Table structure for table `tabel_perpindahan` */
 
@@ -287,7 +305,7 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`ip_address`,`username`,`password`,`email`,`activation_selector`,`activation_code`,`forgotten_password_selector`,`forgotten_password_code`,`forgotten_password_time`,`remember_selector`,`remember_code`,`created_on`,`last_login`,`active`,`first_name`,`last_name`,`company`,`phone`) values 
-(1,'127.0.0.1','administrator','$2y$12$rB9gVIJmL8Q0cWoieCn3L.7uK7O51INOzoYPeG9taXkJZ.RM7E.eu','admin@admin.com',NULL,'',NULL,NULL,NULL,NULL,NULL,1268889823,1564238506,1,'Admin','istrator','ADMIN','0');
+(1,'127.0.0.1','administrator','$2y$12$rB9gVIJmL8Q0cWoieCn3L.7uK7O51INOzoYPeG9taXkJZ.RM7E.eu','admin@admin.com',NULL,'',NULL,NULL,NULL,NULL,NULL,1268889823,1564276647,1,'Admin','istrator','ADMIN','0');
 
 /*Table structure for table `users_groups` */
 
