@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
            <table class="datatable-basic table-xs table" style="min-width: 100%; white-space: normal;" id="table_penduduk">
                 <thead>
                     <tr>
@@ -57,7 +56,6 @@
                     
                 </tbody>
             </table>
-        </div>
     </div>
 </div>
 <!-- /content area -->

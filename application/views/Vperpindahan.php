@@ -11,7 +11,6 @@
 </div>
 <!-- /page header -->
 <div class="content pt-0">
- 
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
@@ -23,8 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
-             <table class="table table-striped border table-xs table-hover" id="table_perpindahan" style="min-width: 100%;">
+             <table class="table table-striped border table-xs table-hover" id="table_perpindahan" style="min-width: 100%; white-space: nowrap;">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -48,7 +46,6 @@
                     
                 </tbody>
             </table>           
-        </div>
     </div>
 </div>
 

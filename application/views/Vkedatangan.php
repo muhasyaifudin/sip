@@ -24,7 +24,6 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
              <table class="table table-striped border table-xs table-hover" id="table_kedatangan" style="min-width: 100%;">
                 <thead>
                     <tr>
@@ -49,7 +48,6 @@
                     
                 </tbody>
             </table>           
-        </div>
     </div>
 </div>
 
