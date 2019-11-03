@@ -288,6 +288,7 @@ var JqueryUiForms = function() {
             source: projects,
             focus: function( event, ui ) {
                 $('#ac-custom').val(ui.item.label);
+                
                 return false;
             },
             select: function( event, ui ) {

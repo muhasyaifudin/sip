@@ -215,7 +215,7 @@ var Dashboard = function () {
             // Load data
             // ------------------------------
 
-            d3.csv('global_assets/demo_data/dashboard/traffic_sources.csv', function (error, data) {
+            d3.csv('../../../../global_assets/demo_data/dashboard/traffic_sources.csv', function (error, data) {
 
                 // Pull out values
                 data.forEach(function (d) {
@@ -609,7 +609,7 @@ var Dashboard = function () {
             // Load data
             // ------------------------------
 
-            d3.csv('global_assets/demo_data/dashboard/app_sales.csv', function(error, data) {
+            d3.csv('../../../../global_assets/demo_data/dashboard/app_sales.csv', function(error, data) {
                 formatted = data;
                 redraw();
             });
@@ -1003,7 +1003,7 @@ var Dashboard = function () {
             // Load data
             // ------------------------------
 
-            d3.json('global_assets/demo_data/dashboard/monthly_sales.json', function (error, data) {
+            d3.json('../../../../global_assets/demo_data/dashboard/monthly_sales.json', function (error, data) {
 
                 // Show what's wrong if error
                 if (error) return console.error(error);
@@ -1256,7 +1256,7 @@ var Dashboard = function () {
         if($(element).length > 0) {
 
             // Load data
-            d3.csv('global_assets/demo_data/dashboard/app_sales_heatmap.csv', function(error, data) {
+            d3.csv('../../../../global_assets/demo_data/dashboard/app_sales_heatmap.csv', function(error, data) {
 
 
                 // Bind data
@@ -1597,7 +1597,7 @@ var Dashboard = function () {
             // Load data
             // ------------------------------
 
-            d3.json('global_assets/demo_data/dashboard/monthly_sales.json', function (error, data) {
+            d3.json('../../../../global_assets/demo_data/dashboard/monthly_sales.json', function (error, data) {
 
                 // Show what's wrong if error
                 if (error) return console.error(error);
@@ -3604,7 +3604,7 @@ var Dashboard = function () {
             // Load data
             // ------------------------------
 
-            d3.json('global_assets/demo_data/dashboard/bullets.json', function(error, data) {
+            d3.json('../../../../global_assets/demo_data/dashboard/bullets.json', function(error, data) {
 
                 // Show what's wrong if error
                 if (error) return console.error(error);

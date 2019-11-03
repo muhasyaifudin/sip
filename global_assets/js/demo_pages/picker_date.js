@@ -62,27 +62,8 @@ var DateTimePickers = function() {
 
         // Single picker
         $('.daterange-single').daterangepicker({ 
-            singleDatePicker: true,
-            autoUpdateInput: false,
-            locale: {
-                format: 'YYYY-MM-DD'
-            }
+            singleDatePicker: true
         });
-        $('.daterange-single').on('apply.daterangepicker', function(ev, picker) {
-              $(this).val(picker.startDate.format('YYYY-MM-DD'));
-        });
-
-        $('.daterange-single-2').daterangepicker({ 
-            singleDatePicker: true,
-            autoUpdateInput: false,
-            locale: {
-                format: 'YYYY-MM-DD'
-            }
-        });
-        $('.daterange-single-2').on('apply.daterangepicker', function(ev, picker) {
-              $(this).val(picker.startDate.format('YYYY-MM-DD'));
-        });
-
 
         // Display date dropdowns
         $('.daterange-datemenu').daterangepicker({

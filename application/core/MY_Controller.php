@@ -26,7 +26,7 @@ class MY_Controller extends CI_Controller {
 			"data" => $data,
 		);	
 
-		$this->load->view('Vmaster', $data);
+		$this->load->view('layout/Vmaster', $data);
 	}
 
 }

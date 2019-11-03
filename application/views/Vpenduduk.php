@@ -1,74 +1,72 @@
-<div id="page-wrapper" >
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-             <h2>Data Penduduk</h2>   
-               
-            </div>
+<!-- Page header -->
+<div class="page-header pb-1 pt-1">
+    <div class="page-header-content header-elements-md-inline pb-1 pt-1">
+        <div class="page-title d-flex p-1">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Data Penduduk</span></h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
-         <!-- /. ROW  -->
-         <hr />
-       
-	    <div class="row">
-	        <div class="col-md-12">
-	            <!-- Advanced Tables -->
-	            <div class="panel panel-default">
-	                <div class="panel-heading">
-                        <div class="">
-                             <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary mr-2" style="margin-right: 10px;" id="button_tambah">Tambah</a>
 
-                             <select class="" placeholder="Filter" name="filter" id="filter">
-                                <option value="1" selected="">Semua</option>
-                                <option value="2">Penduduk Aktif</option>
-                                <option value="3">Penduduk Meninggal</option>
-                                <option value="4">Penduduk Pindah</option>
-
-                            </select>
-                        </div>
-    	                    
-	                </div>
-	                <div class="panel-body">
-                        <table class="table table-striped border table-bordered table-hover" width="130%" id="table_penduduk">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NIK</th>
-                                    <th>No KK</th>
-                                    <th>SHDK</th>
-                                    <th>Nama</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Tempat Lahir</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Status</th>
-                                    <th>Pekerjaan</th>
-                                    <th>Nama Ibu</th>
-                                    <th>Nama Ayah</th>
-                                    <th>Alamat</th>
-                                    <th>RT</th>
-                                    <th>RW</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-                        </table>	                    
-	                </div>
-	            </div>
-	            <!--End Advanced Tables -->
-	        </div>
-	    </div>
-        <!-- /. ROW  -->
     
     </div>
-        <!-- /. ROW  -->
 </div>
+<!-- /page header -->
+
+
+<!-- Content area -->
+<div class="content pt-0">
+ 
+     <div class="card">
+        <div class="card-header header-elements-inline pb-2 pt-2">
+            <div>
+                 <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary btn-sm mr-2" style="margin-right: 10px;" id="button_tambah">Tambah</a>
+            </div>
+            <div class="header-elements d-flex flex-row">
+                <div class="list-icons">
+                    <select class="form-control" placeholder="Filter" name="filter" id="filter">
+                        <option value="1" selected="">Semua</option>
+                        <option value="2">Penduduk Aktif</option>
+                        <option value="3">Penduduk Meninggal</option>
+                        <option value="4">Penduduk Pindah</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+           <table class="datatable-basic table-xs table" style="min-width: 100%; white-space: normal;" id="table_penduduk">
+                <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th>NIK</th>
+                        <th>No KK</th>
+                        <th>SHDK</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Status</th>
+                        <th>Pekerjaan</th>
+                        <th>Nama Ibu</th>
+                        <th>Nama Ayah</th>
+                        <th>Alamat</th>
+                        <th>RT</th>
+                        <th>RW</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /content area -->
 <div class="modal fade" id="modal_penduduk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Form Penduduk</h4>
+                <h5 class="modal-title"><i class="icon-user mr-2"></i> &nbsp;Data Penduduk</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_penduduk">
             	<div class="modal-body">
@@ -208,33 +206,36 @@ function get_data (filter = 1) {
 		    	data: "id_penduduk",
                 width: "100px",
 		    	render : function(data, type, full, meta) {
-		    		return '<a href="<?php echo site_url('penduduk/update') ?>" class="btn btn-sm btn-primary mr-1 penduduk_edit">Edit</a><a href="<?php echo site_url('penduduk/delete') ?>/'+data+'" class="btn btn-sm btn-danger"> Delete</a>'
+
+                    return `<a href="<?php echo site_url('penduduk/update') ?>" class=" mr-1 penduduk_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('penduduk/delete') ?>/${data}" class="penduduk_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],
 		autoWidth: true,
 		searching: true,
-		pageLength: 10,
-		scrollY: 400+'px',
+		pageLength: 25,
 		scrollX: true,
+        fixedColumns: true,
         fixedColumns: {
             leftColumns: 1,
-            rightColumns: 1
+            rightColumns: 1,
         },
 		scrollCollapse: false,
 		scroller: true,
-		dom: '<"datatable-header"fl><"datatable-scroll-wrap"tr><"datatable-footer"ip>',
+		dom: '<"datatable-header"fl><tr><"datatable-footer"ip>',
 		language: {
-            search: '<span>Search:</span> _INPUT_',
-            searchPlaceholder: 'Type to Search...',
-            lengthMenu: '<span>Show:</span> _MENU_',
+            search: '<span>Cari:</span> _INPUT_',
+            searchPlaceholder: 'Pencarian',
+            lengthMenu: '<span>Lihat:</span> _MENU_',
             processing: '<i class="icon-spinner2 spinner"></i>',
-            paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' },
+            info: "Menampilkan Halaman _PAGE_ Dari _PAGES_",
         },
         
 	});
 
-	$('#table_penduduk').on('click', '.penduduk_edit', function(event) {
+	$('#table_penduduk').on('click', '.table_penduduk', function(event) {
     	event.preventDefault();
     	
     	data = table_penduduk.row($(this).parents('tr')).data();
@@ -253,7 +254,7 @@ function get_data (filter = 1) {
 
     });
 
-    $('#departments_table').on('click', '.department_delete', function(event) {
+    $('#table_penduduk').on('click', '.penduduk_delete', function(event) {
     	event.preventDefault();
     	url = $(this).attr('href');
 		swal({

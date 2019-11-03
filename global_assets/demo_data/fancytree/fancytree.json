@@ -2,7 +2,7 @@
 	{"title": "Expanded folder with children", "expanded": true, "folder": true, "children": [
 		{"key": "1_2", "title": "Expanded sub-item", "expanded": true, "children": [
 			{"key": "1_2_1", "title": "Active sub-item (active and focus on init)", "active": true, "focused": true},
-			{"key": "1_2_2", "title": "Basic <i>menu item</i> with <strong class='font-weight-semibold'>HTML support</strong>&nbsp;<i class='icon-bin'></i>"}
+			{"key": "1_2_2", "title": "Basic <i>menu item</i> with <strong class='font-weight-semibold'>HTML support</strong>"}
 		]},
 		{"key": "1_3", "title": "Expanded sub-item", "children": [
 			{"key": "1_3_1", "title": "Sub-item 2.2.1"},
