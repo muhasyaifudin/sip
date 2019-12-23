@@ -24,9 +24,23 @@ class MY_Controller extends CI_Controller {
 			// "title" => $v['title'],
 			"content" => $v,
 			"data" => $data,
-		);	
+		);
+
 
 		$this->load->view('layout/Vmaster', $data);
+	}
+
+	public function load_view_public($v, $data = [])
+	{
+		
+		$data = array(
+			// "title" => $v['title'],
+			"content" => $v,
+			"data" => $data,
+		);
+
+
+		$this->load->view('layout/Vmaster_public', $data);
 	}
 
 }

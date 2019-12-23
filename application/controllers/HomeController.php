@@ -12,6 +12,8 @@ class HomeController extends MY_Controller {
 	public function index()
 	{
 
+		// $this->load_view_public('public/Vhome');
+
 		$this->load_view('Vhome');
 	}
 

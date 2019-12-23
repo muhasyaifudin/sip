@@ -65,11 +65,9 @@ $route['login']['GET'] = 'AuthController';
 $route['login']['POST'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
-$route['penduduk']['GET'] = 'PendudukController';
-$route['penduduk/get_data']['GET'] = 'PendudukController/get_data';
-$route['penduduk/insert']['POST'] = 'PendudukController/insert';
-$route['penduduk/update']['POST'] = 'PendudukController/update';
-$route['penduduk/delete/(:num)']['GET'] = 'PendudukController/delete/$1';
+$route['penduduk'] = 'PendudukController';
+$route['penduduk/(:any)'] = 'PendudukController/$1';
+$route['penduduk/(:any)/(:any)'] = 'PendudukController/$1/$1';
 
 
 $route['kematian']['GET'] = 'KematianController';
@@ -96,6 +94,11 @@ $route['kedatangan/get_data']['GET'] = 'KedatanganController/get_data';
 $route['kedatangan/insert']['POST'] = 'KedatanganController/insert';
 $route['kedatangan/update']['POST'] = 'KedatanganController/update';
 $route['kedatangan/delete/(:num)']['GET'] = 'KedatanganController/delete/$1';
+
+
+$route['pengajuan_surat'] = 'PengajuanSuratController';
+$route['pengajuan_surat/(:any)'] = 'PengajuanSuratController/$1';
+$route['pengajuan_surat/(:any)/(:any)'] = 'PengajuanSuratController/$1/$1';
 
 $route['ganti_password'] = 'AuthController/ganti_password';
 $route['ganti_password_submit'] = 'AuthController/ganti_password_submit';
