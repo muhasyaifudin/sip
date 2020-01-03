@@ -18,7 +18,7 @@
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
-                 <a href="<?php echo site_url('penduduk/insert') ?>" class="btn btn-primary btn-sm mr-2" style="margin-right: 10px;" id="button_tambah">Tambah</a>
+                 <a href="<?php echo site_url('admin/penduduk/insert') ?>" class="btn btn-primary btn-sm mr-2" style="margin-right: 10px;" id="button_tambah">Tambah</a>
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
@@ -176,7 +176,7 @@ function get_data (filter = 1) {
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo base_url(); ?>/penduduk/get_data?filter=' + filter,
+		    url: '<?php echo base_url(); ?>/admin/penduduk/get_data?filter=' + filter,
 		},
 		columns: [
             { data: 'id_penduduk' },
@@ -205,12 +205,12 @@ function get_data (filter = 1) {
                 width: "100px",
 		    	render : function(data, type, full, meta) {
 
-                    return `<a href="<?php echo site_url('penduduk/update') ?>" class=" mr-1 penduduk_edit"><i class="icon-pencil7"></i></a>
-                    <a href="<?php echo site_url('penduduk/delete') ?>/${data}" class="penduduk_delete" style="color:red;"><i class="icon-bin"></i></a>`
+                    return `<a href="<?php echo site_url('admin/penduduk/update') ?>" class=" mr-1 penduduk_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('admin/penduduk/delete') ?>/${data}" class="penduduk_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],
-		autoWidth: true,
+		autoWidth: false,
 		searching: true,
 		pageLength: 25,
 		scrollX: true,

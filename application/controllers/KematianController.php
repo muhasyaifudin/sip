@@ -37,7 +37,7 @@ class KematianController extends MY_Controller {
 		$data = $this->input->post();
 
 		if ($this->Mkematian->insert($data)) {
-			redirect('kematian','refresh');
+			redirect('admin/kematian','refresh');
 		}
 		else {
 			return false;
@@ -50,7 +50,7 @@ class KematianController extends MY_Controller {
 		$id_kematian = $this->input->post('id_kematian');
 
 		if ($this->Mkematian->update($id_kematian, $data)) {
-			redirect('kematian','refresh');
+			redirect('admin/kematian','refresh');
 		}
 		else {
 			return false;
@@ -61,7 +61,7 @@ class KematianController extends MY_Controller {
 	{
 
 		if ($this->Mkematian->delete($id)) {
-			redirect('kematian','refresh');
+			redirect('admin/kematian','refresh');
 		}
 		else{
 			return false;

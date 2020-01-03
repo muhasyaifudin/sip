@@ -37,7 +37,7 @@ class KelahiranController extends MY_Controller {
 		$data = $this->input->post();
 
 		if ($this->Mkelahiran->insert($data)) {
-			redirect('kelahiran','refresh');
+			redirect('admin/kelahiran','refresh');
 		}
 		else {
 			return false;
@@ -50,7 +50,7 @@ class KelahiranController extends MY_Controller {
 		$id_kelahiran = $this->input->post('id_kelahiran');
 
 		if ($this->Mkelahiran->update($id_kelahiran, $data)) {
-			redirect('kelahiran','refresh');
+			redirect('admin/kelahiran','refresh');
 		}
 		else {
 			return false;
@@ -61,7 +61,7 @@ class KelahiranController extends MY_Controller {
 	{
 
 		if ($this->Mkelahiran->delete($id)) {
-			redirect('kelahiran','refresh');
+			redirect('admin/kelahiran','refresh');
 		}
 		else{
 			return false;

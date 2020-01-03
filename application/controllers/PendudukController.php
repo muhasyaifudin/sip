@@ -50,7 +50,7 @@ class PendudukController extends MY_Controller {
 		$data = $this->input->post();
 
 		if ($this->Mpenduduk->insert($data)) {
-			redirect('penduduk','refresh');
+			redirect('admin/penduduk','refresh');
 		}
 		else {
 			return false;
@@ -63,7 +63,7 @@ class PendudukController extends MY_Controller {
 		$id_penduduk = $this->input->post('id_penduduk');
 
 		if ($this->Mpenduduk->update($id_penduduk, $data)) {
-			redirect('penduduk','refresh');
+			redirect('admin/penduduk','refresh');
 		}
 		else {
 			return false;
@@ -74,7 +74,7 @@ class PendudukController extends MY_Controller {
 	{
 
 		if ($this->Mpenduduk->delete($id)) {
-			redirect('penduduk','refresh');
+			redirect('admin/penduduk','refresh');
 		}
 		else{
 			return false;

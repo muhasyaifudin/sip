@@ -16,7 +16,7 @@
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
-                 <a href="<?php echo site_url('kelahiran/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
+                 <a href="<?php echo site_url('admin/kelahiran/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
@@ -27,7 +27,7 @@
              <table class="table table-striped border table-xs table-hover" id="table_kelahiran" style="min-width: 100%;">
                 <thead>
                     <tr>
-                         <th>ID</th>
+                        <th>ID</th>
                         <th>Tanggal</th>
                         <th>No Akta</th>
                         <th>NIK</th>
@@ -115,7 +115,7 @@ function get_data () {
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('kelahiran/get_data') ?>',
+		    url: '<?php echo site_url('admin/kelahiran/get_data') ?>',
 		    data: {
 		    }
 		},
@@ -141,8 +141,9 @@ function get_data () {
 		    	className: "text-center",
 		    	data: "id_kelahiran",
 		    	render : function(data, type, full, meta) {
-		    		return `<a href="<?php echo site_url('kelahiran/update') ?>" class=" mr-1 kelahiran_edit"><i class="icon-pencil7"></i></a>
-                    <a href="<?php echo site_url('kelahiran/delete') ?>/${data}" class="kelahiran_delete" style="color:red;"><i class="icon-bin"></i></a>`
+		    		return `
+                    <a href="<?php echo site_url('admin/kelahiran/update') ?>" class=" mr-1 kelahiran_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('admin/kelahiran/delete') ?>/${data}" class="kelahiran_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],

@@ -71,7 +71,7 @@ class PerpindahanController extends MY_Controller {
 		];
 
 		if ($this->Mperpindahan->insert($data_perpindahan)) {
-			redirect('perpindahan','refresh');
+			redirect('admin/perpindahan','refresh');
 		}
 		else {
 			return false;
@@ -103,7 +103,7 @@ class PerpindahanController extends MY_Controller {
 		$id_pindah = $this->input->post('id_pindah');
 
 		if ($this->Mperpindahan->update($id_pindah, $data_perpindahan)) {
-			redirect('perpindahan','refresh');
+			redirect('admin/perpindahan','refresh');
 		}
 		else {
 			return false;
@@ -114,7 +114,7 @@ class PerpindahanController extends MY_Controller {
 	{
 
 		if ($this->Mperpindahan->delete($id)) {
-			redirect('perpindahan','refresh');
+			redirect('admin/perpindahan','refresh');
 		}
 		else{
 			return false;

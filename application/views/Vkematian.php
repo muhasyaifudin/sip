@@ -16,7 +16,7 @@
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
-                 <a href="<?php echo site_url('kematian/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
+                 <a href="<?php echo site_url('admin/kematian/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
@@ -116,7 +116,7 @@ function get_data () {
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('kematian/get_data') ?>',
+		    url: '<?php echo site_url('admin/kematian/get_data') ?>',
 		    data: {
 		    }
 		},
@@ -142,8 +142,8 @@ function get_data () {
 		    	className: "text-center",
 		    	data: "id_kematian",
 		    	render : function(data, type, full, meta) {
-		    		return `<a href="<?php echo site_url('kematian/update') ?>" class=" mr-1 kematian_edit"><i class="icon-pencil7"></i></a>
-                    <a href="<?php echo site_url('kematian/delete') ?>/${data}" class="kematian_delete" style="color:red;"><i class="icon-bin"></i></a>`
+		    		return `<a href="<?php echo site_url('admin/kematian/update') ?>" class=" mr-1 kematian_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('admin/kematian/delete') ?>/${data}" class="kematian_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],

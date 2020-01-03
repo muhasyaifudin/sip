@@ -28,6 +28,9 @@
 	<script src="<?php echo base_url(); ?>global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script src="<?php echo base_url(); ?>global_assets/js/plugins/tables/datatables/extensions/fixed_columns.min.js"></script>
 	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/datatables_extension_fixed_columns.js"></script>
+
+	<script src="<?php echo base_url(); ?>global_assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/form_select2.js"></script>
 	<!-- /core JS files -->
 
 	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/datatables_basic.js"></script>
@@ -67,47 +70,37 @@
 			<div class="collapse navbar-collapse" id="navbar-mobile">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a href="../full/index.html" class="navbar-nav-link">
+						<a href="<?php echo site_url('/') ?>" class="navbar-nav-link">
 							<i class="icon-home4 mr-2"></i>
 							Home
 						</a>
 					</li>
 
-					<li class="nav-item dropdown">
-						<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
-
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">Action</a>
-							<a href="#" class="dropdown-item">Another action</a>
-							<a href="#" class="dropdown-item">One more action</a>
-							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item">Separate action</a>
-						</div>
+					<li class="nav-item">
+						<a href="<?php echo site_url('/pengajuan_surat') ?>" class="navbar-nav-link">
+							<i class="icon-file-text2 mr-2"></i>
+							Pengajuan Surat
+						</a>
 					</li>
+					<li class="nav-item">
+						<a href="<?php echo site_url('/pengajuan_surat') ?>" class="navbar-nav-link">
+							<i class="icon-newspaper mr-2"></i>
+							Informasi
+						</a>
+					</li>
+
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown">
-						<a href="#" class="navbar-nav-link">
-							<i class="icon-bell2"></i>
-							<span class="d-md-none ml-2">Notifications</span>
-							<span class="badge badge-mark border-white ml-auto ml-md-0"></span>
-						</a>					
-					</li>
 
 					<li class="nav-item dropdown dropdown-user">
 						<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-							<img src="../../../../global_assets/images/image.png" class="rounded-circle mr-2" height="34" alt="">
-							<span>Victoria</span>
+							<img src="<?php echo base_url(); ?>/global_assets/images/image.png" class="rounded-circle mr-2" height="34" alt="">
+							<span>Admin</span>
 						</a>
 
 						<div class="dropdown-menu dropdown-menu-right">
-							<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-							<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-							<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
-							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-							<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+							<a href="<?php echo site_url('login') ?>" class="dropdown-item"><i class="icon-switch2"></i> Login</a>
 						</div>
 					</li>
 				</ul>
@@ -118,7 +111,7 @@
 
 
 	<!-- Page content -->
-	<div class="page-content">
+	<div class="page-content container">
 
 	
 		<!-- Main content -->

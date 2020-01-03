@@ -138,7 +138,7 @@ function get_data () {
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('perpindahan/get_data') ?>',
+		    url: '<?php echo site_url('admin/perpindahan/get_data') ?>',
 		    data: {
 		    }
 		},
@@ -166,8 +166,8 @@ function get_data () {
 		    	className: "text-center",
 		    	data: "id_pindah",
 		    	render : function(data, type, full, meta) {
-                    return `<a href="<?php echo site_url('perpindahan/update') ?>" class=" mr-1 perpindahan_edit"><i class="icon-pencil7"></i></a>
-                    <a href="<?php echo site_url('perpindahan/delete') ?>/${data}" class="perpindahan_delete" style="color:red;"><i class="icon-bin"></i></a>`
+                    return `<a href="<?php echo site_url('admin/perpindahan/update') ?>" class=" mr-1 perpindahan_edit"><i class="icon-pencil7"></i></a>
+                    <a href="<?php echo site_url('admin/perpindahan/delete') ?>/${data}" class="perpindahan_delete" style="color:red;"><i class="icon-bin"></i></a>`
 		    	}
 		    }
 		],

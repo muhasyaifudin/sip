@@ -71,7 +71,7 @@ class KedatanganController extends MY_Controller {
 		];
 
 		if ($this->Mkedatangan->insert($data_kedatangan)) {
-			redirect('kedatangan','refresh');
+			redirect('admin/kedatangan','refresh');
 		}
 		else {
 			return false;
@@ -112,7 +112,7 @@ class KedatanganController extends MY_Controller {
 		$id_datang = $this->input->post('id_datang');
 
 		if ($this->Mkedatangan->update($id_datang, $data_kedatangan)) {
-			redirect('kedatangan','refresh');
+			redirect('admin/kedatangan','refresh');
 		}
 		else {
 			return false;
@@ -123,7 +123,7 @@ class KedatanganController extends MY_Controller {
 	{
 
 		if ($this->Mkedatangan->delete($id)) {
-			redirect('kedatangan','refresh');
+			redirect('admin/kedatangan','refresh');
 		}
 		else{
 			return false;

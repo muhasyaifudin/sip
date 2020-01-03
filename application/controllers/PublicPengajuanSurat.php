@@ -1,18 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeController extends CI_Controller {
-
-	public function __construct()
-	{
-		parent::__construct();
-		
-	}
+class PublicPengajuanSurat extends CI_Controller {
 
 	public function index()
 	{
-
-		$this->load_view('public/Vhome');
+		$this->load_view('public/Vpengajuan_surat');
 
 	}
 
@@ -29,5 +22,5 @@ class HomeController extends CI_Controller {
 
 }
 
-/* End of file HomeController.php */
-/* Location: ./application/controllers/HomeController.php */
+/* End of file PublicPengajuanSurat.php */
+/* Location: ./application/controllers/PublicPengajuanSurat.php */

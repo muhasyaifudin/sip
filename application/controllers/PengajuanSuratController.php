@@ -5,7 +5,7 @@ class PengajuanSuratController extends MY_Controller {
 
 	public function index()
 	{
-		
+		$this->load_view('Vpengajuan_surat');
 	}
 
 }

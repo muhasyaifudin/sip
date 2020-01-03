@@ -151,52 +151,52 @@
 
 						<!-- Main -->
 						<li class="nav-item">
-							<a href="<?php echo base_url(); ?>" class="nav-link <?php if($this->uri->segment(1) === '') echo 'active'; ?>">
+							<a href="<?php echo site_url('admin'); ?>" class="nav-link <?php if($this->uri->segment(1) === '') echo 'active'; ?>">
 								<i class="icon-home4"></i>
 								<span>Beranda</span>
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="<?php echo site_url('penduduk'); ?>" class="nav-link <?php if($this->uri->segment(1) === 'penduduk') echo 'active'; ?>">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/penduduk'); ?>" class="nav-link <?php if($this->uri->segment(1) === 'penduduk') echo 'active'; ?>">
+								<i class="icon-people"></i>
 								<span>Data Penduduk</span>
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="<?php echo site_url('perpindahan'); ?>" class="nav-link">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/perpindahan'); ?>" class="nav-link">
+								<i class="icon-move-right"></i>
 								<span>Perpindahan</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo site_url('kedatangan'); ?>" class="nav-link">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/kedatangan'); ?>" class="nav-link">
+								<i class="icon-move-left"></i>
 								<span>Kedatangan</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo site_url('kelahiran'); ?>" class="nav-link">
+							<a href="<?php echo site_url('admin/kelahiran'); ?>" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Kelahiran</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo site_url('kematian'); ?>" class="nav-link">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/kematian'); ?>" class="nav-link">
+								<i class="icon-file-media"></i>
 								<span>Kematian</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo site_url('pengajuan_surat'); ?>" class="nav-link">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/pengajuan_surat'); ?>" class="nav-link">
+								<i class="icon-file-text"></i>
 								<span>Pengajuan Surat</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo site_url('laporan'); ?>" class="nav-link">
-								<i class="icon-list-unordered"></i>
+							<a href="<?php echo site_url('admin/laporan'); ?>" class="nav-link">
+								<i class="icon-file-presentation"></i>
 								<span>Laporan</span>
 							</a>
 						</li>
