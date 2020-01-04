@@ -5,6 +5,7 @@ class PublicPengajuanSurat extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->database();
 		$this->load_view('public/Vpengajuan_surat');
 
 	}
@@ -19,6 +20,8 @@ class PublicPengajuanSurat extends CI_Controller {
 
 		$this->load->view('layout/Vmaster_public', $data);
 	}
+
+
 
 }
 

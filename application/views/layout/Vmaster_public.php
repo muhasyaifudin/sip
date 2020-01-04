@@ -75,7 +75,6 @@
 							Home
 						</a>
 					</li>
-
 					<li class="nav-item">
 						<a href="<?php echo site_url('/pengajuan_surat') ?>" class="navbar-nav-link">
 							<i class="icon-file-text2 mr-2"></i>
@@ -83,16 +82,26 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo site_url('/pengajuan_surat') ?>" class="navbar-nav-link">
+						<a href="<?php echo site_url('/informasi') ?>" class="navbar-nav-link">
 							<i class="icon-newspaper mr-2"></i>
 							Informasi
 						</a>
 					</li>
+					<li class="nav-item dropdown">
+						<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-person mr-2"></i>
+							Profil
+						</a>
 
+						<div class="dropdown-menu">
+							<a href="<?php echo site_url('profil/visi_misi') ?>" class="dropdown-item">Visi & Misi</a>
+							<a href="<?php echo site_url('profil/potensi') ?>" class="dropdown-item">Profil Potensi</a>
+							<a href="<?php echo site_url('profil/struktur') ?>" class="dropdown-item">Struktur Organisasi</a>
+							<a href="<?php echo site_url('profil/sejarah') ?>" class="dropdown-item">Sejarah</a>
+						</div>
+					</li>
 				</ul>
-
 				<ul class="navbar-nav ml-auto">
-
 					<li class="nav-item dropdown dropdown-user">
 						<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
 							<img src="<?php echo base_url(); ?>/global_assets/images/image.png" class="rounded-circle mr-2" height="34" alt="">

@@ -102,3 +102,10 @@ $route['ganti_password_submit'] = 'AuthController/ganti_password_submit';
 $route['pengajuan_surat'] = 'PublicPengajuanSurat';
 $route['pengajuan_surat/(:any)'] = 'PublicPengajuanSurat/$1';
 $route['pengajuan_surat/(:any)/(:any)'] = 'PublicPengajuanSurat/$1/$1';
+
+$route['profil'] = 'ProfilController';
+$route['profil/(:any)'] = 'ProfilController/$1';
+$route['profil/(:any)/(:any)'] = 'ProfilController/$1/$1';
+
+$route['informasi'] = 'InformasiController';
+$route['informasi/(:any)'] = 'InformasiController/$1';

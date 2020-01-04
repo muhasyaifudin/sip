@@ -138,7 +138,7 @@ class AuthController extends CI_Controller {
 	public function logout()
 	{
 		$this->ion_auth->logout();
-		redirect('login', 'refresh');
+		redirect('/', 'refresh');
 	}
 
 	public function load_view($v, $data = [])
