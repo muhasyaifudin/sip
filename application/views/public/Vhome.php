@@ -32,7 +32,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="card-body">
+		<!-- <div class="card-body">
 			<div class="mb-4">
 				<div class="mb-3 text-center">
 					<a href="#" class="d-inline-block">
@@ -151,6 +151,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
