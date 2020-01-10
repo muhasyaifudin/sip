@@ -47,7 +47,7 @@ class KematianController extends MY_Controller {
 	public function update()
 	{
 		$data = $this->input->post();
-		$id_kematian = $this->input->post('id_kematian');
+		$id_kematian = $this->input->post('id');
 
 		if ($this->Mkematian->update($id_kematian, $data)) {
 			redirect('admin/kematian','refresh');

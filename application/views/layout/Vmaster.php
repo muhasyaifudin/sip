@@ -30,6 +30,9 @@
 	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/datatables_extension_fixed_columns.js"></script>
 	<!-- /core JS files -->
 
+	<script src="<?php echo base_url(); ?>global_assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/form_select2.js"></script>
+
 	<script src="<?php echo base_url(); ?>global_assets/js/demo_pages/datatables_basic.js"></script>
 
 	<script src="<?php echo base_url(); ?>global_assets/js/plugins/extensions/jquery_ui/core.min.js"></script>

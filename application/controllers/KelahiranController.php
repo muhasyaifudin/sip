@@ -47,7 +47,7 @@ class KelahiranController extends MY_Controller {
 	public function update()
 	{
 		$data = $this->input->post();
-		$id_kelahiran = $this->input->post('id_kelahiran');
+		$id_kelahiran = $this->input->post('id');
 
 		if ($this->Mkelahiran->update($id_kelahiran, $data)) {
 			redirect('admin/kelahiran','refresh');

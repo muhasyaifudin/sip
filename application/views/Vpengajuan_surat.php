@@ -22,24 +22,17 @@
                 </div>
             </div>
         </div>
-             <table class="table table-striped border table-xs table-hover" id="table_perpindahan" style="min-width: 100%; white-space: nowrap;">
+             <table class="table table-striped border table-xs table-hover" id="table_pengajuan" style="min-width: 100%; white-space: nowrap;">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>No Surat</th>
-                        <th>Tanggal Surat</th>
-                        <th>NIK</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Alamat Tujuan</th>
-                        <th>RT Tujuan</th>
-                        <th>RW Tujuan</th>
-                        <th>Desa Tujuan</th>
-                        <th>Kecamatan Tujuan</th>
-                        <th>Kabupaten/Kota Tujuan</th>
-                        <th>Aksi</th>
+                        <th width="5px">#</th>
+                        <th>Tanggal</th>
+                        <th>Nama Pengirim</th>
+                        <th>Jenis Surat</th>
+                        <th>Sub Jenis Surat</th>
+                        <th>Keterangan</th>
+                        <th>Status</th>
+                        <th width="5px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,17 +42,17 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal_perpindahan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_pengajuan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                <h5 class="modal-title"><i class="icon-user mr-2"></i> &nbsp;Pengajuan Surat</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="" method="POST" accept-charset="utf-8" id="form_perpindahan">
+            <form action="" method="POST" accept-charset="utf-8" id="form_pengajuan">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_pindah" />
-                    <input type="hidden" placeholder="" name="id_tujuanperpindahan" />
+                    <input type="hidden" placeholder="" name="id" />
+                    <input type="hidden" placeholder="" name="id_tujuanpengajuan" />
 
 	                <div class="form-group">
                         <label>Tanggal Surat</label>
@@ -117,6 +110,11 @@
         </div>
     </div>
 </div>
+
+<?php 
+include 'Vpengajuan_surat_modal.php';
+
+ ?>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -125,50 +123,80 @@ $(document).ready(function() {
 	$('#button_tambah').click(function(event) {
 		event.preventDefault();
 
-		$('#form_perpindahan').attr('action', $(this).attr('href'));
+		$('#form_pengajuan').attr('action', $(this).attr('href'));
 
-		$('#modal_perpindahan').modal('show');
+		$('#modal_pengajuan').modal('show');
 	});
 });
 
 
 function get_data () {
-	var table_perpindahan = $('#table_perpindahan').DataTable({
+	var table_pengajuan = $('#table_pengajuan').DataTable({
 		destroy: true,
     	processing: true,
     	ajax: {
     		type: "GET",
-		    url: '<?php echo site_url('admin/perpindahan/get_data') ?>',
+		    url: '<?php echo site_url('admin/pengajuan_surat/get_data') ?>',
 		    data: {
 		    }
 		},
 		columns: [
-            { data: 'id_pindah' },
-            { data: 'no_surat' },
-            { data: 'tanggal_surat' },
-            { data: 'nik' },
-            { data: 'nama' },
-            { data: 'jenis_kelamin' },
-            { data: 'tempat_lahir' },
-            { data: 'tanggal_lahir' },
-            { data: 'tujuan_alamat' },
-            { data: 'tujuan_rt' },
-            { data: 'tujuan_rw' },
-            { data: 'tujuan_desa' },
-            { data: 'tujuan_kecamatan' },
-            { data: 'tujuan_kabupaten_kota' },
+            { data: 'no', defaultContent: '', className: "text-center", },
+            { data: 'tanggal' },
+            { data: 'nama_pengirim' },
+            { data: 'jenis' },
+            { data: 'sub_jenis' },
+            { data: 'keterangan' },
+            { data: 'status_pengajuan' },
             { defaultContent: '' },
             ], 
         columnDefs: [
-        	
+        	{
+                targets: 3,
+                className: "text-left",
+                data: "jenis",
+                render : function(data, type, full, meta) {
+                    if (data == 'perpindahan_datang') {
+                        return `Perpindahan Datang`
+                    }
+                    else if (data == 1) {
+                    }
+                }
+            },
+            {
+                targets:4,
+                className: "text-left",
+                data: "sub_jenis",
+                render : function(data, type, full, meta) {
+                    if (data == 'perpindahan_datang') {
+                        return `Perpindahan Datang`
+                    }
+                    else if (data == 1) {
+                    }
+                }
+            },
+            {
+                targets: -2,
+                className: "text-center",
+                data: "status_pengajuan",
+                render : function(data, type, full, meta) {
+                    if (data == 0) {
+                        return `<span class="badge badge-warning">Belum Diproses</span>`
+                    }
+                    else if (data == 1) {
+                        return `<span class="badge badge-success">Diproses</span>`
+                    }
+                }
+            },
+
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_pindah",
+		    	data: "id",
 		    	render : function(data, type, full, meta) {
                     return `
-                    <a href="<?php echo site_url('admin/perpindahan/update') ?>" class=" mr-1 perpindahan_edit"><i class="icon-pencil7"></i></a>
-                    <a href="<?php echo site_url('admin/perpindahan/delete') ?>/${data}" class="perpindahan_delete" style="color:red;"><i class="icon-bin"></i></a>
+                    <a href="<?php echo site_url('admin/pengajuan_surat/update') ?>" class=" mr-1 pengajuan_proses"><i class="icon-enter"></i></a>
+                    <a href="<?php echo site_url('admin/pengajuan_surat/delete') ?>/${data}" class="pengajuan_delete" style="color:red;"><i class="icon-bin"></i></a>
                     `
 		    	}
 		    }
@@ -195,22 +223,51 @@ function get_data () {
         },
 	});
 
-	$('#table_perpindahan').on('click', '.perpindahan_edit', function(event) {
+    table_pengajuan.on( 'order.dt search.dt', function () {
+        table_pengajuan.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1
+        } )
+    } ).draw()
+
+	$('#table_pengajuan').on('click', '.pengajuan_proses', function(event) {
     	event.preventDefault();
     	
-    	data = table_perpindahan.row($(this).parents('tr')).data();
+    	data = table_pengajuan.row($(this).parents('tr')).data();
+
+        $.ajax({
+            url: `<?php echo site_url('admin/pengajuan_surat/detail') ?>`,
+            type: 'GET',
+            dataType: 'json',
+            data: data,
+        })
+        .done(function(res) {
+            if (res) {
+                
+                $.each(res.data, function(index, val) {
+                    $('#form_kedatangan').find('input[name="'+index+'"]').val(val).trigger('change')
+                    $('#form_kedatangan').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                    $('#form_kedatangan').find('select[name="'+index+'"]').val(val).trigger('change')
+
+                });
+
+                $('#form_kedatangan').find('input[name="id_pengajuan"]').val(data.id)
+
+
+                $('#modal_kedatangan').modal('show');
+            }
+        })
 
     	$.each(data, function(index, val) {
-    		$('#form_perpindahan').find('input[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_perpindahan').find('textarea[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_perpindahan').find('select[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_pengajuan').find('input[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_pengajuan').find('textarea[name="'+index+'"]').val(val).trigger('change')
+    		$('#form_pengajuan').find('select[name="'+index+'"]').val(val).trigger('change')
 
 
     	});
 
-    	$('#form_perpindahan').attr('action', $(this).attr('href'));
+    	$('#form_pengajuan').attr('action', $(this).attr('href'));
 
-		$('#modal_perpindahan').modal('show');
+		
 
     });
 

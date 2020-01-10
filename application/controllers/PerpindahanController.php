@@ -65,8 +65,8 @@ class PerpindahanController extends MY_Controller {
 			'tanggal_surat' => $data['tanggal_surat'],
 			'id_klasifikasi' => 1,
 			'id_penduduk' => $data['id_penduduk'],
-			'id_asalperpindahan' => $res_asal->id_asalperpindahan,
-			'id_tujuanperpindahan' => $res_tujuan->id_tujuanperpindahan,
+			'id_asalperpindahan' => $res_asal->id,
+			'id_tujuanperpindahan' => $res_tujuan->id,
 
 		];
 
@@ -100,7 +100,7 @@ class PerpindahanController extends MY_Controller {
 			'id_penduduk' => $data['id_penduduk'],
 		];
 		
-		$id_pindah = $this->input->post('id_pindah');
+		$id_pindah = $this->input->post('id');
 
 		if ($this->Mperpindahan->update($id_pindah, $data_perpindahan)) {
 			redirect('admin/perpindahan','refresh');

@@ -1,14 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mtujuan_perpindahan extends CI_Model {
+class Mpengajuan extends CI_Model {
 
-	protected $table = 'tabel_tujuanperpindahan';
+	protected $table = 'tabel_pengajuan';
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+	}
 	public function get($id = NULL)
 	{
-		$this->db->select('*');
+		$this->db->select([
+			$this->table . '.*',
+			'tanggal',
+			'nama_pengirim',
+			'jenis',
+			'sub_jenis',
+			'status_pengajuan',
+			'keterangan',
+
+		]);
+		
 		$this->db->from($this->table);
+		$this->db->order_by('tanggal', 'desc');
 		
 		if($id !== null){
 
@@ -84,9 +100,8 @@ class Mtujuan_perpindahan extends CI_Model {
 			return false;
 		}
 	}
-	
 
 }
 
-/* End of file Mtujuan_perpindahan.php */
-/* Location: ./application/models/Mtujuan_perpindahan.php */
+/* End of file Mkematian.php */
+/* Location: ./application/models/Mkematian.php */

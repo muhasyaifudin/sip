@@ -60,7 +60,7 @@
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_kedatangan">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_datang" />
+                    <input type="hidden" placeholder="" name="id" />
                     <input type="hidden" placeholder="" name="id_asalkedatangan" />
                     <input type="hidden" placeholder="" name="id_tujuankedatangan" />
 
@@ -75,10 +75,10 @@
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
-                        <select class="form-control" placeholder="Penduduk" name="id_penduduk" required="">
-                            <option value="-1">--Pilih Penduduk--</option>
+                        <select class="form-control select" data-placeholder="Penduduk" name="id_penduduk" required="" data-fouc>
+                            <option></option>
                             <?php foreach ($penduduk as $value): ?>
-                             <option value="<?= $value->id_penduduk ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
+                             <option value="<?= $value->id ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
                                 
                             <?php endforeach ?>
                         </select>
@@ -161,7 +161,7 @@ function get_data () {
 		    }
 		},
 		columns: [
-            { data: 'id_datang' },
+            { data: 'id' },
             { data: 'no_surat' },
             { data: 'tanggal_surat' },
             { data: 'nik' },
@@ -182,7 +182,7 @@ function get_data () {
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_pindah",
+		    	data: "id",
 		    	render : function(data, type, full, meta) {
 
                     return `<a href="<?php echo site_url('admin/kedatangan/update') ?>" class=" mr-1 kedatangan_edit"><i class="icon-pencil7"></i></a>

@@ -12,7 +12,7 @@ class Mperpindahan extends CI_Model {
 	{
 		$this->db->select([
 			$this->table . '.*',
-			$this->table_tujuan . '.id_tujuanperpindahan as id_tujuanperpindahan',
+			$this->table_tujuan . '.id as id_tujuanperpindahan',
 			$this->table_tujuan . '.alamat as tujuan_alamat',
 			$this->table_tujuan . '.rt as tujuan_rt',
 			$this->table_tujuan . '.rw as tujuan_rw',
@@ -31,9 +31,8 @@ class Mperpindahan extends CI_Model {
 		]);
 		
 		$this->db->from($this->table);
-		$this->db->join('tabel_penduduk', 'tabel_penduduk.id_penduduk = tabel_perpindahan.id_penduduk');
-		$this->db->join('tabel_tujuanperpindahan', 'tabel_tujuanperpindahan.id_tujuanperpindahan = tabel_perpindahan.id_tujuanperpindahan');
-
+		$this->db->join('tabel_penduduk', 'tabel_penduduk.id = tabel_perpindahan.id_penduduk');
+		$this->db->join('tabel_tujuanperpindahan', 'tabel_tujuanperpindahan.id = tabel_perpindahan.id_tujuanperpindahan');
 		
 		$this->db->order_by('no_kk', 'asc');
 		if($id !== null){
@@ -56,12 +55,12 @@ class Mperpindahan extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_pindah']);
+			isset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
 
-				return true;
+				return $this->get($id);
 
 			} catch (Exception $e) {
 				return false;
@@ -72,17 +71,17 @@ class Mperpindahan extends CI_Model {
 		}
 	}
 
-	public function update($id_pindah = NULL, $data = NULL)
+	public function update($id = NULL, $data = NULL)
 	{
-		if ($id_pindah !== NULL && $data !== NULL) {
-			isset($data['id_pindah']);
+		if ($id !== NULL && $data !== NULL) {
+			isset($data['id']);
 
 			try {
 
-				$this->db->where('id_pindah', $id_pindah);
+				$this->db->where('id', $id);
 				$this->db->update($this->table, $data);
 
-				return true;
+				return $this->get($id);
 			} catch (Exception $e) {
 				return false;
 			}
@@ -97,7 +96,7 @@ class Mperpindahan extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_pindah', $id);
+				$this->db->where('id', $id);
 
 		        $this->db->delete($this->table);
 

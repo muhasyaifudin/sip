@@ -14,7 +14,7 @@ class Mkedatangan extends CI_Model {
 	{
 		$this->db->select([
 			$this->table . '.*',
-			$this->table_asal . '.id_asalkedatangan as id_asalkedatangan',
+			$this->table_asal . '.id as id_asalkedatangan',
 			$this->table_asal . '.alamat as asal_alamat',
 			$this->table_asal . '.rt as asal_rt',
 			$this->table_asal . '.rw as asal_rw',
@@ -29,7 +29,7 @@ class Mkedatangan extends CI_Model {
 			$this->table_penduduk . '.rw',
 			$this->table_penduduk . '.tempat_lahir',
 			$this->table_penduduk . '.tanggal_lahir',
-			$this->table_tujuan . '.id_tujuankedatangan as id_tujuankedatangan',
+			$this->table_tujuan . '.id as id_tujuankedatangan',
 			$this->table_tujuan . '.alamat as tujuan_alamat',
 			$this->table_tujuan . '.rt as tujuan_rt',
 			$this->table_tujuan . '.rw as tujuan_rw',
@@ -37,10 +37,9 @@ class Mkedatangan extends CI_Model {
 		]);
 		
 		$this->db->from($this->table);
-		$this->db->join('tabel_penduduk', 'tabel_penduduk.id_penduduk = tabel_kedatangan.id_penduduk');
-		$this->db->join('tabel_asalkedatangan', 'tabel_asalkedatangan.id_asalkedatangan = tabel_kedatangan.id_asalkedatangan');
-		$this->db->join('tabel_tujuankedatangan', 'tabel_tujuankedatangan.id_tujuankedatangan = tabel_kedatangan.id_tujuankedatangan');
-
+		$this->db->join('tabel_penduduk', 'tabel_penduduk.id = tabel_kedatangan.id_penduduk', 'left');
+		$this->db->join('tabel_asalkedatangan', 'tabel_asalkedatangan.id = tabel_kedatangan.id_asalkedatangan', 'left');
+		$this->db->join('tabel_tujuankedatangan', 'tabel_tujuankedatangan.id = tabel_kedatangan.id_tujuankedatangan', 'left');
 		
 		$this->db->order_by('no_kk', 'asc');
 		if($id !== null){
@@ -63,12 +62,12 @@ class Mkedatangan extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_datang']);
+			isset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
 
-				return true;
+				return $this->get($id);
 
 			} catch (Exception $e) {
 				return false;
@@ -79,17 +78,17 @@ class Mkedatangan extends CI_Model {
 		}
 	}
 
-	public function update($id_datang = NULL, $data = NULL)
+	public function update($id = NULL, $data = NULL)
 	{
-		if ($id_datang !== NULL && $data !== NULL) {
-			isset($data['id_datang']);
+		if ($id !== NULL && $data !== NULL) {
+			isset($data['id']);
 
 			try {
 
-				$this->db->where('id_datang', $id_datang);
+				$this->db->where('id', $id);
 				$this->db->update($this->table, $data);
 
-				return true;
+				return $this->get($id);
 			} catch (Exception $e) {
 				return false;
 			}
@@ -104,7 +103,7 @@ class Mkedatangan extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_datang', $id);
+				$this->db->where('id', $id);
 
 		        $this->db->delete($this->table);
 

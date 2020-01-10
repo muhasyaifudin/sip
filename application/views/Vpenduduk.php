@@ -68,7 +68,7 @@
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_penduduk">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_penduduk" />
+                    <input type="hidden" placeholder="" name="id" />
 
 	                <div class="form-group">
                         <label>NIK</label>
@@ -179,7 +179,7 @@ function get_data (filter = 1) {
 		    url: '<?php echo base_url(); ?>/admin/penduduk/get_data?filter=' + filter,
 		},
 		columns: [
-            { data: 'id_penduduk' },
+            { defaultContent: '' },
             { data: 'nik' },
             { data: 'no_kk' },
             { data: 'shdk' },
@@ -201,7 +201,7 @@ function get_data (filter = 1) {
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_penduduk",
+		    	data: "id",
                 width: "100px",
 		    	render : function(data, type, full, meta) {
 
@@ -233,7 +233,13 @@ function get_data (filter = 1) {
         
 	});
 
-	$('#table_penduduk').on('click', '.table_penduduk', function(event) {
+    table_penduduk.on( 'order.dt search.dt', function () {
+        table_penduduk.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1
+        } )
+    } ).draw()
+
+	$('#table_penduduk').on('click', '.penduduk_edit', function(event) {
     	event.preventDefault();
     	
     	data = table_penduduk.row($(this).parents('tr')).data();
@@ -268,7 +274,7 @@ function get_data (filter = 1) {
         }).then(function (data) {
 			if (data.value) {
 				$.ajax({
-					url: qualifyURL(url),
+					url: url,
 					type: 'DELETE',
 					dataType: 'json',
 					data: { },

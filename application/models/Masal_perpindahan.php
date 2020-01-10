@@ -12,7 +12,7 @@ class Masal_perpindahan extends CI_Model {
 		
 		if($id !== null){
 
-			$this->db->where($this->table.'.id_asalperpindahan', $id);
+			$this->db->where($this->table.'.id', $id);
 			$query = $this->db->get();
 			$row = $query->row();
 			
@@ -30,19 +30,12 @@ class Masal_perpindahan extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_asalperpindahan']);
+			isset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
-				// $id = $this->db->insert_id();
+				$id = $this->db->insert_id();
 
-				$this->db->select('*');
-				$this->db->from($this->table);
-				$this->db->order_by('id_asalperpindahan', 'desc');
-					
-				$query = $this->db->get();
-				$row = $query->row();
-
-				return $row;
+				return $this->get($id);
 
 			} catch (Exception $e) {
 				return false;
@@ -53,17 +46,17 @@ class Masal_perpindahan extends CI_Model {
 		}
 	}
 
-	public function update($id_asalperpindahan = NULL, $data = NULL)
+	public function update($id = NULL, $data = NULL)
 	{
-		if ($id_asalperpindahan !== NULL && $data !== NULL) {
-			isset($data['id_asalperpindahan']);
+		if ($id !== NULL && $data !== NULL) {
+			isset($data['id']);
 
 			try {
 
-				$this->db->where('id_asalperpindahan', $id_asalperpindahan);
+				$this->db->where('id', $id);
 				$this->db->update($this->table, $data);
 
-				return true;
+				return $this->get($id);
 			} catch (Exception $e) {
 				return false;
 			}
@@ -78,7 +71,7 @@ class Masal_perpindahan extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_asalperpindahan', $id);
+				$this->db->where('id', $id);
 
 		        $this->db->delete($this->table);
 

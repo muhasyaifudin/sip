@@ -21,7 +21,7 @@ class Mkematian extends CI_Model {
 		]);
 		
 		$this->db->from($this->table);
-		$this->db->join('tabel_penduduk', 'tabel_penduduk.id_penduduk = tabel_kematian.id_penduduk');
+		$this->db->join('tabel_penduduk', 'tabel_penduduk.id = tabel_kematian.id_penduduk');
 		$this->db->order_by('no_kk', 'asc');
 		
 		if($id !== null){
@@ -44,12 +44,12 @@ class Mkematian extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_kematian']);
+			isset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
 
-				return true;
+				return $this->get($id);
 
 			} catch (Exception $e) {
 				return false;
@@ -60,17 +60,18 @@ class Mkematian extends CI_Model {
 		}
 	}
 
-	public function update($id_kematian = NULL, $data = NULL)
+	public function update($id = NULL, $data = NULL)
 	{
-		if ($id_kematian !== NULL && $data !== NULL) {
-			isset($data['id_kematian']);
+		if ($id !== NULL && $data !== NULL) {
+			isset($data['id']);
 
 			try {
 
-				$this->db->where('id_kematian', $id_kematian);
+				$this->db->where('id', $id);
 				$this->db->update($this->table, $data);
 
-				return true;
+				return $this->get($id);
+				
 			} catch (Exception $e) {
 				return false;
 			}
@@ -85,7 +86,7 @@ class Mkematian extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_kematian', $id);
+				$this->db->where('id', $id);
 
 		        $this->db->delete($this->table);
 

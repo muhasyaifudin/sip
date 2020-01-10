@@ -13,7 +13,7 @@ class Mpenduduk extends CI_Model {
 		
 		if($id !== null){
 
-			$this->db->where($this->table.'.id_penduduk', $id);
+			$this->db->where($this->table.'.id', $id);
 			$query = $this->db->get();
 			$row = $query->row();
 			
@@ -32,16 +32,16 @@ class Mpenduduk extends CI_Model {
 	{
 		$this->db->select([
 			$this->table . '.*',
-			'tabel_perpindahan.id_pindah',
-			'tabel_kematian.id_kematian',
+			'tabel_perpindahan.id as id_pindah',
+			'tabel_kematian.id as id_kematian',
 
 		]);
 
 		$this->db->from($this->table);
-		$this->db->join('tabel_perpindahan', 'tabel_perpindahan.id_penduduk = tabel_penduduk.id_penduduk', 'left');
-		$this->db->join('tabel_kematian', 'tabel_kematian.id_penduduk = tabel_penduduk.id_penduduk', 'left');
-		$this->db->where('id_pindah', NULL);
-		$this->db->where('id_kematian', NULL);
+		$this->db->join('tabel_perpindahan', 'tabel_perpindahan.id_penduduk = tabel_penduduk.id', 'left');
+		$this->db->join('tabel_kematian', 'tabel_kematian.id_penduduk = tabel_penduduk.id', 'left');
+		$this->db->where('tabel_perpindahan.id', NULL);
+		$this->db->where('tabel_kematian.id', NULL);
 		$this->db->order_by('no_kk', 'asc');
 		
 
@@ -60,7 +60,7 @@ class Mpenduduk extends CI_Model {
 		]);
 
 		$this->db->from($this->table);
-		$this->db->join('tabel_kematian', 'tabel_kematian.id_penduduk = tabel_penduduk.id_penduduk');
+		$this->db->join('tabel_kematian', 'tabel_kematian.id_penduduk = tabel_penduduk.id');
 		$this->db->order_by('no_kk', 'asc');
 		
 
@@ -79,7 +79,7 @@ class Mpenduduk extends CI_Model {
 		]);
 
 		$this->db->from($this->table);
-		$this->db->join('tabel_perpindahan', 'tabel_perpindahan.id_penduduk = tabel_penduduk.id_penduduk');
+		$this->db->join('tabel_perpindahan', 'tabel_perpindahan.id_penduduk = tabel_penduduk.id');
 		$this->db->order_by('no_kk', 'asc');
 		
 
@@ -92,12 +92,12 @@ class Mpenduduk extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id_penduduk']);
+			isset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
 
-				return true;
+				return $this->get($id);
 
 			} catch (Exception $e) {
 				return false;
@@ -108,17 +108,17 @@ class Mpenduduk extends CI_Model {
 		}
 	}
 
-	public function update($id_penduduk = NULL, $data = NULL)
+	public function update($id = NULL, $data = NULL)
 	{
-		if ($id_penduduk !== NULL && $data !== NULL) {
-			isset($data['id_penduduk']);
+		if ($id !== NULL && $data !== NULL) {
+			isset($data['id']);
 
 			try {
 
-				$this->db->where('id_penduduk', $id_penduduk);
+				$this->db->where('id', $id);
 				$this->db->update($this->table, $data);
 
-				return true;
+				return $this->get($id);
 			} catch (Exception $e) {
 				return false;
 			}
@@ -133,7 +133,7 @@ class Mpenduduk extends CI_Model {
 		if ($id !== NULL) {
 			try {
 
-				$this->db->where('id_penduduk', $id);
+				$this->db->where('id', $id);
 
 		        $this->db->delete($this->table);
 

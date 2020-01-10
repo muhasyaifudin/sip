@@ -65,8 +65,8 @@ class KedatanganController extends MY_Controller {
 			'tanggal_surat' => $data['tanggal_surat'],
 			'id_klasifikasi' => 1,
 			'id_penduduk' => $data['id_penduduk'],
-			'id_asalkedatangan' => $res_asal->id_asalkedatangan,
-			'id_tujuankedatangan' => $res_tujuan->id_tujuankedatangan,
+			'id_asalkedatangan' => $res_asal->id,
+			'id_tujuankedatangan' => $res_tujuan->id,
 
 		];
 
@@ -109,9 +109,14 @@ class KedatanganController extends MY_Controller {
 			'id_penduduk' => $data['id_penduduk'],
 		];
 		
-		$id_datang = $this->input->post('id_datang');
+		$id_datang = $this->input->post('id');
 
-		if ($this->Mkedatangan->update($id_datang, $data_kedatangan)) {
+		$this->db->trans_start();
+		$res = $this->Mkedatangan->update($id_datang, $data_kedatangan);
+		$this->db->trans_complete();
+
+
+		if ($res) {
 			redirect('admin/kedatangan','refresh');
 		}
 		else {

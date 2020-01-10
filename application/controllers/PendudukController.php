@@ -60,7 +60,7 @@ class PendudukController extends MY_Controller {
 	public function update()
 	{
 		$data = $this->input->post();
-		$id_penduduk = $this->input->post('id_penduduk');
+		$id_penduduk = $this->input->post('id');
 
 		if ($this->Mpenduduk->update($id_penduduk, $data)) {
 			redirect('admin/penduduk','refresh');

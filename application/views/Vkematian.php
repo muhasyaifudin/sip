@@ -53,12 +53,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Form Kematian</h4>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_kematian">
             	<div class="modal-body">
-                    <input type="hidden" placeholder="" name="id_kematian" />
+                    <input type="hidden" placeholder="" name="id" />
 
 	                <div class="form-group">
                         <label>Tanggal Lapor</label>
@@ -70,10 +71,10 @@
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
-                        <select class="form-control" placeholder="Penduduk" name="id_penduduk" required="">
-                            <option value="-1">--Pilih Penduduk--</option>
+                        <select class="form-control select" data-placeholder="Penduduk" name="id_penduduk" required="" data-fouc>
+                            <option></option>
                             <?php foreach ($penduduk as $value): ?>
-                             <option value="<?= $value->id_penduduk ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
+                             <option value="<?= $value->id ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
                                 
                             <?php endforeach ?>
                         </select>
@@ -121,7 +122,7 @@ function get_data () {
 		    }
 		},
 		columns: [
-            { data: 'id_kematian' },
+            { data: 'id' },
             { data: 'tanggal_lapor' },
             { data: 'no_akta' },
             { data: 'nik' },
@@ -140,7 +141,7 @@ function get_data () {
 		    {
 		    	targets: -1,
 		    	className: "text-center",
-		    	data: "id_kematian",
+		    	data: "id",
 		    	render : function(data, type, full, meta) {
 		    		return `<a href="<?php echo site_url('admin/kematian/update') ?>" class=" mr-1 kematian_edit"><i class="icon-pencil7"></i></a>
                     <a href="<?php echo site_url('admin/kematian/delete') ?>/${data}" class="kematian_delete" style="color:red;"><i class="icon-bin"></i></a>`
