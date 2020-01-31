@@ -143,6 +143,23 @@ class PublicPengajuanSurat extends CI_Controller {
 		}
 	}
 
+	public function proses_perpindahan_pergi($data)
+	{
+		$this->db->trans_start();
+
+		$penduduk = $this->Mpenduduk->get_where(['nik' => $data['nik']], true);
+
+		var_dump($penduduk);
+
+		if (!$penduduk) {
+			$this->session->set_flashdata('error_message', 'Data NIK penduduk tidak ditemukan');
+
+			redirect('/pengajuan_surat?jenis=perpindahan_pergi','refresh');
+		}
+
+		$this->db->trans_complete();
+	}
+
 	public function load_view($v, $data = [])
 	{
 		$data = array(

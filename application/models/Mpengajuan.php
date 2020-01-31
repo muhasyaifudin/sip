@@ -101,6 +101,34 @@ class Mpengajuan extends CI_Model {
 		}
 	}
 
+	public function get_report($where = [])
+	{
+		$this->db->select([
+			$this->table . '.*',
+			'tanggal',
+			'nama_pengirim',
+			'jenis',
+			'sub_jenis',
+			'status_pengajuan',
+			'keterangan',
+
+		]);
+		
+		$this->db->from($this->table);
+
+		foreach ($where as $key => $value) {
+			$this->db->where($key, $value);
+		}
+
+		$this->db->order_by('tanggal', 'desc');
+
+		$query = $this->db->get();
+		$rows = $query->result();
+
+		
+		return $rows;
+	}
+
 }
 
 /* End of file Mkematian.php */

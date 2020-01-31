@@ -14,11 +14,16 @@
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
-                 <a href="<?php echo site_url('admin/pengajuan_surat/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
-                  
+                    <form action="#" style="width: 200px;">
+                        <select class="form-control select" data-fouc placeholder="Filter" name="filter" id="filter">
+                            <option value="1" selected="">Belum Diproses</option>
+                            <option value="2">Sudah Diproses</option>
+                        </select>
+                    </form>
+                    
                 </div>
             </div>
         </div>

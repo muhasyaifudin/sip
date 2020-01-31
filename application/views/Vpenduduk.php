@@ -10,7 +10,7 @@
     </div>
 </div>
 <!-- /page header -->
-
+                                    
 
 <!-- Content area -->
 <div class="content pt-0">
@@ -22,12 +22,15 @@
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
-                    <select class="form-control" placeholder="Filter" name="filter" id="filter">
-                        <option value="1" selected="">Semua</option>
-                        <option value="2">Penduduk Aktif</option>
-                        <option value="3">Penduduk Meninggal</option>
-                        <option value="4">Penduduk Pindah</option>
-                    </select>
+                    <form action="#" style="width: 200px;">
+                        <select class="form-control select" data-fouc placeholder="Filter" name="filter" id="filter">
+                            <option value="1" selected="">Semua</option>
+                            <option value="2">Penduduk Aktif</option>
+                            <option value="3">Penduduk Meninggal</option>
+                            <option value="4">Penduduk Pindah</option>
+                        </select>
+                    </form>
+                    
                 </div>
             </div>
         </div>

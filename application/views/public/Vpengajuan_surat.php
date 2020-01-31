@@ -190,111 +190,126 @@
 
 	<?php if ($this->input->get('jenis') && $this->input->get('jenis') == 'perpindahan_pergi' ): ?>
 		<!-- Basic card -->
-		<div class="card">
-			<div class="card-header header-elements-inline">
-				<h5 class="card-title">Perpindahan Pergi</h5>
-				<div class="header-elements">
-					<div class="list-icons">
-	            		<a class="list-icons-item" data-action="collapse"></a>
-	            		<a class="list-icons-item" data-action="reload"></a>
-	            		<a class="list-icons-item" data-action="remove"></a>
-	            	</div>
-	        	</div>
-			</div>
+		<form action="<?php echo site_url('pengajuan_surat/submit') ?>" method="POST" accept-charset="utf-8" autocomplete="off">
+			<input type="hidden" name="jenis" value="perpindahan_pergi">
+			<div class="card">
+				<div class="card-header header-elements-inline">
+					<h5 class="card-title">Perpindahan Pergi</h5>
+					<div class="header-elements">
+						<div class="list-icons">
+		            		<a class="list-icons-item" data-action="collapse"></a>
+		            		<a class="list-icons-item" data-action="reload"></a>
+		            		<a class="list-icons-item" data-action="remove"></a>
+		            	</div>
+		        	</div>
+				</div>
 
-			<div class="card-body">
-				<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label class="">Nama Pengaju:</label>
-	                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengirim" class="form-control" value="">
-	                    </div>
-	                     <div class="col-md-6">
-	                        <label class="">Tanggal</label>
-	                        <input type="text" placeholder="Tanggal" name="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                </div>
-	            </div>
-	            <hr>
-	            <h5>Data Diri</h5>
-            	<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                    <div class="col-md-6">
-	                        <label>Nama</label>
-                        	<input type="text" class="form-control" placeholder="Nama" name="name" required="" />
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-                    <label>Alamat</label>
-                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
-                </div>
-                <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-2">
-	                        <label>RT</label>
-                    		<input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
-	                    </div>
-	                    <div class="col-md-2">
-	                       	<label>RW</label>
-                    		<input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
-	                    </div>
-	                    <div class="col-md-8">
-		                    <label>Desa</label>
-		                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+				<div class="card-body">
+					<?php if ($this->session->flashdata('message')): ?>
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Berhasil!</span> <?php echo $this->session->flashdata('message') ?>
+					    </div>
+					<?php endif ?>
+					<?php if ($this->session->flashdata('error_message')): ?>
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Error!</span> <?php echo $this->session->flashdata('error_message') ?>
+					    </div>
+					<?php endif ?>
+					<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label class="">Nama Pengaju:</label>
+		                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengirim" class="form-control" value="">
+		                    </div>
+		                     <div class="col-md-6">
+		                        <label class="">Tanggal</label>
+		                        <input type="date" placeholder="Tanggal" name="date" class="form-control" data-validation="required" value="" >
+		                    </div>
 		                </div>
-	                </div>
-	            </div>
-	            <hr>
-	           	<h5>Tujuan Perpindahan</h5>
-                <div class="form-group mb-2">
-                    <label>Alamat</label>
-                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
-                </div>
-                <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-2">
-	                        <label>RT</label>
-                    		<input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
-	                    </div>
-	                    <div class="col-md-2">
-	                       	<label>RW</label>
-                    		<input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
-	                    </div>
-	                    <div class="col-md-8">
-		                    <label>Desa</label>
-		                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+		            </div>
+		            <hr>
+		            <h5>Data Diri</h5>
+	            	<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                        <label>Nama</label>
+	                        	<input type="text" class="form-control" placeholder="Nama" name="name" required="" />
+		                    </div>
 		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+	                    <label>Alamat</label>
+	                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
 	                </div>
-	            </div>
-                <div class="form-group mb-2">
-	                <div class="row">
-	                	<div class="col-md-6">
-		                    <label>Kecamatan</label>
-		                    <input type="text" class="form-control" placeholder="Kecamatan" name="asal_kecamatan" required="" />
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-2">
+		                        <label>RT</label>
+	                    		<input type="number" class="form-control" placeholder="RT" name="asal_rt" required="" />
+		                    </div>
+		                    <div class="col-md-2">
+		                       	<label>RW</label>
+	                    		<input type="number" class="form-control" placeholder="RW" name="asal_rw" required="" />
+		                    </div>
+		                    <div class="col-md-8">
+			                    <label>Desa</label>
+			                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+			                </div>
 		                </div>
-		                 <div class="col-md-6">
-		                    <label>Kabupaten/Kota</label>
-		                    <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="asal_kabupaten_kota" required="" />
-		                </div>
+		            </div>
+		            <hr>
+		           	<h5>Tujuan Perpindahan</h5>
+	                <div class="form-group mb-2">
+	                    <label>Alamat</label>
+	                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
 	                </div>
-	            </div>
-	            <hr>
-	            <h5>Keterangan Tambahan</h5>
-                <div class="form-group mb-2">
-                    <textarea class="form-control" placeholder="Keterangan Tambahan" name="keterangan" rows="3"></textarea>
-                </div>
-                <hr>
-                <div class="form-group text-center">
-		        	<button type="button" class="btn btn-link">Batal</button>
-	                <button type="submit" class="btn btn-primary">Submit</button>
-		        </div>
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-2">
+		                        <label>RT</label>
+	                    		<input type="number" class="form-control" placeholder="RT" name="asal_rt" required="" />
+		                    </div>
+		                    <div class="col-md-2">
+		                       	<label>RW</label>
+	                    		<input type="number" class="form-control" placeholder="RW" name="asal_rw" required="" />
+		                    </div>
+		                    <div class="col-md-8">
+			                    <label>Desa</label>
+			                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+			                </div>
+		                </div>
+		            </div>
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                	<div class="col-md-6">
+			                    <label>Kecamatan</label>
+			                    <input type="text" class="form-control" placeholder="Kecamatan" name="asal_kecamatan" required="" />
+			                </div>
+			                 <div class="col-md-6">
+			                    <label>Kabupaten/Kota</label>
+			                    <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="asal_kabupaten_kota" required="" />
+			                </div>
+		                </div>
+		            </div>
+		            <hr>
+		            <h5>Keterangan Tambahan</h5>
+	                <div class="form-group mb-2">
+	                    <textarea class="form-control" placeholder="Keterangan Tambahan" name="keterangan" rows="3"></textarea>
+	                </div>
+	                <hr>
+	                <div class="form-group text-center">
+			        	<button type="button" class="btn btn-link">Batal</button>
+		                <button type="submit" class="btn btn-primary">Submit</button>
+			        </div>
+				</div>
 			</div>
-		</div>
+		</form>
 		<!-- /basic card -->
 	<?php endif ?>
 

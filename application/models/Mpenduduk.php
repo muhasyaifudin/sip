@@ -55,7 +55,7 @@ class Mpenduduk extends CI_Model {
 	{
 		$this->db->select([
 			$this->table . '.*',
-			'tabel_kematian.id_kematian',
+			'tabel_kematian.id as id_kematian',
 
 		]);
 
@@ -74,7 +74,7 @@ class Mpenduduk extends CI_Model {
 	{
 		$this->db->select([
 			$this->table . '.*',
-			'tabel_perpindahan.id_pindah',
+			'tabel_perpindahan.id as id_pindah',
 
 		]);
 
@@ -86,6 +86,30 @@ class Mpenduduk extends CI_Model {
 		$query = $this->db->get();
 		$rows = $query->result();
 
+		return $rows;
+	}
+
+	public function get_where($where = [], $row = false)
+	{
+		$this->db->select('*');
+		$this->db->from($this->table);
+		$this->db->order_by('no_kk', 'asc');
+		
+		foreach ($where as $key => $value) {
+			$this->db->where($key, $value);
+		}
+
+		if ($row) {
+			$query = $this->db->get();
+			$row = $query->result();
+
+			return $row;
+		}
+
+		$query = $this->db->get();
+		$rows = $query->result();
+
+		
 		return $rows;
 	}
 
