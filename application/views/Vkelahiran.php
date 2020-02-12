@@ -187,6 +187,61 @@ function get_data () {
 
     });
 
+    $('#table_kelahiran').on('click', '.kelahiran_delete', function(event) {
+        event.preventDefault();
+        url = $(this).attr('href');
+        swal({
+            title: "Hapus Data?",
+            text: "Data yang anda hapus akan masuk ke sampah",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function (data) {
+            if (data.value) {
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'json',
+                })
+                .done(function(res) {
+                    if (res.code == 200) {
+                        table_kelahiran.ajax.reload()
+                        new PNotify({
+                            title: 'Success',
+                            text: 'Data berhasil dihapus',
+                            addclass: 'bg-success border-success'
+                        })
+                    }
+
+                    else {
+                         new PNotify({
+                            title: 'Error',
+                            text: 'Data gagal dihapus',
+                            addclass: 'bg-danger border-danger'
+                        })
+                    }
+                })
+                .fail(function(err) {
+                    new PNotify({
+                        title: 'Error',
+                        text: 'Data gagal dihapus',
+                        addclass: 'bg-danger border-danger'
+                    })
+                })
+                .always(function() {
+                    
+                });
+                
+            }   
+        }, function (dismiss) {
+
+        });
+    });
+
     
 }
 </script>

@@ -128,10 +128,24 @@ class KedatanganController extends MY_Controller {
 	{
 
 		if ($this->Mkedatangan->delete($id)) {
-			redirect('admin/kedatangan','refresh');
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 200,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 		else{
-			return false;
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 	}
 

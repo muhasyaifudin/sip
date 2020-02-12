@@ -114,10 +114,24 @@ class PerpindahanController extends MY_Controller {
 	{
 
 		if ($this->Mperpindahan->delete($id)) {
-			redirect('admin/perpindahan','refresh');
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 200,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 		else{
-			return false;
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 	}
 

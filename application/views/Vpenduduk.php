@@ -265,7 +265,7 @@ function get_data (filter = 1) {
     	event.preventDefault();
     	url = $(this).attr('href');
 		swal({
-            title: "Delete Data?",
+            title: "Hapus Data?",
 		  	text: "Data yang anda hapus akan masuk ke sampah",
             type: 'warning',
             showCancelButton: true,
@@ -283,18 +283,21 @@ function get_data (filter = 1) {
 					data: { },
 				})
 				.done(function(res) {
-					console.log(res);
 					if (res.code == 200) {
-						departments_table.ajax.reload()
+						table_penduduk.ajax.reload()
 						new PNotify({
 			                title: 'Success',
-			                text: 'Data Deleted',
+			                text: 'Data berhasil dihapus',
 			                addclass: 'bg-success border-success'
 			            })
 					}
 				})
 				.fail(function(err) {
-					console.log(err);
+					new PNotify({
+                        title: 'Error',
+                        text: 'Data gagal dihapus',
+                        addclass: 'bg-danger border-danger'
+                    })
 				})
 				.always(function() {
 					

@@ -69,31 +69,31 @@ $route['admin'] = 'AdminController';
 
 $route['admin/penduduk'] = 'PendudukController';
 $route['admin/penduduk/(:any)'] = 'PendudukController/$1';
-$route['admin/penduduk/(:any)/(:any)'] = 'PendudukController/$1/$1';
+$route['admin/penduduk/(:any)/(:any)'] = 'PendudukController/$1/$2';
 
 $route['admin/kematian'] = 'KematianController';
 $route['admin/kematian/(:any)'] = 'KematianController/$1';
-$route['admin/kematian/(:any)/(:any)'] = 'KematianController/$1/$1';
+$route['admin/kematian/(:any)/(:any)'] = 'KematianController/$1/$2';
 
 $route['admin/kelahiran'] = 'KelahiranController';
 $route['admin/kelahiran/(:any)'] = 'KelahiranController/$1';
-$route['admin/kelahiran/(:any)/(:any)'] = 'KelahiranController/$1/$1';
+$route['admin/kelahiran/(:any)/(:any)'] = 'KelahiranController/$1/$2';
 
 $route['admin/perpindahan'] = 'PerpindahanController';
 $route['admin/perpindahan/(:any)'] = 'PerpindahanController/$1';
-$route['admin/perpindahan/(:any)/(:any)'] = 'PerpindahanController/$1/$1';
+$route['admin/perpindahan/(:any)/(:any)'] = 'PerpindahanController/$1/$2';
 
 $route['admin/kedatangan'] = 'KedatanganController';
 $route['admin/kedatangan/(:any)'] = 'KedatanganController/$1';
-$route['admin/kedatangan/(:any)/(:any)'] = 'KedatanganController/$1/$1';
+$route['admin/kedatangan/(:any)/(:any)'] = 'KedatanganController/$1/$2';
 
 $route['admin/pengajuan_surat'] = 'PengajuanSuratController';
 $route['admin/pengajuan_surat/(:any)'] = 'PengajuanSuratController/$1';
-$route['admin/pengajuan_surat/(:any)/(:any)'] = 'PengajuanSuratController/$1/$1';
+$route['admin/pengajuan_surat/(:any)/(:any)'] = 'PengajuanSuratController/$1/$2';
 
 $route['admin/laporan'] = 'LaporanController';
 $route['admin/laporan/(:any)'] = 'LaporanController/$1';
-$route['admin/laporan/(:any)/(:any)'] = 'LaporanController/$1/$1';
+$route['admin/laporan/(:any)/(:any)'] = 'LaporanController/$1/$2';
 
 $route['ganti_password'] = 'AuthController/ganti_password';
 $route['ganti_password_submit'] = 'AuthController/ganti_password_submit';
@@ -101,11 +101,11 @@ $route['ganti_password_submit'] = 'AuthController/ganti_password_submit';
 
 $route['pengajuan_surat'] = 'PublicPengajuanSurat';
 $route['pengajuan_surat/(:any)'] = 'PublicPengajuanSurat/$1';
-$route['pengajuan_surat/(:any)/(:any)'] = 'PublicPengajuanSurat/$1/$1';
+$route['pengajuan_surat/(:any)/(:any)'] = 'PublicPengajuanSurat/$1/$2';
 
 $route['profil'] = 'ProfilController';
 $route['profil/(:any)'] = 'ProfilController/$1';
-$route['profil/(:any)/(:any)'] = 'ProfilController/$1/$1';
+$route['profil/(:any)/(:any)'] = 'ProfilController/$1/$2';
 
 $route['informasi'] = 'InformasiController';
 $route['informasi/(:any)'] = 'InformasiController/$1';

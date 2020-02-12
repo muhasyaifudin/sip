@@ -61,10 +61,24 @@ class KematianController extends MY_Controller {
 	{
 
 		if ($this->Mkematian->delete($id)) {
-			redirect('admin/kematian','refresh');
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 200,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 		else{
-			return false;
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 	}
 

@@ -61,10 +61,23 @@ class KelahiranController extends MY_Controller {
 	{
 
 		if ($this->Mkelahiran->delete($id)) {
-			redirect('admin/kelahiran','refresh');
+			header('Content-Type: application/json');
+			$return = [
+				'code' => 200,
+				'data' => $id
+			];
+
+			echo json_encode($return);
 		}
 		else{
-			return false;
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 	}
 
