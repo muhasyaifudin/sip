@@ -191,6 +191,12 @@ function get_data () {
                     else if (data == 1) {
                         return `<span class="badge badge-success">Diproses</span>`
                     }
+                    else if (data == -1) {
+                        return `<span class="badge badge-danger">Ditolak</span>`
+                    }
+                     else if (data == 2) {
+                        return `<span class="badge badge-success">Selesai</span>`
+                    }
                 }
             },
 
@@ -201,7 +207,8 @@ function get_data () {
 		    	render : function(data, type, full, meta) {
                     return `
                     <a href="<?php echo site_url('admin/pengajuan_surat/update') ?>" class=" mr-1 pengajuan_proses"><i class="icon-enter"></i></a>
-                    <a href="<?php echo site_url('admin/pengajuan_surat/delete') ?>/${data}" class="pengajuan_delete" style="color:red;"><i class="icon-bin"></i></a>
+                    <a href="<?php echo site_url('admin/pengajuan_surat/ok') ?>/${data}" class=" mr-1 pengajuan_ok" style="color:green;"><i class="icon-checkmark4"></i></a>
+                    <a href="<?php echo site_url('admin/pengajuan_surat/delete') ?>/${data}" class="pengajuan_delete" style="color:red;"><i class="icon-cross2"></i></a>
                     `
 		    	}
 		    }
@@ -275,6 +282,117 @@ function get_data () {
 		
 
     });
+
+    $('#table_pengajuan').on('click', '.pengajuan_ok', function(event) {
+        event.preventDefault();
+        url = $(this).attr('href');
+        swal({
+            title: "Pengajuan Selesai Diproses?",
+            text: "Data pengajuan sudah selesai diproses",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Proses!',
+            cancelButtonText: 'cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function (data) {
+            if (data.value) {
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'json',
+                })
+                .done(function(res) {
+                    if (res.code == 200) {
+                        table_pengajuan.ajax.reload()
+                        new PNotify({
+                            title: 'Success',
+                            text: 'Data berhasil disimpan',
+                            addclass: 'bg-success border-success'
+                        })
+                    }
+
+                    else {
+                         new PNotify({
+                            title: 'Error',
+                            text: 'Data gagal disimpan',
+                            addclass: 'bg-danger border-danger'
+                        })
+                    }
+                })
+                .fail(function(err) {
+                    new PNotify({
+                        title: 'Error',
+                        text: 'Data gagal disimpan',
+                        addclass: 'bg-danger border-danger'
+                    })
+                })
+                .always(function() {
+                    
+                });
+                
+            }   
+        }, function (dismiss) {
+
+        });
+    });
+
+    $('#table_pengajuan').on('click', '.pengajuan_delete', function(event) {
+        event.preventDefault();
+        url = $(this).attr('href');
+        swal({
+            title: "Tolak Pengajuan?",
+            text: "Data pengajuan ini akan ditolak",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'cancel!',
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function (data) {
+            if (data.value) {
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'json',
+                })
+                .done(function(res) {
+                    if (res.code == 200) {
+                        table_pengajuan.ajax.reload()
+                        new PNotify({
+                            title: 'Success',
+                            text: 'Data sudah selesai',
+                            addclass: 'bg-success border-success'
+                        })
+                    }
+
+                    else {
+                         new PNotify({
+                            title: 'Error',
+                            text: 'Data gagal selesai',
+                            addclass: 'bg-danger border-danger'
+                        })
+                    }
+                })
+                .fail(function(err) {
+                    new PNotify({
+                        title: 'Error',
+                        text: 'Data gagal selesai',
+                        addclass: 'bg-danger border-danger'
+                    })
+                })
+                .always(function() {
+                    
+                });
+                
+            }   
+        }, function (dismiss) {
+
+        });
+    });
+
 
     
 }

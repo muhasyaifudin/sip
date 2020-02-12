@@ -86,11 +86,54 @@ class PengajuanSuratController extends MY_Controller {
 	public function delete($id)
 	{
 
-		if ($this->Mpengajuan->delete($id)) {
-			redirect('admin/pengajuan_surat','refresh');
+		$data['status_pengajuan'] = -1; 
+
+		if ($this->Mpengajuan->update($id, $data)) {
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 200,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 		else{
-			return false;
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
+		}
+	}
+
+	public function ok($id)
+	{
+
+		$data['status_pengajuan'] = 2; 
+
+		if ($this->Mpengajuan->update($id, $data)) {
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 200,
+				'data' => []
+			];
+
+			echo json_encode($return);
+		}
+		else{
+			header('Content-Type: application/json');
+
+			$return = [
+				'code' => 400,
+				'data' => []
+			];
+
+			echo json_encode($return);
 		}
 	}
 
@@ -144,6 +187,8 @@ class PengajuanSuratController extends MY_Controller {
 			return false;
 		}
 	}
+
+
 
 }
 

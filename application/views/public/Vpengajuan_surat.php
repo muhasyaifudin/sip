@@ -828,6 +828,12 @@ function get_data () {
                     else if (data == 1) {
                         return `<span class="badge badge-success">Diproses</span>`
                     }
+                    else if (data == -1) {
+                        return `<span class="badge badge-danger">Ditolak</span>`
+                    }
+                     else if (data == 2) {
+                        return `<span class="badge badge-success">Selesai</span>`
+                    }
                 }
             },
 
