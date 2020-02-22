@@ -27,7 +27,7 @@
              <table class="table table-striped border table-xs table-hover" id="table_kelahiran" style="min-width: 100%;">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Tanggal</th>
                         <th>No Akta</th>
                         <th>NIK</th>
@@ -119,7 +119,7 @@ function get_data () {
 		    }
 		},
 		columns: [
-            { data: 'id' },
+            { defaultContent: '' },
             { data: 'tanggal_lapor' },
             { data: 'no_akta' },
             { data: 'nik' },
@@ -167,6 +167,12 @@ function get_data () {
             info: "Menampilkan Halaman _PAGE_ Dari _PAGES_",
         },
 	});
+
+    table_kelahiran.on( 'order.dt search.dt', function () {
+        table_kelahiran.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1
+        } )
+    } ).draw();
 
 	$('#table_kelahiran').on('click', '.kelahiran_edit', function(event) {
     	event.preventDefault();

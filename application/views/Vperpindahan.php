@@ -25,7 +25,7 @@
              <table class="table table-striped border table-xs table-hover" id="table_perpindahan" style="min-width: 100%; white-space: nowrap;">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>No Surat</th>
                         <th>Tanggal Surat</th>
                         <th>NIK</th>
@@ -143,7 +143,7 @@ function get_data () {
 		    }
 		},
 		columns: [
-            { data: 'id' },
+            { defaultContent: '' },
             { data: 'no_surat' },
             { data: 'tanggal_surat' },
             { data: 'nik' },
@@ -192,6 +192,12 @@ function get_data () {
             info: "Menampilkan Halaman _PAGE_ Dari _PAGES_",
         },
 	});
+
+    table_perpindahan.on( 'order.dt search.dt', function () {
+        table_perpindahan.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1
+        } )
+    } ).draw();
 
 	$('#table_perpindahan').on('click', '.perpindahan_edit', function(event) {
     	event.preventDefault();
