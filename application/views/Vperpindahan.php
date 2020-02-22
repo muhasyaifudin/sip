@@ -14,7 +14,7 @@
      <div class="card">
         <div class="card-header header-elements-inline pb-2 pt-2">
             <div>
-                 <a href="<?php echo site_url('perpindahan/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
+                 <a href="<?php echo site_url('admin/perpindahan/insert') ?>" class="btn btn-primary btn-sm" id="button_tambah">Tambah</a>
             </div>
             <div class="header-elements d-flex flex-row">
                 <div class="list-icons">
