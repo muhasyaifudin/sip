@@ -91,6 +91,10 @@ $route['admin/pengajuan_surat'] = 'PengajuanSuratController';
 $route['admin/pengajuan_surat/(:any)'] = 'PengajuanSuratController/$1';
 $route['admin/pengajuan_surat/(:any)/(:any)'] = 'PengajuanSuratController/$1/$2';
 
+$route['admin/informasi'] = 'InformasiController';
+$route['admin/informasi/(:any)'] = 'InformasiController/$1';
+$route['admin/informasi/(:any)/(:any)'] = 'InformasiController/$1/$2';
+
 $route['admin/laporan'] = 'LaporanController';
 $route['admin/laporan/(:any)'] = 'LaporanController/$1';
 $route['admin/laporan/(:any)/(:any)'] = 'LaporanController/$1/$2';
@@ -107,5 +111,5 @@ $route['profil'] = 'ProfilController';
 $route['profil/(:any)'] = 'ProfilController/$1';
 $route['profil/(:any)/(:any)'] = 'ProfilController/$1/$2';
 
-$route['informasi'] = 'InformasiController';
-$route['informasi/(:any)'] = 'InformasiController/$1';
+$route['informasi'] = 'PublicInformasiController';
+$route['informasi/(:any)'] = 'PublicInformasiController/$1';

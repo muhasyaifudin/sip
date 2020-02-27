@@ -46,7 +46,7 @@ class Mpengajuan extends CI_Model {
 	public function insert($data = NULL)
 	{
 		if ($data !== NULL) {
-			isset($data['id']);
+			unset($data['id']);
 			try {
 				$this->db->insert($this->table, $data);
 				$id = $this->db->insert_id();
@@ -65,7 +65,7 @@ class Mpengajuan extends CI_Model {
 	public function update($id = NULL, $data = NULL)
 	{
 		if ($id !== NULL && $data !== NULL) {
-			isset($data['id']);
+			unset($data['id']);
 
 			try {
 

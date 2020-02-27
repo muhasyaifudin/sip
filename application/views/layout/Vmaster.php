@@ -198,6 +198,13 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="<?php echo site_url('admin/informasi'); ?>" class="nav-link">
+								<i class="icon-file-text"></i>
+								<span>Informasi & Pengumuman</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
 							<a href="<?php echo site_url('admin/laporan'); ?>" class="nav-link">
 								<i class="icon-file-presentation"></i>
 								<span>Laporan</span>
