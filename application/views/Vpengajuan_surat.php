@@ -282,28 +282,78 @@ function get_data () {
         })
         .done(function(res) {
             if (res) {
+                if (data.jenis == 'perpindahan_datang') {
+                    $.each(res.data, function(index, val) {
+                        $('#form_kedatangan').find('input[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kedatangan').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kedatangan').find('select[name="'+index+'"]').val(val).trigger('change')
+
+                    });
+
+                    $('#form_kedatangan').find('input[name="id_pengajuan"]').val(data.id)
+
+
+                    $('#modal_kedatangan').modal('show');
+                }
+                else if (data.jenis == 'perpindahan_pergi') {
+                    $.each(res.data, function(index, val) {
+                        $('#form_perpindahan').find('input[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_perpindahan').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_perpindahan').find('select[name="'+index+'"]').val(val).trigger('change')
+
+                    });
+
+                    $('#form_perpindahan').find('input[name="id_pengajuan"]').val(data.id)
+
+
+                    $('#modal_perpindahan').modal('show');
+                }
                 
-                $.each(res.data, function(index, val) {
-                    $('#form_kedatangan').find('input[name="'+index+'"]').val(val).trigger('change')
-                    $('#form_kedatangan').find('textarea[name="'+index+'"]').val(val).trigger('change')
-                    $('#form_kedatangan').find('select[name="'+index+'"]').val(val).trigger('change')
+                else if (data.jenis == 'kematian') {
+                    $.each(res.data, function(index, val) {
+                        $('#form_kematian').find('input[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kematian').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kematian').find('select[name="'+index+'"]').val(val).trigger('change')
 
-                });
+                    });
 
-                $('#form_kedatangan').find('input[name="id_pengajuan"]').val(data.id)
+                    $('#form_kematian').find('input[name="id_pengajuan"]').val(data.id)
 
 
-                $('#modal_kedatangan').modal('show');
+                    $('#modal_kematian').modal('show');
+                }   
+
+                else if (data.jenis == 'lahir_mati') {
+                    $.each(res.data, function(index, val) {
+                        $('#form_kematian').find('input[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kematian').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kematian').find('select[name="'+index+'"]').val(val).trigger('change')
+
+                    });
+
+                    $('#form_kematian').find('input[name="id_pengajuan"]').val(data.id)
+
+
+                    $('#modal_kematian').modal('show');
+                }                   
+
+                else if (data.jenis == 'kelahiran') {
+                    $.each(res.data, function(index, val) {
+                        $('#form_kelahiran').find('input[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kelahiran').find('textarea[name="'+index+'"]').val(val).trigger('change')
+                        $('#form_kelahiran').find('select[name="'+index+'"]').val(val).trigger('change')
+
+                    });
+
+                    $('#form_kelahiran').find('input[name="id_pengajuan"]').val(data.id)
+
+
+                    $('#modal_kelahiran').modal('show');
+                }  
             }
+
         })
 
-    	$.each(data, function(index, val) {
-    		$('#form_pengajuan').find('input[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_pengajuan').find('textarea[name="'+index+'"]').val(val).trigger('change')
-    		$('#form_pengajuan').find('select[name="'+index+'"]').val(val).trigger('change')
-    	});
-
-    	$('#form_pengajuan').attr('action', $(this).attr('href'));
 
 		
 

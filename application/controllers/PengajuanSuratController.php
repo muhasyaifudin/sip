@@ -8,13 +8,13 @@ class PengajuanSuratController extends MY_Controller {
 		parent::__construct();
 		$this->load->model('Mpengajuan');
 		$this->load->model(['Mkedatangan', 'Mpenduduk', 'Mtujuan_kedatangan', 'Masal_kedatangan']);
-		$this->load->model(['Mperpindahan']);
+		$this->load->model(['Mperpindahan', 'Mtujuan_perpindahan']);
 		$this->load->model(['Mkelahiran', 'Mkematian']);
 	}
 	public function index()
 	{
 		$data = [
-			'penduduk' => $this->Mpenduduk->get_where_not_pindah_meninggal(),
+			'penduduk' => $this->Mpenduduk->get(),
 		];
 
 		$this->load_view('Vpengajuan_surat', $data);
@@ -199,12 +199,115 @@ class PengajuanSuratController extends MY_Controller {
 			redirect('admin/pengajuan_surat','refresh');
 		}
 		else {
-			return false;
+			redirect('admin/pengajuan_surat','refresh');
 		}
 	}
 
 
+	public function proses_perpindahan()
+	{
+		$data = $this->input->post();
 
+		$data_tujuan = [
+			'alamat' => $data['tujuan_alamat'],
+			'rt' => $data['tujuan_rt'],
+			'rw' => $data['tujuan_rw'],
+			'desa' => $data['tujuan_desa'],
+			'kecamatan' => $data['tujuan_kecamatan'],
+			'kabupaten_kota' => $data['tujuan_kabupaten_kota'],
+		];
+
+		$this->Mtujuan_perpindahan->update($data['id_tujuanperpindahan'], $data_tujuan);
+
+		$data_perpindahan = [
+			'no_surat' => $data['no_surat'],
+			'tanggal_surat' => $data['tanggal_surat'],
+			'id_klasifikasi' => 1,
+			'id_penduduk' => $data['id_penduduk'],
+		];
+		
+		$id_pindah = $this->input->post('id');
+		$id_pengajuan = $this->input->post('id_pengajuan');
+
+		$data_pengajuan = [
+			'status_pengajuan' => 1,
+		];
+
+		$this->db->trans_start();
+		$res = $this->Mperpindahan->update($id_pindah, $data_perpindahan);
+		$res2 = $this->Mpengajuan->update($id_pengajuan, $data_pengajuan);
+		$this->db->trans_complete();
+		
+		if ($res) {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+		else {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+	}
+
+
+	public function proses_kematian()
+	{
+		$data = $this->input->post();
+
+		$data_kematian = [
+			'tanggal_lapor' => $data['tanggal_lapor'],
+			'no_akta' => $data['no_akta'],
+			'id_penduduk' => $data['id_penduduk'],
+			'tanggal_meninggal' => $data['tanggal_meninggal'],
+		];
+
+		$id_kematian = $this->input->post('id');
+		$id_pengajuan = $this->input->post('id_pengajuan');
+
+		$data_pengajuan = [
+			'status_pengajuan' => 1,
+		];
+
+		$this->db->trans_start();
+		$res = $this->Mkematian->update($id_kematian, $data_kematian);
+		$res2 = $this->Mpengajuan->update($id_pengajuan, $data_pengajuan);
+		$this->db->trans_complete();
+		
+		if ($res) {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+		else {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+	}
+
+	public function proses_kelahiran()
+	{
+		$data = $this->input->post();
+
+		$data_kelahiran = [
+			'tanggal_lapor' => $data['tanggal_lapor'],
+			'no_akta' => $data['no_akta'],
+			'id_penduduk' => $data['id_penduduk'],
+			'tanggal_lahir' => $data['tanggal_lahir'],
+		];
+
+		$id_kelahiran = $this->input->post('id');
+		$id_pengajuan = $this->input->post('id_pengajuan');
+
+		$data_pengajuan = [
+			'status_pengajuan' => 1,
+		];
+
+		$this->db->trans_start();
+		$res = $this->Mkelahiran->update($id_kelahiran, $data_kelahiran);
+		$res2 = $this->Mpengajuan->update($id_pengajuan, $data_pengajuan);
+		$this->db->trans_complete();
+		
+		if ($res) {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+		else {
+			redirect('admin/pengajuan_surat','refresh');
+		}
+	}
 }
 
 /* End of file PengajuanSuratController.php */
