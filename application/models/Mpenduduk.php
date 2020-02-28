@@ -101,7 +101,7 @@ class Mpenduduk extends CI_Model {
 
 		if ($row) {
 			$query = $this->db->get();
-			$row = $query->result();
+			$row = $query->row();
 
 			return $row;
 		}

@@ -19,8 +19,9 @@
                 <div class="list-icons">
                     <form action="#" style="width: 200px;">
                         <select class="form-control select" data-fouc placeholder="Filter" name="filter" id="filter">
-                            <option value="1" selected="">Belum Diproses</option>
-                            <option value="2">Sudah Diproses</option>
+                            <option value="0" selected="">Belum Diproses</option>
+                            <option value="1">Diproses</option>
+                            <option value="2">Selesai</option>
                         </select>
                     </form>
                     
@@ -37,7 +38,7 @@
                         <th>Sub Jenis Surat</th>
                         <th>Keterangan</th>
                         <th>Status</th>
-                        <th width="5px">Aksi</th>
+                        <th width="10%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,7 +58,7 @@
             <form action="" method="POST" accept-charset="utf-8" id="form_pengajuan">
             	<div class="modal-body">
                     <input type="hidden" placeholder="" name="id" />
-                    <input type="hidden" placeholder="" name="id_tujuanpengajuan" />
+                    <input type="hidden" placeholder="" name="id_tujuan" />
 
 	                <div class="form-group">
                         <label>Tanggal Surat</label>
@@ -132,6 +133,12 @@ $(document).ready(function() {
 
 		$('#modal_pengajuan').modal('show');
 	});
+
+    $('#filter').change(function(event) {
+        event.preventDefault();
+        
+        get_data();
+    });
 });
 
 
@@ -143,14 +150,15 @@ function get_data () {
     		type: "GET",
 		    url: '<?php echo site_url('admin/pengajuan_surat/get_data') ?>',
 		    data: {
+                status_pengajuan: $('#filter').val()
 		    }
 		},
 		columns: [
             { data: 'no', defaultContent: '', className: "text-center", },
             { data: 'tanggal' },
             { data: 'nama_pengirim' },
-            { data: 'jenis' },
-            { data: 'sub_jenis' },
+            { data: 'jenis', defaultContent: '' },
+            { data: 'sub_jenis', defaultContent: '' },
             { data: 'keterangan' },
             { data: 'status_pengajuan' },
             { defaultContent: '' },
@@ -164,8 +172,18 @@ function get_data () {
                     if (data == 'perpindahan_datang') {
                         return `Perpindahan Datang`
                     }
-                    else if (data == 1) {
-                    }
+                    else if (data == 'perpindahan_pergi') {
+                        return `Perpindahan Pergi`
+                    } 
+                    else if (data == 'kematian') {
+                        return `Kematian`
+                    }   
+                    else if (data == 'lahir_mati') {
+                        return `Lahir Mati`
+                    } 
+                    else if (data == 'kelahiran') {
+                        return `Kelahiran`
+                    } 
                 }
             },
             {
@@ -176,8 +194,18 @@ function get_data () {
                     if (data == 'perpindahan_datang') {
                         return `Perpindahan Datang`
                     }
-                    else if (data == 1) {
-                    }
+                    else if (data == 'perpindahan_pergi') {
+                        return `Perpindahan Pergi`
+                    } 
+                    else if (data == 'kematian') {
+                        return `Kematian`
+                    }   
+                    else if (data == 'lahir_mati') {
+                        return `Lahir Mati`
+                    } 
+                    else if (data == 'kelahiran') {
+                        return `Kelahiran`
+                    } 
                 }
             },
             {
@@ -213,7 +241,7 @@ function get_data () {
 		    	}
 		    }
 		],
-		autoWidth: true,
+		autoWidth: false,
 		searching: true,
 		pageLength: 10,
 		scrollX: true,
@@ -273,8 +301,6 @@ function get_data () {
     		$('#form_pengajuan').find('input[name="'+index+'"]').val(val).trigger('change')
     		$('#form_pengajuan').find('textarea[name="'+index+'"]').val(val).trigger('change')
     		$('#form_pengajuan').find('select[name="'+index+'"]').val(val).trigger('change')
-
-
     	});
 
     	$('#form_pengajuan').attr('action', $(this).attr('href'));

@@ -267,21 +267,21 @@
 		           	<h5>Tujuan Perpindahan</h5>
 	                <div class="form-group mb-2">
 	                    <label>Alamat</label>
-	                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
+	                    <textarea class="form-control" placeholder="Alamat" name="tujuan_alamat" required=""></textarea>
 	                </div>
 	                <div class="form-group mb-2">
 		                <div class="row">
 		                    <div class="col-md-2">
 		                        <label>RT</label>
-	                    		<input type="number" class="form-control" placeholder="RT" name="asal_rt" required="" />
+	                    		<input type="number" class="form-control" placeholder="RT" name="tujuan_rt" required="" />
 		                    </div>
 		                    <div class="col-md-2">
 		                       	<label>RW</label>
-	                    		<input type="number" class="form-control" placeholder="RW" name="asal_rw" required="" />
+	                    		<input type="number" class="form-control" placeholder="RW" name="tujuan_rw" required="" />
 		                    </div>
 		                    <div class="col-md-8">
 			                    <label>Desa</label>
-			                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+			                    <input type="text" class="form-control" placeholder="Desa" name="tujuan_desa" required="" />
 			                </div>
 		                </div>
 		            </div>
@@ -289,11 +289,11 @@
 		                <div class="row">
 		                	<div class="col-md-6">
 			                    <label>Kecamatan</label>
-			                    <input type="text" class="form-control" placeholder="Kecamatan" name="asal_kecamatan" required="" />
+			                    <input type="text" class="form-control" placeholder="Kecamatan" name="tujuan_kecamatan" required="" />
 			                </div>
 			                 <div class="col-md-6">
 			                    <label>Kabupaten/Kota</label>
-			                    <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="asal_kabupaten_kota" required="" />
+			                    <input type="text" class="form-control" placeholder="Kabupaten/Kota" name="tujuan_kabupaten_kota" required="" />
 			                </div>
 		                </div>
 		            </div>
@@ -315,294 +315,386 @@
 
 	<?php if ($this->input->get('jenis') && $this->input->get('jenis') == 'kematian' ): ?>
 		<!-- Basic card -->
-		<div class="card">
-			<div class="card-header header-elements-inline">
-				<h5 class="card-title">Kematian</h5>
-				<div class="header-elements">
-					<div class="list-icons">
-	            		<a class="list-icons-item" data-action="collapse"></a>
-	            		<a class="list-icons-item" data-action="reload"></a>
-	            		<a class="list-icons-item" data-action="remove"></a>
-	            	</div>
-	        	</div>
-			</div>
+		<form action="<?php echo site_url('pengajuan_surat/submit') ?>" method="POST" accept-charset="utf-8" autocomplete="off">
+			<input type="hidden" name="jenis" value="kematian">
+			<div class="card">
+				<div class="card-header header-elements-inline">
+					<h5 class="card-title">Kematian</h5>
+					<div class="header-elements">
+						<div class="list-icons">
+		            		<a class="list-icons-item" data-action="collapse"></a>
+		            		<a class="list-icons-item" data-action="reload"></a>
+		            		<a class="list-icons-item" data-action="remove"></a>
+		            	</div>
+		        	</div>
+				</div>
 
-			<div class="card-body">
-				<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label class="">Nama Pengaju:</label>
-	                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengaju" class="form-control" value="">
-	                    </div>
-	                     <div class="col-md-6">
-	                        <label class="">Tanggal</label>
-	                        <input type="text" placeholder="Tanggal" name="date" id="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                </div>
-	            </div>
-	           	<hr>
-	            <h5>Data</h5>
-            	<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                    <div class="col-md-6">
-	                        <label>Nama</label>
-                        	<input type="text" class="form-control" placeholder="Nama" name="name" required="" />
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-                    <label>Alamat</label>
-                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
-                </div>
-                <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-2">
-	                        <label>RT</label>
-                    		<input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
-	                    </div>
-	                    <div class="col-md-2">
-	                       	<label>RW</label>
-                    		<input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
-	                    </div>
-	                    <div class="col-md-8">
-		                    <label>Desa</label>
-		                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+				<div class="card-body">
+					<?php if ($this->session->flashdata('message')): ?>
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Berhasil!</span> <?php echo $this->session->flashdata('message') ?>
+					    </div>
+					<?php endif ?>
+					<?php if ($this->session->flashdata('error_message')): ?>
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Error!</span> <?php echo $this->session->flashdata('error_message') ?>
+					    </div>
+					<?php endif ?>
+					<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label class="">Nama Pengaju:</label>
+		                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengaju" class="form-control" value="">
+		                    </div>
+		                     <div class="col-md-6">
+		                        <label class="">Tanggal</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal" id="tanggal" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
 		                </div>
+		            </div>
+		           	<hr>
+		            <h5>Data</h5>
+	            	<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                        <label>Nama</label>
+	                        	<input type="text" class="form-control" placeholder="Nama" name="name" required="" />
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+	                    <label>Alamat</label>
+	                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
 	                </div>
-	            </div>
-	            <hr>
-	            <h5>Data Kematian</h5>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                	<div class="col-md-6">
-	                        <label class="">Tanggal Kematian</label>
-	                        <input type="text" placeholder="Tanggal" name="date" id="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                    <div class="col-md-6">
-	                        <label class="">Lokasi:</label>
-	                        <input type="text" placeholder="Lokasi" id="" name="" class="form-control" value="">
-	                    </div>
-	                   
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-2">
+		                        <label>RT</label>
+	                    		<input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
+		                    </div>
+		                    <div class="col-md-2">
+		                       	<label>RW</label>
+	                    		<input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
+		                    </div>
+		                    <div class="col-md-8">
+			                    <label>Desa</label>
+			                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+			                </div>
+		                </div>
+		            </div>
+		            <hr>
+		            <h5>Data Kematian</h5>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                	<div class="col-md-6">
+		                        <label class="">Tanggal Kematian</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal_kematian" id="date" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
+		                    <div class="col-md-6">
+		                        <label class="">Lokasi:</label>
+		                        <input type="text" placeholder="Lokasi" id="" name="lokasi" class="form-control" value="">
+		                    </div>
+		                </div>
+		            </div>
+		             <div class="form-group mb-2">
+	                    <label>Keterangan</label>
+	                    <textarea class="form-control" placeholder="Keterangan" name="keterangan" required=""></textarea>
 	                </div>
-	            </div>
-	             <div class="form-group mb-2">
-                    <label>Keterangan</label>
-                    <textarea class="form-control" placeholder="Keterangan" name="asal_alamat" required=""></textarea>
-                </div>
-                <hr>
-                <div class="form-group text-center">
-		        	<button type="button" class="btn btn-link">Batal</button>
-	                <button type="submit" class="btn btn-primary">Submit</button>
-		        </div>
+	                <hr>
+	                <div class="form-group text-center">
+			        	<button type="button" class="btn btn-link">Batal</button>
+		                <button type="submit" class="btn btn-primary">Submit</button>
+			        </div>
+				</div>
 			</div>
-		</div>
-		<!-- /basic card -->
+			<!-- /basic card -->
+		</form>
 	<?php endif ?>
 
 	<?php if ($this->input->get('jenis') && $this->input->get('jenis') == 'lahir_mati' ): ?>
 		<!-- Basic card -->
-		<div class="card">
-			<div class="card-header header-elements-inline">
-				<h5 class="card-title">Lahir Mati</h5>
-				<div class="header-elements">
-					<div class="list-icons">
-	            		<a class="list-icons-item" data-action="collapse"></a>
-	            		<a class="list-icons-item" data-action="reload"></a>
-	            		<a class="list-icons-item" data-action="remove"></a>
-	            	</div>
-	        	</div>
-			</div>
+		<form action="<?php echo site_url('pengajuan_surat/submit') ?>" method="POST" accept-charset="utf-8" autocomplete="off">
+			<input type="hidden" name="jenis" value="lahir_mati">
+			<div class="card">
+				<div class="card-header header-elements-inline">
+					<h5 class="card-title">Lahir Mati</h5>
+					<div class="header-elements">
+						<div class="list-icons">
+		            		<a class="list-icons-item" data-action="collapse"></a>
+		            		<a class="list-icons-item" data-action="reload"></a>
+		            		<a class="list-icons-item" data-action="remove"></a>
+		            	</div>
+		        	</div>
+				</div>
 
-			<div class="card-body">
-				<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label class="">Nama Pengaju:</label>
-	                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengaju" class="form-control" value="">
-	                    </div>
-	                     <div class="col-md-6">
-	                        <label class="">Tanggal</label>
-	                        <input type="text" placeholder="Tanggal" name="date" id="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                </div>
-	            </div>
-	           	<hr>
-	            <h5>Data</h5>
-            	<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                    <div class="col-md-6">
-	                        <label>Nama</label>
-                        	<input type="text" class="form-control" placeholder="Nama" name="name" required="" />
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-                    <label>Alamat</label>
-                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
-                </div>
-                <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-2">
-	                        <label>RT</label>
-                    		<input type="number" class="form-control" placeholder="rt" name="asal_rt" required="" />
-	                    </div>
-	                    <div class="col-md-2">
-	                       	<label>RW</label>
-                    		<input type="number" class="form-control" placeholder="rw" name="asal_rw" required="" />
-	                    </div>
-	                    <div class="col-md-8">
-		                    <label>Desa</label>
-		                    <input type="text" class="form-control" placeholder="Desa" name="asal_desa" required="" />
+				<div class="card-body">
+					<?php if ($this->session->flashdata('message')): ?>
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Berhasil!</span> <?php echo $this->session->flashdata('message') ?>
+					    </div>
+					<?php endif ?>
+					<?php if ($this->session->flashdata('error_message')): ?>
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Error!</span> <?php echo $this->session->flashdata('error_message') ?>
+					    </div>
+					<?php endif ?>
+					<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label class="">Nama Pengaju:</label>
+		                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengirim" class="form-control" value="">
+		                    </div>
+		                     <div class="col-md-6">
+		                        <label class="">Tanggal</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
 		                </div>
+		            </div>
+		           	<hr>
+		            <h5>Data</h5>
+	            	<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label>Nama</label>
+	                        	<input type="text" class="form-control" placeholder="Nama" name="nama" required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                    	<label>Jenis Kelamin</label>
+		                        <select class="form-control select" data-fouc data-placeholder="Jenis Kelamin" name="jenis_kelamin" required="">
+		                        	<option></option>
+		                            <option value="laki-laki">Laki-Laki</option>
+		                            <option value="perempuan">Perempuan</option>
+		                        </select>
+		                    </div>
+		                </div>
+		               
+		            </div>
+		            <div class="form-group mb-2">
+	                    <label>Alamat</label>
+	                    <textarea class="form-control" placeholder="Alamat" name="alamat" required=""></textarea>
 	                </div>
-	            </div>
-	            <hr>
-	            <h5>Data Kematian</h5>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                	<div class="col-md-6">
-	                        <label class="">Tanggal Kelahiran</label>
-	                        <input type="text" placeholder="Tanggal" name="date" id="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                	<div class="col-md-6">
-	                        <label class="">Tanggal Kematian</label>
-	                        <input type="text" placeholder="Tanggal" name="date" id="date" class="form-control daterange-single" data-validation="required" value="" >
-	                    </div>
-	                   
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-2">
+		                        <label>RT</label>
+	                    		<input type="number" class="form-control" placeholder="rt" name="rt" required="" />
+		                    </div>
+		                    <div class="col-md-2">
+		                       	<label>RW</label>
+	                    		<input type="number" class="form-control" placeholder="rw" name="rw" required="" />
+		                    </div>
+		                    <div class="col-md-8">
+			                    <label>Desa</label>
+			                    <input type="text" class="form-control" placeholder="Desa" name="desa" required="" />
+			                </div>
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label>Nama Ayah</label>
+	                        	<input type="text" class="form-control" placeholder="Nama Ayah" name="nama_ayah" required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik_ayah" required="" />
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label>Nama Ibu</label>
+	                        	<input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu"  required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik_ibu" required="" />
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <hr>
+		            <h5>Data Kematian</h5>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                	<div class="col-md-6">
+		                        <label class="">Tanggal Kelahiran</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal_lahir" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
+		                	<div class="col-md-6">
+		                        <label class="">Tanggal Kematian</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal_kematian" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
+		                   
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		            		<div class="col-md-6">
+		                        <label class="">Lokasi:</label>
+		                        <input type="text" placeholder="Lokasi" id="" name="lokasi" class="form-control" value="">
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+	                    <label>Keterangan</label>
+	                    <textarea class="form-control" placeholder="Keterangan" name="keterangan" required=""></textarea>
 	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	            		<div class="col-md-6">
-	                        <label class="">Lokasi:</label>
-	                        <input type="text" placeholder="Lokasi" id="" name="" class="form-control" value="">
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-                    <label>Keterangan</label>
-                    <textarea class="form-control" placeholder="Keterangan" name="asal_alamat" required=""></textarea>
-                </div>
-                <hr>
-                <div class="form-group text-center">
-		        	<button type="button" class="btn btn-link">Batal</button>
-	                <button type="submit" class="btn btn-primary">Submit</button>
-		        </div>
+	                <hr>
+	                <div class="form-group text-center">
+			        	<button type="button" class="btn btn-link">Batal</button>
+		                <button type="submit" class="btn btn-primary">Submit</button>
+			        </div>
+				</div>
 			</div>
-		</div>
+		</form>
 		<!-- /basic card -->
 	<?php endif ?>
 	
 	<?php if ($this->input->get('jenis') && $this->input->get('jenis') == 'kelahiran' ): ?>
 		<!-- Basic card -->
-		<div class="card">
-			<div class="card-header header-elements-inline">
-				<h5 class="card-title">Kelahiran</h5>
-				<div class="header-elements">
-					<div class="list-icons">
-	            		<a class="list-icons-item" data-action="collapse"></a>
-	            		<a class="list-icons-item" data-action="reload"></a>
-	            		<a class="list-icons-item" data-action="remove"></a>
-	            	</div>
-	        	</div>
+		<form action="<?php echo site_url('pengajuan_surat/submit') ?>" method="POST" accept-charset="utf-8" autocomplete="off">
+			<input type="hidden" name="jenis" value="kelahiran">
+			<div class="card">
+
+				<div class="card-header header-elements-inline">
+					<h5 class="card-title">Kelahiran</h5>
+					<div class="header-elements">
+						<div class="list-icons">
+		            		<a class="list-icons-item" data-action="collapse"></a>
+		            		<a class="list-icons-item" data-action="reload"></a>
+		            		<a class="list-icons-item" data-action="remove"></a>
+		            	</div>
+		        	</div>
+				</div>
+				
+				<div class="card-body">
+					<?php if ($this->session->flashdata('message')): ?>
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Berhasil!</span> <?php echo $this->session->flashdata('message') ?>
+					    </div>
+					<?php endif ?>
+					<?php if ($this->session->flashdata('error_message')): ?>
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+							<span class="font-weight-semibold">Error!</span> <?php echo $this->session->flashdata('error_message') ?>
+					    </div>
+					<?php endif ?>
+					<div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label class="">Nama Pengaju:</label>
+		                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengirim" class="form-control" value="">
+		                    </div>
+		                    <div class="col-md-6">
+		                        <label class="">Tanggal</label>
+		                        <input type="date" placeholder="Tanggal" name="tanggal" class="form-control daterange-single" data-validation="required" value="" >
+		                    </div>
+		                    
+		                </div>
+		            
+		            </div>
+		            <hr>
+	            	<h5>Data Kelahiran</h5>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                	<div class="col-md-12">
+		                        <label>Nama</label>
+	                        	<input class="form-control" placeholder="Nama" name="nama" required="" />
+		                    </div>
+		                    
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-3">
+		                       	<label>Jenis Kelamin</label>
+		                        <select class="form-control select" data-fouc data-placeholder="Jenis Kelamin" name="jenis_kelamin" required="">
+		                        	<option></option>
+		                            <option value="laki-laki">Laki-Laki</option>
+		                            <option value="perempuan">Perempuan</option>
+		                        </select>
+		                    </div>
+		                     <div class="col-md-6">
+		                        <label>Lokasi Lahir</label>
+	                        	<input class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" required="" />
+		                    </div>
+		                    <div class="col-md-3">
+		                    	 <label>Tanggal Lahir</label>
+	                        	<input type="date" class="form-control" placeholder="Tanggal" name="tanggal_lahir" required="" />
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="form-group mb-2">
+	                    <label>Alamat</label>
+	                    <textarea class="form-control" placeholder="Alamat" name="alamat" required=""></textarea>
+	                </div>
+	                <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-2">
+		                        <label>RT</label>
+	                    		<input type="number" class="form-control" placeholder="rt" name="rt" required="" />
+		                    </div>
+		                    <div class="col-md-2">
+		                       	<label>RW</label>
+	                    		<input type="number" class="form-control" placeholder="rw" name="rw" required="" />
+		                    </div>
+		                    <div class="col-md-8">
+			                    <label>Desa</label>
+			                    <input type="text" class="form-control" placeholder="Desa" name="desa" required="" />
+			                </div>
+		                </div>
+		            </div>
+		          
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label>Nama Ibu</label>
+	                        	<input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu"  required="" />
+		                    </div>
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik_ibu" required="" />
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="form-group mb-2">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <label>Nama Ayah</label>
+	                        	<input type="text" class="form-control" placeholder="Nama Ayah" name="nama_ayah" />
+		                    </div>
+		                    <div class="col-md-6">
+		                       	<label>NIK</label>
+	                        	<input type="number" class="form-control" placeholder="NIK" name="nik_ayah" required="" />
+		                    </div>
+		                </div>
+		            </div>
+			        <hr>
+	                <h5>Keterangan Tambahan</h5>
+	                <div class="form-group mb-2">
+	                    <textarea class="form-control" placeholder="Keterangan Tambahan" name="keterangan" rows="3"></textarea>
+	                </div>
+			        <hr>
+			        <div class="form-group text-center">
+			        	<button type="button" class="btn btn-link">Batal</button>
+		                <button type="submit" class="btn btn-primary">Submit</button>
+			        </div>
+		           
+				</div>
 			</div>
-			
-			<div class="card-body">
-				<div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label class="">Nama Pengaju:</label>
-	                        <input type="text" placeholder="Nama Pengaju" id="" name="nama_pengaju" class="form-control" value="">
-	                    </div>
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                    
-	                </div>
-	            
-	            </div>
-	            <div class="form-group mb-2">
-                    <label>Alamat</label>
-                    <textarea class="form-control" placeholder="Alamat" name="asal_alamat" required=""></textarea>
-                </div>
-	            <hr>
-            	<h5>Data Kelahiran</h5>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                	<div class="col-md-12">
-	                        <label>Nama</label>
-                        	<input class="form-control" placeholder="Nama" name="nama" required="" />
-	                    </div>
-	                    
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-3">
-	                       	<label>Jenis Kelamin</label>
-	                        <select class="form-control select" data-fouc data-placeholder="Jenis Kelamin" name="jenis_kelamin" required="">
-	                        	<option></option>
-	                            <option value="laki-laki">Laki-Laki</option>
-	                            <option value="perempuan">Perempuan</option>
-	                        </select>
-	                    </div>
-	                     <div class="col-md-6">
-	                        <label>Lokasi Lahir</label>
-                        	<input class="form-control" placeholder="Tempat Lahir" name="tempat_lahir" required="" />
-	                    </div>
-	                    <div class="col-md-3">
-	                    	 <label>Tanggal Lahir</label>
-                        	<input type="date" class="form-control" placeholder="Tanggal" name="tanggal_lahir" required="" />
-	                    </div>
-	                </div>
-	            </div>
-	          
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label>Nama Ibu</label>
-                        	<input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu"  required="" />
-	                    </div>
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="form-group mb-2">
-	                <div class="row">
-	                    <div class="col-md-6">
-	                        <label>Nama Ayah</label>
-                        	<input type="text" class="form-control" placeholder="Nama Ayah" name="nama_ayah" />
-	                    </div>
-	                    <div class="col-md-6">
-	                       	<label>NIK</label>
-                        	<input type="number" class="form-control" placeholder="NIK" name="nik" required="" />
-	                    </div>
-	                </div>
-	            </div>
-		        <hr>
-                <h5>Keterangan Tambahan</h5>
-                <div class="form-group mb-2">
-                    <textarea class="form-control" placeholder="Keterangan Tambahan" name="keterangan" rows="3"></textarea>
-                </div>
-		        <hr>
-		        <div class="form-group text-center">
-		        	<button type="button" class="btn btn-link">Batal</button>
-	                <button type="submit" class="btn btn-primary">Submit</button>
-		        </div>
-	           
-			</div>
-		</div>
+		</form>
 		<!-- /basic card -->
 	<?php endif ?>
 
@@ -787,8 +879,8 @@ function get_data () {
             { data: 'no', defaultContent: '', className: "text-center", },
             { data: 'tanggal' },
             { data: 'nama_pengirim' },
-            { data: 'jenis' },
-            { data: 'sub_jenis' },
+            { data: 'jenis',defaultContent: '' },
+            { data: 'sub_jenis', defaultContent: '' },
             { data: 'keterangan' },
             { data: 'status_pengajuan' },
             ], 
@@ -801,8 +893,18 @@ function get_data () {
                     if (data == 'perpindahan_datang') {
                         return `Perpindahan Datang`
                     }
-                    else if (data == 1) {
-                    }
+                    else if (data == 'perpindahan_pergi') {
+                        return `Perpindahan Pergi`
+                    } 
+                    else if (data == 'kematian') {
+                        return `Kematian`
+                    }   
+                    else if (data == 'lahir_mati') {
+                        return `Lahir Mati`
+                    } 
+                    else if (data == 'kelahiran') {
+                        return `Kelahiran`
+                    } 
                 }
             },
             {
@@ -813,8 +915,18 @@ function get_data () {
                     if (data == 'perpindahan_datang') {
                         return `Perpindahan Datang`
                     }
-                    else if (data == 1) {
-                    }
+                   	else if (data == 'perpindahan_pergi') {
+                        return `Perpindahan Pergi`
+                    } 
+                    else if (data == 'kematian') {
+                        return `Kematian`
+                    }   
+                    else if (data == 'lahir_mati') {
+                        return `Lahir Mati`
+                    } 
+                    else if (data == 'kelahiran') {
+                        return `Kelahiran`
+                    } 
                 }
             },
             {

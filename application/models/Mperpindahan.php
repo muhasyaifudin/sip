@@ -31,8 +31,8 @@ class Mperpindahan extends CI_Model {
 		]);
 		
 		$this->db->from($this->table);
-		$this->db->join('tabel_penduduk', 'tabel_penduduk.id = tabel_perpindahan.id_penduduk');
-		$this->db->join('tabel_tujuanperpindahan', 'tabel_tujuanperpindahan.id = tabel_perpindahan.id_tujuanperpindahan');
+		$this->db->join('tabel_penduduk', 'tabel_penduduk.id = tabel_perpindahan.id_penduduk', 'left');
+		$this->db->join('tabel_tujuanperpindahan', 'tabel_tujuanperpindahan.id = tabel_perpindahan.id_tujuanperpindahan', 'left');
 		
 		$this->db->order_by('no_kk', 'asc');
 		if($id !== null){

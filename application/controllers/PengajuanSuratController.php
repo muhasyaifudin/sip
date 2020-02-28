@@ -8,6 +8,8 @@ class PengajuanSuratController extends MY_Controller {
 		parent::__construct();
 		$this->load->model('Mpengajuan');
 		$this->load->model(['Mkedatangan', 'Mpenduduk', 'Mtujuan_kedatangan', 'Masal_kedatangan']);
+		$this->load->model(['Mperpindahan']);
+		$this->load->model(['Mkelahiran', 'Mkematian']);
 	}
 	public function index()
 	{
@@ -21,22 +23,9 @@ class PengajuanSuratController extends MY_Controller {
 	public function get_data()
 	{
 		$pengajuan = [];
-		$filter = $this->input->get('filter');
-		if ($filter == 1) {
-			$pengajuan = $this->Mpengajuan->get();
-		}
-		else if ($filter == 2) {
-			$pengajuan = $this->Mpengajuan->get_where_not_pindah_meninggal();
-		}
-		else if ($filter == 3) {
-			$pengajuan = $this->Mpengajuan->get_where_meninggal();
-		}
-		else if ($filter == 4) {
-			$pengajuan = $this->Mpengajuan->get_where_pindah();
-		}
-		else {
-			$pengajuan = $this->Mpengajuan->get();
-		}
+		$status_pengajuan = $this->input->get('status_pengajuan');
+		
+		$pengajuan = $this->Mpengajuan->get_by_status($status_pengajuan);
 		
 
 		$data['data'] = $pengajuan;
@@ -56,6 +45,32 @@ class PengajuanSuratController extends MY_Controller {
 			header('application/json');
 			echo json_encode($data_kedatangan);
 		}
+
+		else if ($data['jenis'] == 'perpindahan_pergi') {
+			$perpindahan = $this->Mperpindahan->get($data['id_perpindahan']);
+			$data_perpindahan['data'] = $perpindahan;
+			header('application/json');
+			echo json_encode($data_perpindahan);
+		}
+		else if ($data['jenis'] == 'kematian') {
+			$kematian = $this->Mkematian->get($data['id_kematian']);
+			$data_kematian['data'] = $kematian;
+			header('application/json');
+			echo json_encode($data_kematian);
+		}
+		else if ($data['jenis'] == 'kelahiran') {
+			$kelahiran = $this->Mkelahiran->get($data['id_kelahiran']);
+			$data_kelahiran['data'] = $kelahiran;
+			header('application/json');
+			echo json_encode($data_kelahiran);
+		}
+		else if ($data['jenis'] == 'lahir_mati') {
+			$kematian = $this->Mkematian->get($data['id_kematian']);
+			$data_kematian['data'] = $kematian;
+			header('application/json');
+			echo json_encode($data_kematian);
+		}
+
 	}
 
 	public function insert()

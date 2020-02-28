@@ -63,7 +63,7 @@
 </div>
 <!-- /content area -->
 <div class="modal fade" id="modal_penduduk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"><i class="icon-user mr-2"></i> &nbsp;Data Penduduk</h5>
@@ -71,6 +71,13 @@
             </div>
             <form action="" method="POST" accept-charset="utf-8" id="form_penduduk">
             	<div class="modal-body">
+                    <?php if ($this->session->flashdata('error_message') != null): ?>
+                        <div class="alert alert-danger border-0 alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                            <span class="font-weight-semibold"><?php echo $this->session->flashdata('error_message'); ?></span>
+                        </div>
+                    <?php endif ?>
+                        
                     <input type="hidden" placeholder="" name="id" />
 
 	                <div class="form-group">
@@ -170,6 +177,10 @@ $(document).ready(function() {
         var filter = $(this).val();
         get_data(filter);
     });
+
+    <?php if ($this->session->flashdata('error_message') != null): ?>
+        $('#modal_penduduk').modal('show');
+    <?php endif ?>
 });
 
 

@@ -42,6 +42,38 @@ class Mpengajuan extends CI_Model {
 		
 		return $rows;
 	}
+	public function get_by_status($status_pengajuan = NULL)
+	{
+		$this->db->select([
+			$this->table . '.*',
+			'tanggal',
+			'nama_pengirim',
+			'jenis',
+			'sub_jenis',
+			'status_pengajuan',
+			'keterangan',
+
+		]);
+		
+		$this->db->from($this->table);
+		$this->db->order_by('tanggal', 'desc');
+		
+		if($status_pengajuan !== null){
+
+			$this->db->where($this->table.'.status_pengajuan', $status_pengajuan);
+			$query = $this->db->get();
+			$row = $query->result();
+			
+			return $row;
+		}
+
+
+		$query = $this->db->get();
+		$rows = $query->result();
+
+		
+		return $rows;
+	}
 
 	public function insert($data = NULL)
 	{

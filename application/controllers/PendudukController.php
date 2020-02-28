@@ -10,6 +10,7 @@ class PendudukController extends MY_Controller {
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url']);
 		$this->load->model(['Mpenduduk']);
+
 	}
 
 	public function index()
@@ -37,7 +38,6 @@ class PendudukController extends MY_Controller {
 			$penduduk = $this->Mpenduduk->get();
 		}
 		
-
 		$data['data'] = $penduduk;
 
 		header('application/json');
@@ -49,11 +49,30 @@ class PendudukController extends MY_Controller {
 	{
 		$data = $this->input->post();
 
+		$this->form_validation->set_data($data);
+        $this->form_validation->set_rules(
+            'nik', 
+            'NIK', 
+            'required|is_unique[tabel_penduduk.nik]',
+            [
+                'required'      => '%s wajib diisi.',
+                'is_unique'     => '%s sudah ada.'
+            ]
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error_message', validation_errors());
+
+            redirect('admin/penduduk','refresh');
+        }
+
+
 		if ($this->Mpenduduk->insert($data)) {
 			redirect('admin/penduduk','refresh');
 		}
 		else {
-			return false;
+			$this->session->set_flashdata('error_message', 'Data gagal disimpan');
 		}
 	}
 
@@ -62,11 +81,40 @@ class PendudukController extends MY_Controller {
 		$data = $this->input->post();
 		$id_penduduk = $this->input->post('id');
 
+		$penduduk = $this->Mpenduduk->get($id_penduduk);
+
+		$is_unique = '';
+        if(strtolower($data['nik']) != strtolower($penduduk->nik)) {
+            $is_unique =  '|is_unique[tabel_penduduk.nik]';
+        } else {
+            $is_unique =  '';
+        }
+        
+        $this->form_validation->set_data($data);
+
+        $this->form_validation->set_rules(
+            'nik', 
+            'NIK', 
+            'required'.$is_unique,
+            [
+                'required'      => '%s wajib diisi.',
+                'is_unique'     => '%s sudah ada.'
+            ]
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error_message', validation_errors());
+
+            redirect('admin/penduduk','refresh');
+        }
+
 		if ($this->Mpenduduk->update($id_penduduk, $data)) {
 			redirect('admin/penduduk','refresh');
 		}
 		else {
-			return false;
+			$this->session->set_flashdata('error_message', 'Data gagal disimpan');
+			redirect('admin/penduduk','refresh');
 		}
 	}
 

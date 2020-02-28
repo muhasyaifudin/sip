@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-group">
                         <label>Penduduk</label>
-                        <select class="form-control select" data-placeholder="Penduduk" name="id_penduduk" required="" data-fouc>
+                        <select class="form-control select" data-placeholder="Penduduk" name="id_penduduk" id="id_penduduk" required="" data-fouc>
                             <option></option>
                             <?php foreach ($penduduk as $value): ?>
                              <option value="<?= $value->id ?>"><?= $value->nik ?> - <?= $value->nama ?></option>
@@ -188,6 +188,7 @@ function get_data () {
 
 
     	});
+        $('#id_penduduk').val(data.id_penduduk).trigger('change')
 
     	$('#form_kematian').attr('action', $(this).attr('href'));
 
